@@ -1,781 +1,648 @@
-<!DOCTYPE html>
+<!-- index.html -->
+<!doctype html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <title>FitKontakt — Trener personalny</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#070b18" />
-  <meta name="color-scheme" content="dark light" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#070A14" />
+  <meta name="color-scheme" content="dark" />
+  <title>NOVA COACH — trener personalny</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 
 <body>
   <!-- FX layers -->
-  <div class="progress" id="progress"></div>
-  <div class="aurora"></div>
-  <div class="noise"></div>
-  <div class="glow" id="glow"></div>
+  <div class="fx">
+    <div class="fx__aurora" aria-hidden="true"></div>
+    <div class="fx__aurora fx__aurora--2" aria-hidden="true"></div>
+    <div class="fx__noise" aria-hidden="true"></div>
+    <div class="fx__grid" aria-hidden="true"></div>
+    <div class="fx__cursorGlow" id="cursorGlow" aria-hidden="true"></div>
+    <div class="fx__progress" id="progress" aria-hidden="true"></div>
+  </div>
 
-  <!-- Topbar -->
-  <div class="topbarSticky">
-    <div class="topbar">
-      <a class="brand" href="#top" aria-label="FitKontakt">
-        <div class="logo" aria-hidden="true"></div>
-        <div class="brandText">
-          <b>FitKontakt</b>
-          <span data-i18n="top.tagline">Trener personalny — pakiety, terminy, pierwszy kontakt</span>
+  <!-- Top -->
+  <header class="top" id="top">
+    <div class="top__inner">
+      <a class="brand" href="#top" aria-label="NOVA COACH">
+        <div class="brand__mark" aria-hidden="true"></div>
+        <div class="brand__text">
+          <b>NOVA COACH</b>
+          <span>Trener personalny • pakiety • terminy • pierwszy kontakt</span>
         </div>
       </a>
 
-      <div class="topActions">
-        <button class="btn" id="btnJumpDemo" type="button">
-          <span data-i18n="top.try">Przejdź do rozmowy</span>
-          <span class="kbd">⌘K</span>
-        </button>
+      <nav class="nav" aria-label="Nawigacja">
+        <a class="nav__link" href="#pakiety">Pakiety</a>
+        <a class="nav__link" href="#proces">Proces</a>
+        <a class="nav__link" href="#wyniki">Wyniki</a>
+        <a class="nav__link" href="#faq">FAQ</a>
+        <a class="btn btn--primary" href="#kontakt">Zacznij</a>
+      </nav>
 
-        <div class="lang" aria-label="Language">
-          <button id="langPL" class="active" type="button">PL</button>
-          <button id="langEN" type="button">EN</button>
+      <button class="navBtn" id="navBtn" type="button" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobileNav" id="mobileNav" aria-hidden="true">
+      <a class="mobileNav__link" href="#pakiety">Pakiety</a>
+      <a class="mobileNav__link" href="#proces">Proces</a>
+      <a class="mobileNav__link" href="#wyniki">Wyniki</a>
+      <a class="mobileNav__link" href="#faq">FAQ</a>
+      <a class="btn btn--primary mobileNav__cta" href="#kontakt">Zacznij</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main class="wrap">
+    <section class="hero" aria-label="Hero">
+      <div class="hero__left reveal" data-reveal>
+        <div class="eyebrow">
+          <span class="eyebrow__dot" aria-hidden="true"></span>
+          <span>Trening, który ma sens — od pierwszego dnia</span>
         </div>
 
-        <a class="btn primary" href="#kontakt" style="text-decoration:none;">
-          <span data-i18n="top.cta">Zacznijmy</span>
-        </a>
-      </div>
-    </div>
-  </div>
+        <h1 class="h1">
+          <span class="h1__line">Trener personalny</span>
+          <span class="h1__line h1__line--glow">dla ludzi, którzy lubią</span>
+          <span class="h1__line">konkret i wynik.</span>
+        </h1>
 
-  <div class="wrap" id="top">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="card heroMain reveal" data-reveal>
-        <h1 data-i18n="hero.title">Trener personalny, który odpowiada od razu — i prowadzi do planu.</h1>
-        <p class="sub" data-i18n="hero.sub">
-          Ludzie mają te same pytania: pakiety, ceny, terminy, „czy to dla mnie”. FitKontakt odpowiada natychmiast, konkretnie, bez lania wody — i prowadzi do pierwszego kroku: konsultacja, plan, trening.
+        <p class="lead">
+          Bez „motywacyjnych tekstów”. Dostajesz plan, rytm i prowadzenie — tak, żebyś wiedział dokładnie:
+          <b>co robisz</b>, <b>dlaczego</b> i <b>co dalej</b>.
         </p>
 
-        <div class="heroBadges">
-          <div class="chip"><span class="dot"></span><span data-i18n="chips.1">Pakiety i cele dopasowane do Ciebie</span></div>
-          <div class="chip"><span class="dot"></span><span data-i18n="chips.2">Szybki pierwszy kontakt</span></div>
-          <div class="chip"><span class="dot"></span><span data-i18n="chips.3">Konkretnie: plan, terminy, co dalej</span></div>
-          <div class="chip"><span class="dot"></span><span data-i18n="chips.4">Dostępność 24/7</span></div>
-          <div class="chip"><span class="dot"></span><span data-i18n="chips.5">Bez zgadywania — jasne zasady</span></div>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#kontakt">Zróbmy start</a>
+          <a class="btn btn--ghost" href="#proces">Zobacz proces</a>
+
+          <div class="hero__meta">
+            <div class="metaPill">
+              <b>60 min</b>
+              <span>pierwsza sesja</span>
+            </div>
+            <div class="metaPill">
+              <b>7 dni</b>
+              <span>pierwszy plan</span>
+            </div>
+            <div class="metaPill">
+              <b>0 chaosu</b>
+              <span>jasny rytm</span>
+            </div>
+          </div>
         </div>
 
-        <div class="heroCTA">
-          <button class="btn primary" id="btnOpenHero" type="button" data-i18n="hero.open">Otwórz asystenta</button>
-          <button class="btn" id="btnScrollHow" type="button" data-i18n="hero.how">Jak to działa</button>
-          <span class="hint" data-i18n="hero.hint">Tip: kliknij gotowe pytanie — asystent startuje w sekundę.</span>
-        </div>
+        <div class="hero__trust">
+          <div class="trustRow">
+            <div class="trustCard">
+              <div class="trustCard__top">
+                <div class="stars" aria-hidden="true">
+                  <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span>
+                </div>
+                <span class="trustCard__tag">opinia</span>
+              </div>
+              <p class="trustCard__quote">„Najpierw dostałem konkretny plan. Dopiero potem gadanie.”</p>
+              <span class="trustCard__who">Klient • redukcja</span>
+            </div>
 
-        <div class="switcher" id="demo">
-          <div class="tabs" id="tabs" aria-label="Tryby rozmowy">
-            <div class="pill" id="pill"></div>
-
-            <button data-mode="start" class="active" type="button">
-              <span data-i18n="tabs.start">Start</span>
-              <span class="tag" data-i18n="tabs.tag1">pierwszy krok</span>
-            </button>
-
-            <button data-mode="pakiety" type="button">
-              <span data-i18n="tabs.pakiety">Pakiety</span>
-              <span class="tag" data-i18n="tabs.tag2">oferta</span>
-            </button>
-
-            <button data-mode="terminy" type="button">
-              <span data-i18n="tabs.terminy">Terminy</span>
-              <span class="tag" data-i18n="tabs.tag3">szybko</span>
-            </button>
+            <div class="trustCard">
+              <div class="trustCard__top">
+                <div class="stars" aria-hidden="true">
+                  <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span>
+                </div>
+                <span class="trustCard__tag">opinia</span>
+              </div>
+              <p class="trustCard__quote">„W końcu wiem, co robić na siłowni — i po co.”</p>
+              <span class="trustCard__who">Klientka • forma</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <aside class="card heroSide reveal" data-reveal>
-        <div class="miniGrid">
-          <div class="mini">
-            <b data-i18n="side.how.title">Jak testować</b>
-            <span data-i18n="side.how.body">Kliknij ikonę czatu. Zapytaj o pakiet, cenę, cel i terminy.</span>
+      <aside class="hero__right reveal" data-reveal>
+        <div class="glass heroCard">
+          <div class="heroCard__bg" aria-hidden="true"></div>
+
+          <div class="heroCard__head">
+            <b>Twoja sytuacja → plan</b>
+            <span>3 pytania i wiesz, od czego zacząć</span>
           </div>
-          <div class="mini">
-            <b data-i18n="side.why.title">Co zobaczysz</b>
-            <span data-i18n="side.why.body">Rozmowa nie jest „miła”. Jest skuteczna: prowadzi do konkretu i następnego kroku.</span>
+
+          <div class="heroQuiz" id="quiz">
+            <button class="chip chip--hot" data-quiz="goal">Chcę schudnąć</button>
+            <button class="chip" data-quiz="goal">Chcę masę</button>
+            <button class="chip" data-quiz="goal">Chcę wrócić po przerwie</button>
+
+            <button class="chip" data-quiz="level">Zaczynam od zera</button>
+            <button class="chip chip--hot" data-quiz="level">Mam podstawy</button>
+            <button class="chip" data-quiz="level">Zaawansowany</button>
+
+            <button class="chip chip--hot" data-quiz="time">2x/tydzień</button>
+            <button class="chip" data-quiz="time">3x/tydzień</button>
+            <button class="chip" data-quiz="time">4x/tydzień</button>
           </div>
-          <div class="mini">
-            <b data-i18n="side.safe.title">Kontrola</b>
-            <span data-i18n="side.safe.body">Jeśli czegoś nie ma — asystent dopyta, zamiast zmyślać.</span>
+
+          <div class="heroCard__foot">
+            <a class="btn btn--primary btn--wide" href="#kontakt">Dopasuj pakiet</a>
+            <button class="btn btn--ghost btn--wide" id="copyPlan" type="button">Skopiuj rekomendację</button>
           </div>
-          <div class="mini">
-            <b data-i18n="side.time.title">Pierwsze wrażenie</b>
-            <span data-i18n="side.time.body">Strona „odpowiada” — ludzie czują, że trafili do profesjonalisty.</span>
+        </div>
+
+        <div class="miniStack">
+          <div class="miniGlass">
+            <b>Bezpieczny start</b>
+            <span>technika, progresja, minimum kontuzji</span>
+          </div>
+          <div class="miniGlass">
+            <b>Rytm</b>
+            <span>plan w tygodniu, nie „kiedyś”</span>
+          </div>
+          <div class="miniGlass">
+            <b>Wynik</b>
+            <span>mierzymy, korygujemy, dowozimy</span>
           </div>
         </div>
       </aside>
     </section>
 
-    <!-- LIVE PANEL -->
-    <section class="card panel reveal" data-reveal>
-      <div class="panelTop">
+    <!-- Section: highlights -->
+    <section class="section reveal" data-reveal id="proces">
+      <div class="sectionHead">
         <div>
-          <h2 class="agentTitle" id="agentTitle" data-i18n="panel.title">FitKontakt</h2>
-          <p class="agentDesc" id="agentDesc" data-i18n="panel.desc">
-            Konkretny styl. Dobry dla osób, które chcą szybkiej odpowiedzi i jasnego planu działania.
+          <h2 class="h2">Proces bez ściemy</h2>
+          <p class="p">
+            Nie sprzedaję „motywacji”. Sprzedaję proces: cel → plan → wykonanie → korekta. Tak, żebyś miał kontrolę.
           </p>
         </div>
-
-        <div class="actions">
-          <button class="btn primary" id="btnOpen" type="button" data-i18n="buttons.open">Otwórz asystenta</button>
-          <button class="btn" id="btnClear" type="button" data-i18n="buttons.clear">Wyczyść rozmowę</button>
+        <div class="sectionHead__right">
+          <a class="btn btn--ghost" href="#kontakt">Umów start</a>
         </div>
       </div>
 
-      <div class="promptRow" id="promptRow" aria-label="Szybkie pytania">
-        <button class="prompt" data-prompt="goal" type="button">Chcę schudnąć — od czego zacząć?</button>
-        <button class="prompt" data-prompt="packages" type="button">Jakie są pakiety i różnice?</button>
-        <button class="prompt" data-prompt="price" type="button">Ile to kosztuje i od czego zależy?</button>
-        <button class="prompt" data-prompt="schedule" type="button">Jak szybko znajdziemy termin?</button>
-        <button class="prompt" data-prompt="first" type="button">Jak wygląda pierwszy trening?</button>
-      </div>
+      <div class="grid grid--3">
+        <article class="cardLift">
+          <div class="cardLift__num">01</div>
+          <h3 class="h3">Diagnoza</h3>
+          <p class="p p--small">Cel, poziom, ograniczenia, styl życia. Bez tego każdy plan to loteria.</p>
+          <div class="cardLift__chips">
+            <span class="tag">cel</span><span class="tag">nawyki</span><span class="tag">czas</span>
+          </div>
+        </article>
 
-      <div class="divider"></div>
+        <article class="cardLift">
+          <div class="cardLift__num">02</div>
+          <h3 class="h3">Plan i rytm</h3>
+          <p class="p p--small">Ustalamy tygodniowy schemat i zasady progresji. Bez chaosu.</p>
+          <div class="cardLift__chips">
+            <span class="tag">program</span><span class="tag">progresja</span><span class="tag">technika</span>
+          </div>
+        </article>
+
+        <article class="cardLift">
+          <div class="cardLift__num">03</div>
+          <h3 class="h3">Prowadzenie</h3>
+          <p class="p p--small">Feedback, korekty i mierzenie. Efekt to wynik procesu, nie „zrywów”.</p>
+          <div class="cardLift__chips">
+            <span class="tag">monitoring</span><span class="tag">korekty</span><span class="tag">wynik</span>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <!-- INDUSTRY SECTION LIKE YOUR WOW DEMO-SITES -->
-    <section id="demo-sites" class="card section reveal" data-reveal>
+    <!-- Section: packages -->
+    <section class="section reveal" data-reveal id="pakiety">
       <div class="sectionHead">
         <div>
-          <h2 data-i18n="demoSites.title">Trener personalny — przykład strony, która sprzedaje usługę</h2>
-          <p data-i18n="demoSites.sub">
-            To nie jest portfolio. To jest strona, która ma robić jedno: skrócić czas od wejścia do pierwszego kontaktu.
-          </p>
+          <h2 class="h2">Pakiety</h2>
+          <p class="p">Wybierz poziom wsparcia. Każdy pakiet ma jasny cel i jasne zasady.</p>
+        </div>
+        <div class="sectionHead__right">
+          <span class="hint">Tip: przewiń niżej po FAQ, jeśli masz wątpliwości.</span>
         </div>
       </div>
 
-      <div class="demoGrid">
-        <a href="#oferta" class="demoCard">
-          <div class="demoCardInner">
-            <div class="demoCardCopy">
-              <h3 data-i18n="demoSites.cardTitle">Pakiety, terminy, pierwszy kontakt</h3>
-              <p data-i18n="demoSites.cardDesc">Dokładnie to, co ludzie chcą dostać w pierwszych 20 sekundach.</p>
-              <span class="demoCta" data-i18n="demoSites.cta">Zobacz ofertę →</span>
+      <div class="pricing">
+        <article class="priceCard">
+          <div class="priceCard__top">
+            <b>Start</b>
+            <span class="pill">fundament</span>
+          </div>
+
+          <p class="p p--small">Dla osób od zera lub wracających po dłuższej przerwie.</p>
+
+          <div class="priceCard__line"></div>
+
+          <ul class="list">
+            <li><b>Plan:</b> prosty, skuteczny, do wykonania</li>
+            <li><b>Technika:</b> baza + bezpieczeństwo</li>
+            <li><b>Feedback:</b> szybkie korekty w tygodniu</li>
+          </ul>
+
+          <div class="priceCard__cta">
+            <a class="btn btn--ghost btn--wide" href="#kontakt">Wybieram Start</a>
+          </div>
+        </article>
+
+        <article class="priceCard priceCard--featured">
+          <div class="priceCard__glow" aria-hidden="true"></div>
+
+          <div class="priceCard__top">
+            <b>Regular</b>
+            <span class="pill pill--hot">najczęściej</span>
+          </div>
+
+          <p class="p p--small">Najlepszy balans: efekty + rytm + prowadzenie.</p>
+
+          <div class="priceCard__line"></div>
+
+          <ul class="list">
+            <li><b>Plan:</b> progresja i warianty ćwiczeń</li>
+            <li><b>Rytm:</b> stałe tygodnie, bez losowości</li>
+            <li><b>Monitoring:</b> pomiary i korekty</li>
+          </ul>
+
+          <div class="priceCard__cta">
+            <a class="btn btn--primary btn--wide" href="#kontakt">Wybieram Regular</a>
+          </div>
+        </article>
+
+        <article class="priceCard">
+          <div class="priceCard__top">
+            <b>Premium</b>
+            <span class="pill">wynik</span>
+          </div>
+
+          <p class="p p--small">Dla osób, które chcą maksymalnego dopasowania i tempa.</p>
+
+          <div class="priceCard__line"></div>
+
+          <ul class="list">
+            <li><b>Plan:</b> mocne dopasowanie pod cel</li>
+            <li><b>Wsparcie:</b> szybki kontakt + pełne prowadzenie</li>
+            <li><b>System:</b> nawyki, regeneracja, detale</li>
+          </ul>
+
+          <div class="priceCard__cta">
+            <a class="btn btn--ghost btn--wide" href="#kontakt">Wybieram Premium</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="split">
+        <div class="glass split__left">
+          <h3 class="h3">Dostępność</h3>
+          <p class="p p--small">Treningi stacjonarne (Łódź i okolice) + online. Terminy dobieramy do Twojego rytmu.</p>
+
+          <div class="availability">
+            <div class="slot">
+              <b>Poranki</b>
+              <span>06:30–10:00</span>
             </div>
-
-            <div class="demoPreview" aria-hidden="true">
-              <div class="bars">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-              </div>
+            <div class="slot">
+              <b>Popołudnia</b>
+              <span>16:00–20:30</span>
+            </div>
+            <div class="slot">
+              <b>Weekend</b>
+              <span>okazjonalnie</span>
             </div>
           </div>
-        </a>
+        </div>
 
-        <a href="#jak" class="demoCard">
-          <div class="demoCardInner">
-            <div class="demoCardCopy">
-              <h3 data-i18n="demoSites.cardTitle2">Jak pracujemy</h3>
-              <p data-i18n="demoSites.cardDesc2">Klarownie: co się dzieje, kiedy i jak wygląda start.</p>
-              <span class="demoCta" data-i18n="demoSites.cta2">Zobacz proces →</span>
+        <div class="glass split__right">
+          <h3 class="h3">Dla kogo to działa najlepiej</h3>
+          <p class="p p--small">Dla osób, które chcą procesu i konsekwencji — bez cudów i bez obietnic „w tydzień”.</p>
+
+          <div class="checks">
+            <div class="checkRow"><span class="check" aria-hidden="true">✓</span><span>Chcesz mieć plan i trzymać rytm</span></div>
+            <div class="checkRow"><span class="check" aria-hidden="true">✓</span><span>Wolisz konkrety zamiast inspiracji</span></div>
+            <div class="checkRow"><span class="check" aria-hidden="true">✓</span><span>Masz cel i chcesz go dowieźć</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: results -->
+    <section class="section reveal" data-reveal id="wyniki">
+      <div class="sectionHead">
+        <div>
+          <h2 class="h2">Wyniki, które widać</h2>
+          <p class="p">Nie pokazuję „cudów”. Pokazuję przewidywalny efekt pracy: plan + rytm + korekty.</p>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat glass">
+          <b class="stat__num">+12</b>
+          <span class="stat__label">tyg. do dużej zmiany formy</span>
+        </div>
+        <div class="stat glass">
+          <b class="stat__num">3×</b>
+          <span class="stat__label">trening/tydz. to sweet spot</span>
+        </div>
+        <div class="stat glass">
+          <b class="stat__num">0</b>
+          <span class="stat__label">przypadkowych planów</span>
+        </div>
+        <div class="stat glass">
+          <b class="stat__num">100%</b>
+          <span class="stat__label">jasnych zasad współpracy</span>
+        </div>
+      </div>
+
+      <div class="grid grid--3">
+        <article class="case">
+          <div class="case__head">
+            <b>Redukcja</b>
+            <span class="pill">12 tygodni</span>
+          </div>
+          <p class="p p--small">Rytm 3×/tydz., prosty deficyt, technika bazowa + progresja.</p>
+          <div class="case__bars" aria-hidden="true">
+            <div class="bar" style="width:78%"></div>
+            <div class="bar" style="width:56%"></div>
+            <div class="bar" style="width:42%"></div>
+          </div>
+        </article>
+
+        <article class="case">
+          <div class="case__head">
+            <b>Forma</b>
+            <span class="pill">8 tygodni</span>
+          </div>
+          <p class="p p--small">Stabilny trening + małe kroki w nawykach. Efekt bez „zrywu”.</p>
+          <div class="case__bars" aria-hidden="true">
+            <div class="bar" style="width:62%"></div>
+            <div class="bar" style="width:48%"></div>
+            <div class="bar" style="width:35%"></div>
+          </div>
+        </article>
+
+        <article class="case">
+          <div class="case__head">
+            <b>Powrót po przerwie</b>
+            <span class="pill">6 tygodni</span>
+          </div>
+          <p class="p p--small">Bezpieczne wejście, technika, mobilność, progresja od minimum.</p>
+          <div class="case__bars" aria-hidden="true">
+            <div class="bar" style="width:58%"></div>
+            <div class="bar" style="width:44%"></div>
+            <div class="bar" style="width:28%"></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Section: testimonials -->
+    <section class="section reveal" data-reveal id="opinie">
+      <div class="sectionHead">
+        <div>
+          <h2 class="h2">Opinie</h2>
+          <p class="p">Jedna rzecz przewija się w kółko: „wreszcie wiem, co robić”.</p>
+        </div>
+      </div>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <div class="marquee__item">„Konkretnie. Bez gadania. Efekt w miesiąc.”</div>
+          <div class="marquee__item">„W końcu trening ma sens, a nie losowe ćwiczenia.”</div>
+          <div class="marquee__item">„Szybko ustaliliśmy plan i terminy.”</div>
+          <div class="marquee__item">„Technika uratowana. Plecy przestały boleć.”</div>
+          <div class="marquee__item">„Najlepszy proces, jaki miałem.”</div>
+          <div class="marquee__item">„Regularność stała się prosta.”</div>
+
+          <div class="marquee__item">„Konkretnie. Bez gadania. Efekt w miesiąc.”</div>
+          <div class="marquee__item">„W końcu trening ma sens, a nie losowe ćwiczenia.”</div>
+          <div class="marquee__item">„Szybko ustaliliśmy plan i terminy.”</div>
+          <div class="marquee__item">„Technika uratowana. Plecy przestały boleć.”</div>
+          <div class="marquee__item">„Najlepszy proces, jaki miałem.”</div>
+          <div class="marquee__item">„Regularność stała się prosta.”</div>
+        </div>
+      </div>
+
+      <div class="grid grid--3">
+        <article class="quoteCard">
+          <div class="quoteCard__top">
+            <div class="stars" aria-hidden="true">
+              <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span>
             </div>
+            <span class="pill">redukcja</span>
+          </div>
+          <p class="p">„Dostałem plan, terminy i rytm. Zero chaosu. Wreszcie to działa.”</p>
+          <span class="who">Klient • 34 lata</span>
+        </article>
 
-            <div class="demoPreview demoPreview2" aria-hidden="true">
-              <div class="bars">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-              </div>
+        <article class="quoteCard">
+          <div class="quoteCard__top">
+            <div class="stars" aria-hidden="true">
+              <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span>
             </div>
+            <span class="pill">forma</span>
           </div>
-        </a>
+          <p class="p">„Najlepsze było to, że wiedziałam co robić sama między treningami.”</p>
+          <span class="who">Klientka • 28 lat</span>
+        </article>
+
+        <article class="quoteCard">
+          <div class="quoteCard__top">
+            <div class="stars" aria-hidden="true">
+              <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span>
+            </div>
+            <span class="pill">powrót</span>
+          </div>
+          <p class="p">„Po przerwie bałem się kontuzji. Tu wszystko było policzone i spokojne.”</p>
+          <span class="who">Klient • 41 lat</span>
+        </article>
       </div>
     </section>
 
-    <!-- OFFER -->
-    <section class="card section reveal" data-reveal id="oferta">
+    <!-- Section: FAQ -->
+    <section class="section reveal" data-reveal id="faq">
       <div class="sectionHead">
         <div>
-          <h2 data-i18n="offer.title">Pakiety treningowe</h2>
-          <p data-i18n="offer.sub">Wybierz poziom wsparcia. Asystent pomoże dobrać najlepszą opcję pod cel i tempo.</p>
-        </div>
-      </div>
-
-      <div class="grid3">
-        <div class="box">
-          <h3><span class="ico">S</span><span data-i18n="offer.b1.title">Start</span></h3>
-          <p data-i18n="offer.b1.body">Pierwszy plan, technika, fundamenty. Najlepsze jeśli zaczynasz lub wracasz po przerwie.</p>
-          <div class="boxMeta">
-            <span class="pillMeta" data-i18n="offer.b1.meta1">Cel: fundament</span>
-            <span class="pillMeta" data-i18n="offer.b1.meta2">Tempo: spokojnie</span>
-          </div>
-        </div>
-
-        <div class="box featured">
-          <div class="badgeTop" data-i18n="offer.badge">Najczęściej wybierane</div>
-          <h3><span class="ico">R</span><span data-i18n="offer.b2.title">Regular</span></h3>
-          <p data-i18n="offer.b2.body">Stałe treningi, monitoring postępów, korekty planu. Najlepszy balans efektów i ceny.</p>
-          <div class="boxMeta">
-            <span class="pillMeta" data-i18n="offer.b2.meta1">Cel: forma</span>
-            <span class="pillMeta" data-i18n="offer.b2.meta2">Tempo: stabilnie</span>
-          </div>
-        </div>
-
-        <div class="box">
-          <h3><span class="ico">P</span><span data-i18n="offer.b3.title">Premium</span></h3>
-          <p data-i18n="offer.b3.body">Maksymalnie dopasowane wsparcie: plan, nawyki, stały kontakt. Dla osób „idziemy po wynik”.</p>
-          <div class="boxMeta">
-            <span class="pillMeta" data-i18n="offer.b3.meta1">Cel: wynik</span>
-            <span class="pillMeta" data-i18n="offer.b3.meta2">Tempo: mocno</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="softDivider"></div>
-
-      <div class="grid2">
-        <div class="box">
-          <h3><span class="ico">◎</span><span data-i18n="offer.extra1.title">Treningi stacjonarne</span></h3>
-          <p data-i18n="offer.extra1.body">Łódź i okolice. Konkretna praca nad techniką, postawą i progresją.</p>
-        </div>
-        <div class="box">
-          <h3><span class="ico">↗</span><span data-i18n="offer.extra2.title">Treningi online</span></h3>
-          <p data-i18n="offer.extra2.body">Dla osób spoza miasta. Plan, feedback i prowadzenie w prostym rytmie.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- HOW -->
-    <section class="card section reveal" data-reveal id="jak">
-      <div class="sectionHead">
-        <div>
-          <h2 data-i18n="how.title">Jak wygląda start</h2>
-          <p data-i18n="how.sub">Zero chaosu. Trzy kroki, które prowadzą do pierwszego realnego efektu.</p>
-        </div>
-      </div>
-
-      <div class="steps">
-        <div class="box">
-          <div class="stepNum">1</div>
-          <h3 data-i18n="how.s1.title">Cel i kontekst</h3>
-          <p data-i18n="how.s1.body">Co chcesz osiągnąć, ile masz czasu, jakie są ograniczenia i styl życia.</p>
-        </div>
-        <div class="box">
-          <div class="stepNum">2</div>
-          <h3 data-i18n="how.s2.title">Plan i rytm</h3>
-          <p data-i18n="how.s2.body">Dobieramy pakiet, tempo i ustalamy terminy. Bez presji, ale z kierunkiem.</p>
-        </div>
-        <div class="box">
-          <div class="stepNum">3</div>
-          <h3 data-i18n="how.s3.title">Pierwszy trening</h3>
-          <p data-i18n="how.s3.body">Fundamenty: technika, bezpieczeństwo, prosty plan na następny tydzień.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SOCIAL PROOF -->
-    <section class="card section reveal" data-reveal>
-      <div class="sectionHead">
-        <div>
-          <h2 data-i18n="proof.title">Jak to jest odbierane</h2>
-          <p data-i18n="proof.sub">To jest to uczucie „ogarniętego procesu”. Szybkość + klarowność + następny krok.</p>
-        </div>
-      </div>
-
-      <div class="grid3">
-        <div class="box quote">
-          <div class="stars" aria-hidden="true"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
-          <p data-i18n="proof.q1">“Pierwszy raz strona trenera odpowiedziała mi konkretnie, a nie ‘napisz priv’.”</p>
-          <b data-i18n="proof.w1">Osoba początkująca</b>
-        </div>
-        <div class="box quote">
-          <div class="stars" aria-hidden="true"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
-          <p data-i18n="proof.q2">“Szybko dostałem plan i opcje. Bez przepychanek.”</p>
-          <b data-i18n="proof.w2">Klient Regular</b>
-        </div>
-        <div class="box quote">
-          <div class="stars" aria-hidden="true"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
-          <p data-i18n="proof.q3">“Widać profesjonalizm. Wchodzisz i wiesz, co zrobić dalej.”</p>
-          <b data-i18n="proof.w3">Osoba wracająca po przerwie</b>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="card section reveal" data-reveal>
-      <div class="sectionHead">
-        <div>
-          <h2 data-i18n="faq.title">FAQ</h2>
-          <p data-i18n="faq.sub">Najczęstsze pytania przed startem.</p>
+          <h2 class="h2">FAQ</h2>
+          <p class="p">Najczęstsze pytania. Krótko i jasno.</p>
         </div>
       </div>
 
       <div class="faq">
-        <details>
-          <summary>
-            <span data-i18n="faq.q1">Czy to jest dla mnie, jeśli zaczynam od zera?</span>
-            <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6 9l6 6 6-6" stroke="rgba(255,255,255,.80)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+        <details class="faq__item">
+          <summary class="faq__q">
+            <span>Czy to jest dla mnie, jeśli zaczynam od zera?</span>
+            <span class="chev" aria-hidden="true"></span>
           </summary>
-          <div class="faqBody" data-i18n="faq.a1">Tak. Start jest po to, żeby wejść spokojnie i bez kontuzji.</div>
+          <div class="faq__a">
+            Tak. W Start budujemy fundament: technika, ruch, bezpieczna progresja i prosty rytm.
+          </div>
         </details>
 
-        <details>
-          <summary>
-            <span data-i18n="faq.q2">Ile trwa pierwszy trening?</span>
-            <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6 9l6 6 6-6" stroke="rgba(255,255,255,.80)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+        <details class="faq__item">
+          <summary class="faq__q">
+            <span>Ile trwa pierwsza sesja?</span>
+            <span class="chev" aria-hidden="true"></span>
           </summary>
-          <div class="faqBody" data-i18n="faq.a2">Zwykle 60 minut — w tym rozmowa, technika i plan na następny tydzień.</div>
+          <div class="faq__a">
+            Zwykle 60 minut: krótka diagnoza, priorytety, technika i ustalenie planu startowego.
+          </div>
         </details>
 
-        <details>
-          <summary>
-            <span data-i18n="faq.q3">Czy można trenować online?</span>
-            <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6 9l6 6 6-6" stroke="rgba(255,255,255,.80)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+        <details class="faq__item">
+          <summary class="faq__q">
+            <span>Jak szybko mogę zacząć?</span>
+            <span class="chev" aria-hidden="true"></span>
           </summary>
-          <div class="faqBody" data-i18n="faq.a3">Tak. Działa świetnie, jeśli masz jasny cel i trzymasz rytm.</div>
+          <div class="faq__a">
+            Najczęściej w ciągu kilku dni. Im szybciej zbierzemy Twoje preferencje (dni/godziny), tym szybciej wejdziemy w rytm.
+          </div>
         </details>
 
-        <details>
-          <summary>
-            <span data-i18n="faq.q4">Jak szybko znajdziemy termin?</span>
-            <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M6 9l6 6 6-6" stroke="rgba(255,255,255,.80)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+        <details class="faq__item">
+          <summary class="faq__q">
+            <span>Czy robisz dietę?</span>
+            <span class="chev" aria-hidden="true"></span>
           </summary>
-          <div class="faqBody" data-i18n="faq.a4">Najczęściej w ciągu kilku dni. Asystent zbierze preferencje i przyspieszy kontakt.</div>
+          <div class="faq__a">
+            Ustalamy zasady żywienia i prosty schemat, który da się utrzymać. Jeśli potrzebujesz pełnej opieki dietetycznej — dobieramy to do Twojej sytuacji.
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__q">
+            <span>Online czy stacjonarnie?</span>
+            <span class="chev" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__a">
+            Obie opcje działają. Stacjonarnie łatwiej dopracować technikę. Online świetnie działa, gdy masz rytm i konsekwencję.
+          </div>
         </details>
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="card cta reveal" data-reveal id="kontakt">
-      <div class="ctaLeft">
-        <h2 data-i18n="cta.title">Chcesz zacząć?</h2>
-        <p data-i18n="cta.sub">Napisz cel + ile razy w tygodniu chcesz trenować. Asystent przeprowadzi Cię przez start.</p>
+    <!-- Contact / CTA -->
+    <section class="cta reveal" data-reveal id="kontakt" aria-label="Kontakt">
+      <div class="cta__left">
+        <h2 class="h2">Zróbmy start w 10 minut</h2>
+        <p class="p">
+          Zostaw 3 informacje: cel, poziom, dostępność. Odpowiem z propozycją planu i terminu.
+        </p>
+
+        <div class="cta__chips">
+          <span class="tag tag--soft">cel</span>
+          <span class="tag tag--soft">poziom</span>
+          <span class="tag tag--soft">terminy</span>
+        </div>
+
+        <div class="cta__note">
+          <span class="dot dot--pulse" aria-hidden="true"></span>
+          <span>Odpowiedź zwykle tego samego dnia.</span>
+        </div>
       </div>
-      <div class="ctaRight">
-        <a class="mail" href="mailto:kontaktio@zohomail.eu">kontaktio@zohomail.eu</a>
-        <button class="btn primary" id="btnOpenCta" type="button" data-i18n="cta.open">Otwórz asystenta</button>
-      </div>
+
+      <form class="form" action="#" method="post" onsubmit="return false;">
+        <div class="form__row">
+          <label class="field">
+            <span>Imię</span>
+            <input type="text" placeholder="np. Bartek" autocomplete="given-name" />
+          </label>
+          <label class="field">
+            <span>Kontakt</span>
+            <input type="text" placeholder="mail lub telefon" autocomplete="email" />
+          </label>
+        </div>
+
+        <label class="field">
+          <span>Cel</span>
+          <input type="text" placeholder="redukcja / masa / forma / powrót po przerwie" />
+        </label>
+
+        <label class="field">
+          <span>Dostępność</span>
+          <input type="text" placeholder="dni + godziny (np. wt/czw 18:00)" />
+        </label>
+
+        <label class="field">
+          <span>Wiadomość</span>
+          <textarea rows="4" placeholder="Krótko: co jest dziś największym problemem?"></textarea>
+        </label>
+
+        <div class="form__actions">
+          <button class="btn btn--primary btn--wide" type="button" id="fakeSend">Wyślij</button>
+          <button class="btn btn--ghost btn--wide" type="button" id="prefill">Wypełnij przykładem</button>
+        </div>
+
+        <div class="form__fine">
+          Klikając „Wyślij” nic nie wysyłasz — to demo UI. Podepnij swój endpoint formularza.
+        </div>
+      </form>
     </section>
 
-    <footer>
-      <div>© <span id="year"></span> FitKontakt</div>
-      <div class="footerLinks">
-        <a href="#demo" data-i18n="footer.try">Przetestuj</a>
-        <a href="#kontakt" data-i18n="footer.contact">Kontakt</a>
-        <a href="branze.html">Branże</a>
+    <footer class="footer">
+      <div class="footer__left">
+        <div class="brand brand--small">
+          <div class="brand__mark" aria-hidden="true"></div>
+          <div class="brand__text">
+            <b>NOVA COACH</b>
+            <span>Trener personalny</span>
+          </div>
+        </div>
+        <p class="p p--small">
+          Strona zaprojektowana pod konwersję: jasny proces, mocny rytm, szybki pierwszy krok.
+        </p>
+      </div>
+
+      <div class="footer__right">
+        <a class="footer__link" href="#pakiety">Pakiety</a>
+        <a class="footer__link" href="#proces">Proces</a>
+        <a class="footer__link" href="#wyniki">Wyniki</a>
+        <a class="footer__link" href="#faq">FAQ</a>
+        <a class="footer__link" href="#kontakt">Kontakt</a>
+      </div>
+
+      <div class="footer__bottom">
+        <span>© <span id="year"></span> NOVA COACH</span>
+        <span class="sep">•</span>
+        <span>Made for high-end conversion</span>
       </div>
     </footer>
-  </div>
+  </main>
 
   <!-- Sticky CTA -->
-  <div class="stickyCTA" id="stickyCTA" aria-hidden="true">
-    <div>
-      <b data-i18n="sticky.title">Zróbmy pierwszy krok</b>
-      <span data-i18n="sticky.sub">Wyślij cel + 3 informacje: poziom, czas, preferencje. Dostaniesz konkretny plan startu.</span>
+  <div class="sticky" id="sticky" aria-hidden="true">
+    <div class="sticky__left">
+      <b>Gotowy na start?</b>
+      <span>Cel + dostępność → dostajesz konkretną propozycję.</span>
     </div>
-    <div class="right">
-      <button class="btn primary" id="btnOpenSticky" type="button">
-        <span data-i18n="sticky.open">Otwórz asystenta</span>
-      </button>
+    <div class="sticky__right">
+      <a class="btn btn--primary" href="#kontakt">Zacznij</a>
       <button class="x" id="stickyClose" type="button" aria-label="Close">×</button>
     </div>
   </div>
 
   <script>
-    // KEEP: backend/script (exact)
-    const BACKEND_URL = "https://chatbot-backend-x2cy.onrender.com";
-    const SCRIPT_SRC = "https://cdn.jsdelivr.net/gh/kontaktio-demo/kontaktio@27625d5/kontaktio.js";
+    // Year
+    document.getElementById("year").textContent = String(new Date().getFullYear());
 
-    // Client id for this industry page
-    const CLIENT_ID = "fitkontakt";
+    // Mobile nav
+    const navBtn = document.getElementById("navBtn");
+    const mobileNav = document.getElementById("mobileNav");
+    let navOpen = false;
 
-    // Modes only affect prompt buttons + visuals (do not touch backend)
-    const MODES = ["start","pakiety","terminy"];
-    let currentMode = "start";
-    let currentScript = null;
-    let lang = "pl";
-
-    const $ = (id) => document.getElementById(id);
-
-    const COPY = {
-      pl: {
-        "top.tagline": "Trener personalny — pakiety, terminy, pierwszy kontakt",
-        "top.try": "Przejdź do rozmowy",
-        "top.cta": "Zacznijmy",
-
-        "hero.title": "Trener personalny, który odpowiada od razu — i prowadzi do planu.",
-        "hero.sub": "Ludzie mają te same pytania: pakiety, ceny, terminy, „czy to dla mnie”. FitKontakt odpowiada natychmiast, konkretnie, bez lania wody — i prowadzi do pierwszego kroku: konsultacja, plan, trening.",
-        "hero.open": "Otwórz asystenta",
-        "hero.how": "Jak to działa",
-        "hero.hint": "Tip: kliknij gotowe pytanie — asystent startuje w sekundę.",
-
-        "chips.1": "Pakiety i cele dopasowane do Ciebie",
-        "chips.2": "Szybki pierwszy kontakt",
-        "chips.3": "Konkretnie: plan, terminy, co dalej",
-        "chips.4": "Dostępność 24/7",
-        "chips.5": "Bez zgadywania — jasne zasady",
-
-        "tabs.start": "Start",
-        "tabs.pakiety": "Pakiety",
-        "tabs.terminy": "Terminy",
-        "tabs.tag1": "pierwszy krok",
-        "tabs.tag2": "oferta",
-        "tabs.tag3": "szybko",
-
-        "side.how.title": "Jak testować",
-        "side.how.body": "Kliknij ikonę czatu. Zapytaj o pakiet, cenę, cel i terminy.",
-        "side.why.title": "Co zobaczysz",
-        "side.why.body": "Rozmowa nie jest „miła”. Jest skuteczna: prowadzi do konkretu i następnego kroku.",
-        "side.safe.title": "Kontrola",
-        "side.safe.body": "Jeśli czegoś nie ma — asystent dopyta, zamiast zmyślać.",
-        "side.time.title": "Pierwsze wrażenie",
-        "side.time.body": "Strona „odpowiada” — ludzie czują, że trafili do profesjonalisty.",
-
-        "panel.title": "FitKontakt",
-        "panel.desc": "Konkretny styl. Dobry dla osób, które chcą szybkiej odpowiedzi i jasnego planu działania.",
-
-        "buttons.open": "Otwórz asystenta",
-        "buttons.clear": "Wyczyść rozmowę",
-
-        "demoSites.title": "Trener personalny — przykład strony, która sprzedaje usługę",
-        "demoSites.sub": "To nie jest portfolio. To jest strona, która ma robić jedno: skrócić czas od wejścia do pierwszego kontaktu.",
-        "demoSites.cardTitle": "Pakiety, terminy, pierwszy kontakt",
-        "demoSites.cardDesc": "Dokładnie to, co ludzie chcą dostać w pierwszych 20 sekundach.",
-        "demoSites.cta": "Zobacz ofertę →",
-        "demoSites.cardTitle2": "Jak pracujemy",
-        "demoSites.cardDesc2": "Klarownie: co się dzieje, kiedy i jak wygląda start.",
-        "demoSites.cta2": "Zobacz proces →",
-
-        "offer.title": "Pakiety treningowe",
-        "offer.sub": "Wybierz poziom wsparcia. Asystent pomoże dobrać najlepszą opcję pod cel i tempo.",
-        "offer.badge": "Najczęściej wybierane",
-        "offer.b1.title": "Start",
-        "offer.b1.body": "Pierwszy plan, technika, fundamenty. Najlepsze jeśli zaczynasz lub wracasz po przerwie.",
-        "offer.b1.meta1": "Cel: fundament",
-        "offer.b1.meta2": "Tempo: spokojnie",
-        "offer.b2.title": "Regular",
-        "offer.b2.body": "Stałe treningi, monitoring postępów, korekty planu. Najlepszy balans efektów i ceny.",
-        "offer.b2.meta1": "Cel: forma",
-        "offer.b2.meta2": "Tempo: stabilnie",
-        "offer.b3.title": "Premium",
-        "offer.b3.body": "Maksymalnie dopasowane wsparcie: plan, nawyki, stały kontakt. Dla osób „idziemy po wynik”.",
-        "offer.b3.meta1": "Cel: wynik",
-        "offer.b3.meta2": "Tempo: mocno",
-        "offer.extra1.title": "Treningi stacjonarne",
-        "offer.extra1.body": "Łódź i okolice. Konkretna praca nad techniką, postawą i progresją.",
-        "offer.extra2.title": "Treningi online",
-        "offer.extra2.body": "Dla osób spoza miasta. Plan, feedback i prowadzenie w prostym rytmie.",
-
-        "how.title": "Jak wygląda start",
-        "how.sub": "Zero chaosu. Trzy kroki, które prowadzą do pierwszego realnego efektu.",
-        "how.s1.title": "Cel i kontekst",
-        "how.s1.body": "Co chcesz osiągnąć, ile masz czasu, jakie są ograniczenia i styl życia.",
-        "how.s2.title": "Plan i rytm",
-        "how.s2.body": "Dobieramy pakiet, tempo i ustalamy terminy. Bez presji, ale z kierunkiem.",
-        "how.s3.title": "Pierwszy trening",
-        "how.s3.body": "Fundamenty: technika, bezpieczeństwo, prosty plan na następny tydzień.",
-
-        "proof.title": "Jak to jest odbierane",
-        "proof.sub": "To jest to uczucie „ogarniętego procesu”. Szybkość + klarowność + następny krok.",
-        "proof.q1": "“Pierwszy raz strona trenera odpowiedziała mi konkretnie, a nie ‘napisz priv’.”",
-        "proof.w1": "Osoba początkująca",
-        "proof.q2": "“Szybko dostałem plan i opcje. Bez przepychanek.”",
-        "proof.w2": "Klient Regular",
-        "proof.q3": "“Widać profesjonalizm. Wchodzisz i wiesz, co zrobić dalej.”",
-        "proof.w3": "Osoba wracająca po przerwie",
-
-        "faq.title": "FAQ",
-        "faq.sub": "Najczęstsze pytania przed startem.",
-        "faq.q1": "Czy to jest dla mnie, jeśli zaczynam od zera?",
-        "faq.a1": "Tak. Start jest po to, żeby wejść spokojnie i bez kontuzji.",
-        "faq.q2": "Ile trwa pierwszy trening?",
-        "faq.a2": "Zwykle 60 minut — w tym rozmowa, technika i plan na następny tydzień.",
-        "faq.q3": "Czy można trenować online?",
-        "faq.a3": "Tak. Działa świetnie, jeśli masz jasny cel i trzymasz rytm.",
-        "faq.q4": "Jak szybko znajdziemy termin?",
-        "faq.a4": "Najczęściej w ciągu kilku dni. Asystent zbierze preferencje i przyspieszy kontakt.",
-
-        "cta.title": "Chcesz zacząć?",
-        "cta.sub": "Napisz cel + ile razy w tygodniu chcesz trenować. Asystent przeprowadzi Cię przez start.",
-        "cta.open": "Otwórz asystenta",
-
-        "footer.try": "Przetestuj",
-        "footer.contact": "Kontakt",
-
-        "sticky.title": "Zróbmy pierwszy krok",
-        "sticky.sub": "Wyślij cel + 3 informacje: poziom, czas, preferencje. Dostaniesz konkretny plan startu.",
-        "sticky.open": "Otwórz asystenta"
-      },
-      en: {
-        "top.tagline": "Personal trainer — packages, schedule, first contact",
-        "top.try": "Jump to chat",
-        "top.cta": "Let’s start",
-
-        "hero.title": "A personal trainer that answers instantly — and leads you to a plan.",
-        "hero.sub": "People ask the same things: packages, pricing, availability, “is this for me”. FitKontakt responds instantly, clearly, without fluff — and moves you to the first step: consult, plan, training.",
-        "hero.open": "Open the assistant",
-        "hero.how": "How it works",
-        "hero.hint": "Tip: click a ready prompt — it starts in a second.",
-
-        "chips.1": "Goal‑matched packages",
-        "chips.2": "Fast first contact",
-        "chips.3": "Clear next step: plan & schedule",
-        "chips.4": "Available 24/7",
-        "chips.5": "No guesswork — clear rules",
-
-        "tabs.start": "Start",
-        "tabs.pakiety": "Packages",
-        "tabs.terminy": "Schedule",
-        "tabs.tag1": "first step",
-        "tabs.tag2": "offer",
-        "tabs.tag3": "fast",
-
-        "side.how.title": "How to test",
-        "side.how.body": "Open chat. Ask about packages, price, goals, and schedule.",
-        "side.why.title": "What you’ll see",
-        "side.why.body": "The chat isn’t ‘nice’. It’s effective: it drives to an outcome.",
-        "side.safe.title": "Control",
-        "side.safe.body": "If something is missing, it asks instead of making it up.",
-        "side.time.title": "First impression",
-        "side.time.body": "Your website ‘responds’ — people feel professionalism instantly.",
-
-        "panel.title": "FitKontakt",
-        "panel.desc": "Direct style. Great for people who want clarity and a plan fast.",
-
-        "buttons.open": "Open the assistant",
-        "buttons.clear": "Clear chat",
-
-        "demoSites.title": "Personal trainer — a page designed to convert",
-        "demoSites.sub": "Not a portfolio. A page that reduces time from landing to first contact.",
-        "demoSites.cardTitle": "Packages, schedule, first contact",
-        "demoSites.cardDesc": "Exactly what people need in the first 20 seconds.",
-        "demoSites.cta": "View offer →",
-        "demoSites.cardTitle2": "How we work",
-        "demoSites.cardDesc2": "Clear: what happens, when, and how you start.",
-        "demoSites.cta2": "View process →",
-
-        "offer.title": "Training packages",
-        "offer.sub": "Choose your support level. The assistant helps match the best option to your goal.",
-        "offer.badge": "Most chosen",
-        "offer.b1.title": "Start",
-        "offer.b1.body": "Basics, technique, foundations. Best if you’re new or returning.",
-        "offer.b1.meta1": "Goal: foundation",
-        "offer.b1.meta2": "Pace: calm",
-        "offer.b2.title": "Regular",
-        "offer.b2.body": "Consistent sessions, progress tracking, plan adjustments. Best balance.",
-        "offer.b2.meta1": "Goal: shape",
-        "offer.b2.meta2": "Pace: steady",
-        "offer.b3.title": "Premium",
-        "offer.b3.body": "Maximum support: plan, habits, ongoing contact. For strong outcomes.",
-        "offer.b3.meta1": "Goal: results",
-        "offer.b3.meta2": "Pace: intensive",
-        "offer.extra1.title": "In‑person training",
-        "offer.extra1.body": "Łódź area. Technique, posture, progression.",
-        "offer.extra2.title": "Online training",
-        "offer.extra2.body": "Plan, feedback, and rhythm for remote clients.",
-
-        "how.title": "How you start",
-        "how.sub": "No chaos. Three steps that create the first real result.",
-        "how.s1.title": "Goal & context",
-        "how.s1.body": "What you want, how much time you have, limits and lifestyle.",
-        "how.s2.title": "Plan & rhythm",
-        "how.s2.body": "We match package and pace, and set schedule. No pressure, just direction.",
-        "how.s3.title": "First session",
-        "how.s3.body": "Foundations: technique, safety, and a simple plan for next week.",
-
-        "proof.title": "How it feels",
-        "proof.sub": "That ‘they’ve got a process’ feeling: speed + clarity + next step.",
-        "proof.q1": "“First time a trainer’s website answered me properly — not ‘DM me’.”",
-        "proof.w1": "Beginner",
-        "proof.q2": "“Got a plan and options fast. No back and forth.”",
-        "proof.w2": "Regular client",
-        "proof.q3": "“You land and instantly know what to do next.”",
-        "proof.w3": "Returning client",
-
-        "faq.title": "FAQ",
-        "faq.sub": "Questions before you start.",
-        "faq.q1": "Is this for me if I’m starting from zero?",
-        "faq.a1": "Yes. Start is designed for safe, steady entry without injuries.",
-        "faq.q2": "How long is the first session?",
-        "faq.a2": "Usually 60 minutes: consult, technique, and your next-week plan.",
-        "faq.q3": "Can we train online?",
-        "faq.a3": "Yes. Works great with clear goals and rhythm.",
-        "faq.q4": "How fast can we find a slot?",
-        "faq.a4": "Usually within a few days. The assistant collects preferences to speed it up.",
-
-        "cta.title": "Want to start?",
-        "cta.sub": "Send your goal + training frequency. The assistant guides you through onboarding.",
-        "cta.open": "Open the assistant",
-
-        "footer.try": "Try",
-        "footer.contact": "Contact",
-
-        "sticky.title": "Let’s do the first step",
-        "sticky.sub": "Send goal + 3 details: level, time, preferences. You’ll get a clear start plan.",
-        "sticky.open": "Open the assistant"
-      }
-    };
-
-    const PROMPTS = {
-      pl: {
-        start: {
-          goal: "Chcę schudnąć — od czego zacząć?",
-          packages: "Jakie są pakiety i różnice?",
-          price: "Ile to kosztuje i od czego zależy?",
-          schedule: "Jak szybko znajdziemy termin?",
-          first: "Jak wygląda pierwszy trening?"
-        },
-        pakiety: {
-          goal: "Mam cel: redukcja. Jaki pakiet będzie najlepszy?",
-          packages: "Daj mi porównanie Start vs Regular vs Premium.",
-          price: "Czy cena zależy od częstotliwości i prowadzenia?",
-          schedule: "Ile treningów tygodniowo ma sens na start?",
-          first: "Co dostaję poza treningiem w Premium?"
-        },
-        terminy: {
-          goal: "Chcę zacząć w tym tygodniu — co potrzebujesz ode mnie?",
-          packages: "Który pakiet pozwala najszybciej wejść w rytm?",
-          price: "Czy można zacząć od krótkiego planu i potem wejść w Regular?",
-          schedule: "Jakie dni/godziny są najlepsze na start?",
-          first: "Co przygotować na pierwszy trening?"
-        }
-      },
-      en: {
-        start: {
-          goal: "I want to lose weight — where do I start?",
-          packages: "What packages do you offer and what’s the difference?",
-          price: "What’s the price and what affects it?",
-          schedule: "How soon can we find a slot?",
-          first: "What does the first session look like?"
-        },
-        pakiety: {
-          goal: "My goal is fat loss. Which package fits best?",
-          packages: "Compare Start vs Regular vs Premium.",
-          price: "Does price depend on frequency and coaching level?",
-          schedule: "How many sessions per week make sense at the beginning?",
-          first: "What’s included in Premium beyond sessions?"
-        },
-        terminy: {
-          goal: "I want to start this week — what do you need from me?",
-          packages: "Which package helps build rhythm fastest?",
-          price: "Can I start small and move to Regular later?",
-          schedule: "Which days/times are best for starting?",
-          first: "How should I prepare for the first session?"
-        }
-      }
-    };
-
-    function t(key){
-      return (COPY[lang] && COPY[lang][key]) ? COPY[lang][key] : key;
+    function setNav(open){
+      navOpen = open;
+      mobileNav.classList.toggle("on", open);
+      mobileNav.setAttribute("aria-hidden", open ? "false" : "true");
+      navBtn.classList.toggle("on", open);
     }
+    navBtn.addEventListener("click", () => setNav(!navOpen));
+    mobileNav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => setNav(false)));
 
-    function applyI18n(){
-      document.querySelectorAll("[data-i18n]").forEach((node) => {
-        const key = node.getAttribute("data-i18n");
-        node.textContent = t(key);
-      });
-      rebuildPromptButtons();
-      requestAnimationFrame(movePillToActive);
-    }
-
-    function setLang(next){
-      lang = next;
-      $("langPL").classList.toggle("active", lang === "pl");
-      $("langEN").classList.toggle("active", lang === "en");
-      applyI18n();
-    }
-
-    function rebuildPromptButtons(){
-      const row = $("promptRow");
-      if (!row) return;
-      const dict = (PROMPTS[lang] && PROMPTS[lang][currentMode]) ? PROMPTS[lang][currentMode] : PROMPTS.pl.start;
-
-      row.querySelectorAll("[data-prompt]").forEach(btn => {
-        const key = btn.getAttribute("data-prompt");
-        btn.textContent = dict[key] || btn.textContent;
-      });
-    }
-
-    function resetKontaktio(){
-      document.querySelectorAll("[id^='kontaktio-root']").forEach(el => el.remove());
-      if (currentScript) currentScript.remove();
-      window.__KontaktioBooted = false;
-    }
-
-    function loadAssistant(){
-      resetKontaktio();
-      const script = document.createElement("script");
-      script.src = SCRIPT_SRC;
-      script.setAttribute("data-kontaktio", "");
-      script.setAttribute("data-client", CLIENT_ID);
-      script.setAttribute("data-backend", BACKEND_URL);
-      document.body.appendChild(script);
-      currentScript = script;
-    }
-
-    function openAssistant(){
-      try { localStorage.setItem(`kontaktio-open-${CLIENT_ID}`, "1"); } catch {}
-      loadAssistant();
-    }
-
-    function clearHistory(){
-      try{
-        localStorage.removeItem(`kontaktio-history-${CLIENT_ID}`);
-        localStorage.removeItem(`kontaktio-session-${CLIENT_ID}`);
-        localStorage.removeItem(`kontaktio-open-${CLIENT_ID}`);
-      }catch{}
-    }
-
-    function tryPrefillAndSend(text){
-      const input = document.querySelector(".kontaktio-input");
-      if (!input) {
-        try { navigator.clipboard.writeText(text); } catch {}
-        return;
-      }
-      input.focus();
-      input.value = text;
-      input.dispatchEvent(new Event("input", { bubbles: true }));
-      const send = document.querySelector(".kontaktio-send");
-      if (send) send.click();
-    }
-
-    function jumpToDemo(){
-      document.querySelector("#demo")?.scrollIntoView({ behavior: "smooth", block: "start" });
-      setTimeout(() => openAssistant(), 520);
-    }
-
-    function movePillToActive(){
-      const tabs = $("tabs");
-      const pill = $("pill");
-      const active = tabs?.querySelector("button.active");
-      if (!tabs || !pill || !active) return;
-
-      const tabsRect = tabs.getBoundingClientRect();
-      const aRect = active.getBoundingClientRect();
-      const x = aRect.left - tabsRect.left;
-
-      pill.style.width = aRect.width + "px";
-      pill.style.transform = `translate3d(${x}px, 0, 0)`;
-    }
-
-    function setMode(nextMode){
-      if (!MODES.includes(nextMode)) nextMode = "start";
-      currentMode = nextMode;
-
-      document.querySelectorAll("#tabs button").forEach(b => b.classList.remove("active"));
-      const btn = document.querySelector(`#tabs button[data-mode="${nextMode}"]`);
-      if (btn) btn.classList.add("active");
-
-      rebuildPromptButtons();
-      requestAnimationFrame(movePillToActive);
-    }
-
-    // reveal
+    // Reveal on scroll
     (function reveal(){
       const items = Array.from(document.querySelectorAll("[data-reveal]"));
       if (!items.length) return;
@@ -785,53 +652,29 @@
       items.forEach(el => io.observe(el));
     })();
 
-    // glow
-    (function initGlow(){
-      const glow = $("glow");
-      if (!glow) return;
+    // Cursor glow
+    (function glow(){
+      const g = document.getElementById("cursorGlow");
+      if (!g) return;
       if (!window.matchMedia("(hover:hover)").matches) return;
 
       let raf = null;
       let x = -9999, y = -9999;
       function onMove(e){
-        x = e.clientX - 390;
-        y = e.clientY - 390;
+        x = e.clientX - 420;
+        y = e.clientY - 420;
         if (raf) return;
         raf = requestAnimationFrame(() => {
-          glow.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+          g.style.transform = `translate3d(${x}px, ${y}px, 0)`;
           raf = null;
         });
       }
       window.addEventListener("mousemove", onMove, { passive: true });
     })();
 
-    // sticky
-    (function sticky(){
-      const bar = $("stickyCTA");
-      const close = $("stickyClose");
-      if (!bar || !close) return;
-
-      const key = "fitkontakt_sticky_closed";
-      const closed = (() => { try { return localStorage.getItem(key) === "1"; } catch { return false; } })();
-      if (closed) return;
-
-      function onScroll(){
-        const y = window.scrollY || 0;
-        if (y > 850) bar.classList.add("on");
-        else bar.classList.remove("on");
-      }
-      window.addEventListener("scroll", onScroll, { passive: true });
-      onScroll();
-
-      close.addEventListener("click", () => {
-        bar.classList.remove("on");
-        try { localStorage.setItem(key, "1"); } catch {}
-      });
-    })();
-
-    // progress bar
+    // Progress
     (function progress(){
-      const el = $("progress");
+      const el = document.getElementById("progress");
       if (!el) return;
       function onScroll(){
         const doc = document.documentElement;
@@ -843,65 +686,92 @@
       onScroll();
     })();
 
-    // Events
-    $("btnOpen")?.addEventListener("click", openAssistant);
-    $("btnOpenHero")?.addEventListener("click", openAssistant);
-    $("btnOpenCta")?.addEventListener("click", openAssistant);
-    $("btnOpenSticky")?.addEventListener("click", openAssistant);
+    // Sticky CTA
+    (function sticky(){
+      const bar = document.getElementById("sticky");
+      const close = document.getElementById("stickyClose");
+      if (!bar || !close) return;
 
-    $("btnClear")?.addEventListener("click", () => {
-      clearHistory();
-      loadAssistant();
+      const key = "nova_sticky_closed";
+      const closed = (() => { try { return localStorage.getItem(key) === "1"; } catch { return false; } })();
+      if (closed) return;
 
-      const b = $("btnClear");
-      const old = b.textContent;
-      b.textContent = (lang === "pl") ? "Wyczyszczono" : "Cleared";
-      setTimeout(() => (b.textContent = old), 900);
-    });
-
-    $("btnScrollHow")?.addEventListener("click", () => {
-      document.querySelector("#jak")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-
-    $("btnJumpDemo")?.addEventListener("click", jumpToDemo);
-
-    $("promptRow")?.addEventListener("click", (e) => {
-      const btn = e.target.closest("[data-prompt]");
-      if (!btn) return;
-
-      const key = btn.getAttribute("data-prompt");
-      const dict = (PROMPTS[lang] && PROMPTS[lang][currentMode]) ? PROMPTS[lang][currentMode] : PROMPTS.pl.start;
-      const text = dict[key] || btn.textContent;
-
-      openAssistant();
-      setTimeout(() => tryPrefillAndSend(text), 700);
-    });
-
-    $("langPL")?.addEventListener("click", () => setLang("pl"));
-    $("langEN")?.addEventListener("click", () => setLang("en"));
-
-    document.querySelectorAll("#tabs button").forEach(btn => {
-      btn.addEventListener("click", () => setMode(btn.dataset.mode));
-    });
-    window.addEventListener("resize", movePillToActive, { passive: true });
-
-    window.addEventListener("keydown", (e) => {
-      const isMac = navigator.platform.toLowerCase().includes("mac");
-      const combo = isMac ? e.metaKey : e.ctrlKey;
-      if (combo && e.key.toLowerCase() === "k") {
-        e.preventDefault();
-        jumpToDemo();
+      function onScroll(){
+        const y = window.scrollY || 0;
+        if (y > 900) bar.classList.add("on");
+        else bar.classList.remove("on");
       }
-    });
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
 
-    $("year").textContent = String(new Date().getFullYear());
+      close.addEventListener("click", () => {
+        bar.classList.remove("on");
+        try { localStorage.setItem(key, "1"); } catch {}
+      });
+    })();
 
-    // init
-    setLang("pl");
-    setMode("start");
-    requestAnimationFrame(movePillToActive);
-    rebuildPromptButtons();
-    loadAssistant(); // optional: pre-load so the launcher exists immediately
+    // Quiz + copy recommendation
+    (function quiz(){
+      const root = document.getElementById("quiz");
+      const copyBtn = document.getElementById("copyPlan");
+      if (!root || !copyBtn) return;
+
+      const state = { goal: null, level: null, time: null };
+      function pick(group, value){
+        state[group] = value;
+      }
+      function summarize(){
+        const g = state.goal || "cel: (wybierz)";
+        const l = state.level || "poziom: (wybierz)";
+        const t = state.time || "częstotliwość: (wybierz)";
+        return `Rekomendacja NOVA COACH:\n- ${g}\n- ${l}\n- ${t}\n\nPropozycja: Start → 2 tygodnie fundamentu, potem Regular.\nNastępny krok: podaj dostępność (dni + godziny).`;
+      }
+
+      root.addEventListener("click", (e) => {
+        const btn = e.target.closest("[data-quiz]");
+        if (!btn) return;
+
+        const group = btn.getAttribute("data-quiz");
+        const value = btn.textContent.trim();
+
+        root.querySelectorAll(`[data-quiz="${group}"]`).forEach(x => x.classList.remove("on"));
+        btn.classList.add("on");
+        pick(group, value);
+      });
+
+      copyBtn.addEventListener("click", async () => {
+        const text = summarize();
+        try { await navigator.clipboard.writeText(text); } catch {}
+        copyBtn.textContent = "Skopiowano";
+        setTimeout(() => (copyBtn.textContent = "Skopiuj rekomendację"), 900);
+      });
+    })();
+
+    // Form demo helpers
+    (function formHelpers(){
+      const prefill = document.getElementById("prefill");
+      const send = document.getElementById("fakeSend");
+      const form = document.querySelector(".form");
+      if (!prefill || !send || !form) return;
+
+      function qs(sel){ return form.querySelector(sel); }
+
+      prefill.addEventListener("click", () => {
+        qs('input[placeholder*="Bartek"]').value = "Kasia";
+        qs('input[placeholder*="mail"]').value = "kasia@example.com";
+        qs('input[placeholder*="redukcja"]').value = "redukcja + wzmocnienie pleców";
+        qs('input[placeholder*="wt/czw"]').value = "wt/czw 18:00–20:00";
+        qs("textarea").value = "Ćwiczę 0–1x/tydz. Chcę wejść w rytm 2–3x/tydz. Zależy mi na planie, który nie zajeżdża.";
+        prefill.textContent = "Wypełniono";
+        setTimeout(() => (prefill.textContent = "Wypełnij przykładem"), 900);
+      });
+
+      send.addEventListener("click", () => {
+        send.textContent = "Zapisano";
+        setTimeout(() => (send.textContent = "Wyślij"), 900);
+      });
+    })();
   </script>
 </body>
 </html>
+
