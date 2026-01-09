@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>FitKontakt — Trener personalny</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1024" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="aurora"></div>
+  <div class="noise"></div>
+  <div class="glow" id="glow"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo"></div>
+      <div>
+        <b>FitKontakt</b>
+        <span>Trener personalny</span>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#oferta">Oferta</a>
+      <a href="#jak">Jak pracuję</a>
+      <a href="#kontakt" class="btn primary">Kontakt</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <section class="hero reveal">
+      <h1>Trener personalny,<br>który odpowiada od razu</h1>
+      <p>
+        Masz pytania o pakiety, terminy albo pierwszy trening?
+        Asystent AI odpowie natychmiast i poprowadzi Cię krok po kroku.
+      </p>
+
+      <div class="heroActions">
+        <button class="btn primary" id="openAssistant">Porozmawiaj teraz</button>
+        <span>Bez dzwonienia. Bez czekania.</span>
+      </div>
+    </section>
+
+    <!-- OFERTA -->
+    <section id="oferta" class="card reveal">
+      <h2>Pakiety treningowe</h2>
+
+      <div class="grid3">
+        <div class="box">
+          <h3>Start</h3>
+          <p>1–2 treningi wprowadzające, analiza celów i plan działania.</p>
+        </div>
+        <div class="box">
+          <h3>Regular</h3>
+          <p>Stałe treningi, monitoring postępów, korekty planu.</p>
+        </div>
+        <div class="box">
+          <h3>Premium</h3>
+          <p>Indywidualny plan, dieta, stały kontakt i pełne wsparcie.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- JAK -->
+    <section id="jak" class="card reveal">
+      <h2>Jak wygląda współpraca</h2>
+
+      <div class="steps">
+        <div class="step">
+          <span>1</span>
+          <p>Krótka rozmowa i określenie celu</p>
+        </div>
+        <div class="step">
+          <span>2</span>
+          <p>Plan treningowy dopasowany do Ciebie</p>
+        </div>
+        <div class="step">
+          <span>3</span>
+          <p>Regularne treningi i realne efekty</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="card reveal">
+      <h2>Najczęstsze pytania</h2>
+
+      <details>
+        <summary>Czy mogę trenować bez doświadczenia?</summary>
+        <p>Tak. Wszystko zaczynamy od podstaw i dopasowujemy tempo.</p>
+      </details>
+
+      <details>
+        <summary>Ile trwa pierwszy trening?</summary>
+        <p>Około 60 minut razem z analizą i rozmową.</p>
+      </details>
+
+      <details>
+        <summary>Czy mogę trenować online?</summary>
+        <p>Tak, dostępne są również treningi zdalne.</p>
+      </details>
+    </section>
+
+    <!-- CTA -->
+    <section id="kontakt" class="cta reveal">
+      <div>
+        <h2>Zacznij teraz</h2>
+        <p>
+          Napisz, jaki masz cel treningowy.
+          Asystent pomoże dobrać najlepszą opcję.
+        </p>
+      </div>
+
+      <button class="btn primary" id="openAssistant2">
+        Otwórz asystenta
+      </button>
+    </section>
+  </main>
+
+  <footer>
+    <span>© FitKontakt</span>
+    <span>Trener personalny</span>
+  </footer>
+
+  <!-- KONTAKTIO EMBED -->
+  <script>
+    const BACKEND_URL = "https://chatbot-backend-x2cy.onrender.com";
+    const SCRIPT_SRC = "https://cdn.jsdelivr.net/gh/kontaktio-demo/kontaktio@27625d5/kontaktio.js";
+
+    function loadAssistant(){
+      document.querySelectorAll("[id^='kontaktio-root']").forEach(e=>e.remove());
+      const s=document.createElement("script");
+      s.src=SCRIPT_SRC;
+      s.setAttribute("data-kontaktio","");
+      s.setAttribute("data-client","fitkontakt");
+      s.setAttribute("data-backend",BACKEND_URL);
+      document.body.appendChild(s);
+    }
+
+    document.getElementById("openAssistant").onclick=loadAssistant;
+    document.getElementById("openAssistant2").onclick=loadAssistant;
+  </script>
+
+  <!-- REVEAL + GLOW -->
+  <script>
+    const io=new IntersectionObserver(e=>{
+      e.forEach(x=>x.isIntersecting&&x.target.classList.add("on"))
+    },{threshold:.12});
+    document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+
+    const glow=document.getElementById("glow");
+    if(window.matchMedia("(hover:hover)").matches){
+      window.addEventListener("mousemove",e=>{
+        glow.style.transform=`translate(${e.clientX-390}px,${e.clientY-390}px)`
+      });
+    }
+  </script>
+</body>
+</html>
