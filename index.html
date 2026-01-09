@@ -4,159 +4,904 @@
   <meta charset="UTF-8" />
   <title>FitKontakt — Trener personalny</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#0b1024" />
+  <meta name="theme-color" content="#070b18" />
+  <meta name="color-scheme" content="dark light" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
+  <!-- FX layers -->
+  <div class="progress" id="progress"></div>
   <div class="aurora"></div>
   <div class="noise"></div>
   <div class="glow" id="glow"></div>
 
-  <header class="topbar">
-    <div class="brand">
-      <div class="logo"></div>
-      <div>
-        <b>FitKontakt</b>
-        <span>Trener personalny</span>
+  <!-- Topbar -->
+  <div class="topbarSticky">
+    <div class="topbar">
+      <a class="brand" href="#top" aria-label="FitKontakt">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="brandText">
+          <b>FitKontakt</b>
+          <span data-i18n="top.tagline">Trener personalny — pakiety, terminy, pierwszy kontakt</span>
+        </div>
+      </a>
+
+      <div class="topActions">
+        <button class="btn" id="btnJumpDemo" type="button">
+          <span data-i18n="top.try">Przejdź do rozmowy</span>
+          <span class="kbd">⌘K</span>
+        </button>
+
+        <div class="lang" aria-label="Language">
+          <button id="langPL" class="active" type="button">PL</button>
+          <button id="langEN" type="button">EN</button>
+        </div>
+
+        <a class="btn primary" href="#kontakt" style="text-decoration:none;">
+          <span data-i18n="top.cta">Zacznijmy</span>
+        </a>
       </div>
     </div>
+  </div>
 
-    <nav>
-      <a href="#oferta">Oferta</a>
-      <a href="#jak">Jak pracuję</a>
-      <a href="#kontakt" class="btn primary">Kontakt</a>
-    </nav>
-  </header>
-
-  <main class="wrap">
+  <div class="wrap" id="top">
     <!-- HERO -->
-    <section class="hero reveal">
-      <h1>Trener personalny,<br>który odpowiada od razu</h1>
-      <p>
-        Masz pytania o pakiety, terminy albo pierwszy trening?
-        Asystent AI odpowie natychmiast i poprowadzi Cię krok po kroku.
-      </p>
+    <section class="hero">
+      <div class="card heroMain reveal" data-reveal>
+        <h1 data-i18n="hero.title">Trener personalny, który odpowiada od razu — i prowadzi do planu.</h1>
+        <p class="sub" data-i18n="hero.sub">
+          Ludzie mają te same pytania: pakiety, ceny, terminy, „czy to dla mnie”. FitKontakt odpowiada natychmiast, konkretnie, bez lania wody — i prowadzi do pierwszego kroku: konsultacja, plan, trening.
+        </p>
 
-      <div class="heroActions">
-        <button class="btn primary" id="openAssistant">Porozmawiaj teraz</button>
-        <span>Bez dzwonienia. Bez czekania.</span>
+        <div class="heroBadges">
+          <div class="chip"><span class="dot"></span><span data-i18n="chips.1">Pakiety i cele dopasowane do Ciebie</span></div>
+          <div class="chip"><span class="dot"></span><span data-i18n="chips.2">Szybki pierwszy kontakt</span></div>
+          <div class="chip"><span class="dot"></span><span data-i18n="chips.3">Konkretnie: plan, terminy, co dalej</span></div>
+          <div class="chip"><span class="dot"></span><span data-i18n="chips.4">Dostępność 24/7</span></div>
+          <div class="chip"><span class="dot"></span><span data-i18n="chips.5">Bez zgadywania — jasne zasady</span></div>
+        </div>
+
+        <div class="heroCTA">
+          <button class="btn primary" id="btnOpenHero" type="button" data-i18n="hero.open">Otwórz asystenta</button>
+          <button class="btn" id="btnScrollHow" type="button" data-i18n="hero.how">Jak to działa</button>
+          <span class="hint" data-i18n="hero.hint">Tip: kliknij gotowe pytanie — asystent startuje w sekundę.</span>
+        </div>
+
+        <div class="switcher" id="demo">
+          <div class="tabs" id="tabs" aria-label="Tryby rozmowy">
+            <div class="pill" id="pill"></div>
+
+            <button data-mode="start" class="active" type="button">
+              <span data-i18n="tabs.start">Start</span>
+              <span class="tag" data-i18n="tabs.tag1">pierwszy krok</span>
+            </button>
+
+            <button data-mode="pakiety" type="button">
+              <span data-i18n="tabs.pakiety">Pakiety</span>
+              <span class="tag" data-i18n="tabs.tag2">oferta</span>
+            </button>
+
+            <button data-mode="terminy" type="button">
+              <span data-i18n="tabs.terminy">Terminy</span>
+              <span class="tag" data-i18n="tabs.tag3">szybko</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card heroSide reveal" data-reveal>
+        <div class="miniGrid">
+          <div class="mini">
+            <b data-i18n="side.how.title">Jak testować</b>
+            <span data-i18n="side.how.body">Kliknij ikonę czatu. Zapytaj o pakiet, cenę, cel i terminy.</span>
+          </div>
+          <div class="mini">
+            <b data-i18n="side.why.title">Co zobaczysz</b>
+            <span data-i18n="side.why.body">Rozmowa nie jest „miła”. Jest skuteczna: prowadzi do konkretu i następnego kroku.</span>
+          </div>
+          <div class="mini">
+            <b data-i18n="side.safe.title">Kontrola</b>
+            <span data-i18n="side.safe.body">Jeśli czegoś nie ma — asystent dopyta, zamiast zmyślać.</span>
+          </div>
+          <div class="mini">
+            <b data-i18n="side.time.title">Pierwsze wrażenie</b>
+            <span data-i18n="side.time.body">Strona „odpowiada” — ludzie czują, że trafili do profesjonalisty.</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- LIVE PANEL -->
+    <section class="card panel reveal" data-reveal>
+      <div class="panelTop">
+        <div>
+          <h2 class="agentTitle" id="agentTitle" data-i18n="panel.title">FitKontakt</h2>
+          <p class="agentDesc" id="agentDesc" data-i18n="panel.desc">
+            Konkretny styl. Dobry dla osób, które chcą szybkiej odpowiedzi i jasnego planu działania.
+          </p>
+        </div>
+
+        <div class="actions">
+          <button class="btn primary" id="btnOpen" type="button" data-i18n="buttons.open">Otwórz asystenta</button>
+          <button class="btn" id="btnClear" type="button" data-i18n="buttons.clear">Wyczyść rozmowę</button>
+        </div>
+      </div>
+
+      <div class="promptRow" id="promptRow" aria-label="Szybkie pytania">
+        <button class="prompt" data-prompt="goal" type="button">Chcę schudnąć — od czego zacząć?</button>
+        <button class="prompt" data-prompt="packages" type="button">Jakie są pakiety i różnice?</button>
+        <button class="prompt" data-prompt="price" type="button">Ile to kosztuje i od czego zależy?</button>
+        <button class="prompt" data-prompt="schedule" type="button">Jak szybko znajdziemy termin?</button>
+        <button class="prompt" data-prompt="first" type="button">Jak wygląda pierwszy trening?</button>
+      </div>
+
+      <div class="divider"></div>
+    </section>
+
+    <!-- INDUSTRY SECTION LIKE YOUR WOW DEMO-SITES -->
+    <section id="demo-sites" class="card section reveal" data-reveal>
+      <div class="sectionHead">
+        <div>
+          <h2 data-i18n="demoSites.title">Trener personalny — przykład strony, która sprzedaje usługę</h2>
+          <p data-i18n="demoSites.sub">
+            To nie jest portfolio. To jest strona, która ma robić jedno: skrócić czas od wejścia do pierwszego kontaktu.
+          </p>
+        </div>
+      </div>
+
+      <div class="demoGrid">
+        <a href="#oferta" class="demoCard">
+          <div class="demoCardInner">
+            <div class="demoCardCopy">
+              <h3 data-i18n="demoSites.cardTitle">Pakiety, terminy, pierwszy kontakt</h3>
+              <p data-i18n="demoSites.cardDesc">Dokładnie to, co ludzie chcą dostać w pierwszych 20 sekundach.</p>
+              <span class="demoCta" data-i18n="demoSites.cta">Zobacz ofertę →</span>
+            </div>
+
+            <div class="demoPreview" aria-hidden="true">
+              <div class="bars">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+              </div>
+            </div>
+          </div>
+        </a>
+
+        <a href="#jak" class="demoCard">
+          <div class="demoCardInner">
+            <div class="demoCardCopy">
+              <h3 data-i18n="demoSites.cardTitle2">Jak pracujemy</h3>
+              <p data-i18n="demoSites.cardDesc2">Klarownie: co się dzieje, kiedy i jak wygląda start.</p>
+              <span class="demoCta" data-i18n="demoSites.cta2">Zobacz proces →</span>
+            </div>
+
+            <div class="demoPreview demoPreview2" aria-hidden="true">
+              <div class="bars">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+              </div>
+            </div>
+          </div>
+        </a>
       </div>
     </section>
 
-    <!-- OFERTA -->
-    <section id="oferta" class="card reveal">
-      <h2>Pakiety treningowe</h2>
+    <!-- OFFER -->
+    <section class="card section reveal" data-reveal id="oferta">
+      <div class="sectionHead">
+        <div>
+          <h2 data-i18n="offer.title">Pakiety treningowe</h2>
+          <p data-i18n="offer.sub">Wybierz poziom wsparcia. Asystent pomoże dobrać najlepszą opcję pod cel i tempo.</p>
+        </div>
+      </div>
 
       <div class="grid3">
         <div class="box">
-          <h3>Start</h3>
-          <p>1–2 treningi wprowadzające, analiza celów i plan działania.</p>
+          <h3><span class="ico">S</span><span data-i18n="offer.b1.title">Start</span></h3>
+          <p data-i18n="offer.b1.body">Pierwszy plan, technika, fundamenty. Najlepsze jeśli zaczynasz lub wracasz po przerwie.</p>
+          <div class="boxMeta">
+            <span class="pillMeta" data-i18n="offer.b1.meta1">Cel: fundament</span>
+            <span class="pillMeta" data-i18n="offer.b1.meta2">Tempo: spokojnie</span>
+          </div>
+        </div>
+
+        <div class="box featured">
+          <div class="badgeTop" data-i18n="offer.badge">Najczęściej wybierane</div>
+          <h3><span class="ico">R</span><span data-i18n="offer.b2.title">Regular</span></h3>
+          <p data-i18n="offer.b2.body">Stałe treningi, monitoring postępów, korekty planu. Najlepszy balans efektów i ceny.</p>
+          <div class="boxMeta">
+            <span class="pillMeta" data-i18n="offer.b2.meta1">Cel: forma</span>
+            <span class="pillMeta" data-i18n="offer.b2.meta2">Tempo: stabilnie</span>
+          </div>
+        </div>
+
+        <div class="box">
+          <h3><span class="ico">P</span><span data-i18n="offer.b3.title">Premium</span></h3>
+          <p data-i18n="offer.b3.body">Maksymalnie dopasowane wsparcie: plan, nawyki, stały kontakt. Dla osób „idziemy po wynik”.</p>
+          <div class="boxMeta">
+            <span class="pillMeta" data-i18n="offer.b3.meta1">Cel: wynik</span>
+            <span class="pillMeta" data-i18n="offer.b3.meta2">Tempo: mocno</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="softDivider"></div>
+
+      <div class="grid2">
+        <div class="box">
+          <h3><span class="ico">◎</span><span data-i18n="offer.extra1.title">Treningi stacjonarne</span></h3>
+          <p data-i18n="offer.extra1.body">Łódź i okolice. Konkretna praca nad techniką, postawą i progresją.</p>
         </div>
         <div class="box">
-          <h3>Regular</h3>
-          <p>Stałe treningi, monitoring postępów, korekty planu.</p>
-        </div>
-        <div class="box">
-          <h3>Premium</h3>
-          <p>Indywidualny plan, dieta, stały kontakt i pełne wsparcie.</p>
+          <h3><span class="ico">↗</span><span data-i18n="offer.extra2.title">Treningi online</span></h3>
+          <p data-i18n="offer.extra2.body">Dla osób spoza miasta. Plan, feedback i prowadzenie w prostym rytmie.</p>
         </div>
       </div>
     </section>
 
-    <!-- JAK -->
-    <section id="jak" class="card reveal">
-      <h2>Jak wygląda współpraca</h2>
+    <!-- HOW -->
+    <section class="card section reveal" data-reveal id="jak">
+      <div class="sectionHead">
+        <div>
+          <h2 data-i18n="how.title">Jak wygląda start</h2>
+          <p data-i18n="how.sub">Zero chaosu. Trzy kroki, które prowadzą do pierwszego realnego efektu.</p>
+        </div>
+      </div>
 
       <div class="steps">
-        <div class="step">
-          <span>1</span>
-          <p>Krótka rozmowa i określenie celu</p>
+        <div class="box">
+          <div class="stepNum">1</div>
+          <h3 data-i18n="how.s1.title">Cel i kontekst</h3>
+          <p data-i18n="how.s1.body">Co chcesz osiągnąć, ile masz czasu, jakie są ograniczenia i styl życia.</p>
         </div>
-        <div class="step">
-          <span>2</span>
-          <p>Plan treningowy dopasowany do Ciebie</p>
+        <div class="box">
+          <div class="stepNum">2</div>
+          <h3 data-i18n="how.s2.title">Plan i rytm</h3>
+          <p data-i18n="how.s2.body">Dobieramy pakiet, tempo i ustalamy terminy. Bez presji, ale z kierunkiem.</p>
         </div>
-        <div class="step">
-          <span>3</span>
-          <p>Regularne treningi i realne efekty</p>
+        <div class="box">
+          <div class="stepNum">3</div>
+          <h3 data-i18n="how.s3.title">Pierwszy trening</h3>
+          <p data-i18n="how.s3.body">Fundamenty: technika, bezpieczeństwo, prosty plan na następny tydzień.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL PROOF -->
+    <section class="card section reveal" data-reveal>
+      <div class="sectionHead">
+        <div>
+          <h2 data-i18n="proof.title">Jak to jest odbierane</h2>
+          <p data-i18n="proof.sub">To jest to uczucie „ogarniętego procesu”. Szybkość + klarowność + następny krok.</p>
+        </div>
+      </div>
+
+      <div class="grid3">
+        <div class="box quote">
+          <div class="stars" aria-hidden="true"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+          <p data-i18n="proof.q1">“Pierwszy raz strona trenera odpowiedziała mi konkretnie, a nie ‘napisz priv’.”</p>
+          <b data-i18n="proof.w1">Osoba początkująca</b>
+        </div>
+        <div class="box quote">
+          <div class="stars" aria-hidden="true"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+          <p data-i18n="proof.q2">“Szybko dostałem plan i opcje. Bez przepychanek.”</p>
+          <b data-i18n="proof.w2">Klient Regular</b>
+        </div>
+        <div class="box quote">
+          <div class="stars" aria-hidden="true"><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span></div>
+          <p data-i18n="proof.q3">“Widać profesjonalizm. Wchodzisz i wiesz, co zrobić dalej.”</p>
+          <b data-i18n="proof.w3">Osoba wracająca po przerwie</b>
         </div>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section class="card reveal">
-      <h2>Najczęstsze pytania</h2>
+    <section class="card section reveal" data-reveal>
+      <div class="sectionHead">
+        <div>
+          <h2 data-i18n="faq.title">FAQ</h2>
+          <p data-i18n="faq.sub">Najczęstsze pytania przed startem.</p>
+        </div>
+      </div>
 
-      <details>
-        <summary>Czy mogę trenować bez doświadczenia?</summary>
-        <p>Tak. Wszystko zaczynamy od podstaw i dopasowujemy tempo.</p>
-      </details>
+      <div class="faq">
+        <details>
+          <summary>
+            <span data-i18n="faq.q1">Czy to jest dla mnie, jeśli zaczynam od zera?</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="rgba(255,255,255,.80)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <div class="faqBody" data-i18n="faq.a1">Tak. Start jest po to, żeby wejść spokojnie i bez kontuzji.</div>
+        </details>
 
-      <details>
-        <summary>Ile trwa pierwszy trening?</summary>
-        <p>Około 60 minut razem z analizą i rozmową.</p>
-      </details>
+        <details>
+          <summary>
+            <span data-i18n="faq.q2">Ile trwa pierwszy trening?</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="rgba(255,255,255,.80)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <div class="faqBody" data-i18n="faq.a2">Zwykle 60 minut — w tym rozmowa, technika i plan na następny tydzień.</div>
+        </details>
 
-      <details>
-        <summary>Czy mogę trenować online?</summary>
-        <p>Tak, dostępne są również treningi zdalne.</p>
-      </details>
+        <details>
+          <summary>
+            <span data-i18n="faq.q3">Czy można trenować online?</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="rgba(255,255,255,.80)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <div class="faqBody" data-i18n="faq.a3">Tak. Działa świetnie, jeśli masz jasny cel i trzymasz rytm.</div>
+        </details>
+
+        <details>
+          <summary>
+            <span data-i18n="faq.q4">Jak szybko znajdziemy termin?</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="rgba(255,255,255,.80)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </summary>
+          <div class="faqBody" data-i18n="faq.a4">Najczęściej w ciągu kilku dni. Asystent zbierze preferencje i przyspieszy kontakt.</div>
+        </details>
+      </div>
     </section>
 
     <!-- CTA -->
-    <section id="kontakt" class="cta reveal">
-      <div>
-        <h2>Zacznij teraz</h2>
-        <p>
-          Napisz, jaki masz cel treningowy.
-          Asystent pomoże dobrać najlepszą opcję.
-        </p>
+    <section class="card cta reveal" data-reveal id="kontakt">
+      <div class="ctaLeft">
+        <h2 data-i18n="cta.title">Chcesz zacząć?</h2>
+        <p data-i18n="cta.sub">Napisz cel + ile razy w tygodniu chcesz trenować. Asystent przeprowadzi Cię przez start.</p>
       </div>
-
-      <button class="btn primary" id="openAssistant2">
-        Otwórz asystenta
-      </button>
+      <div class="ctaRight">
+        <a class="mail" href="mailto:kontaktio@zohomail.eu">kontaktio@zohomail.eu</a>
+        <button class="btn primary" id="btnOpenCta" type="button" data-i18n="cta.open">Otwórz asystenta</button>
+      </div>
     </section>
-  </main>
 
-  <footer>
-    <span>© FitKontakt</span>
-    <span>Trener personalny</span>
-  </footer>
+    <footer>
+      <div>© <span id="year"></span> FitKontakt</div>
+      <div class="footerLinks">
+        <a href="#demo" data-i18n="footer.try">Przetestuj</a>
+        <a href="#kontakt" data-i18n="footer.contact">Kontakt</a>
+        <a href="branze.html">Branże</a>
+      </div>
+    </footer>
+  </div>
 
-  <!-- KONTAKTIO EMBED -->
+  <!-- Sticky CTA -->
+  <div class="stickyCTA" id="stickyCTA" aria-hidden="true">
+    <div>
+      <b data-i18n="sticky.title">Zróbmy pierwszy krok</b>
+      <span data-i18n="sticky.sub">Wyślij cel + 3 informacje: poziom, czas, preferencje. Dostaniesz konkretny plan startu.</span>
+    </div>
+    <div class="right">
+      <button class="btn primary" id="btnOpenSticky" type="button">
+        <span data-i18n="sticky.open">Otwórz asystenta</span>
+      </button>
+      <button class="x" id="stickyClose" type="button" aria-label="Close">×</button>
+    </div>
+  </div>
+
   <script>
+    // KEEP: backend/script (exact)
     const BACKEND_URL = "https://chatbot-backend-x2cy.onrender.com";
     const SCRIPT_SRC = "https://cdn.jsdelivr.net/gh/kontaktio-demo/kontaktio@27625d5/kontaktio.js";
 
-    function loadAssistant(){
-      document.querySelectorAll("[id^='kontaktio-root']").forEach(e=>e.remove());
-      const s=document.createElement("script");
-      s.src=SCRIPT_SRC;
-      s.setAttribute("data-kontaktio","");
-      s.setAttribute("data-client","fitkontakt");
-      s.setAttribute("data-backend",BACKEND_URL);
-      document.body.appendChild(s);
+    // Client id for this industry page
+    const CLIENT_ID = "fitkontakt";
+
+    // Modes only affect prompt buttons + visuals (do not touch backend)
+    const MODES = ["start","pakiety","terminy"];
+    let currentMode = "start";
+    let currentScript = null;
+    let lang = "pl";
+
+    const $ = (id) => document.getElementById(id);
+
+    const COPY = {
+      pl: {
+        "top.tagline": "Trener personalny — pakiety, terminy, pierwszy kontakt",
+        "top.try": "Przejdź do rozmowy",
+        "top.cta": "Zacznijmy",
+
+        "hero.title": "Trener personalny, który odpowiada od razu — i prowadzi do planu.",
+        "hero.sub": "Ludzie mają te same pytania: pakiety, ceny, terminy, „czy to dla mnie”. FitKontakt odpowiada natychmiast, konkretnie, bez lania wody — i prowadzi do pierwszego kroku: konsultacja, plan, trening.",
+        "hero.open": "Otwórz asystenta",
+        "hero.how": "Jak to działa",
+        "hero.hint": "Tip: kliknij gotowe pytanie — asystent startuje w sekundę.",
+
+        "chips.1": "Pakiety i cele dopasowane do Ciebie",
+        "chips.2": "Szybki pierwszy kontakt",
+        "chips.3": "Konkretnie: plan, terminy, co dalej",
+        "chips.4": "Dostępność 24/7",
+        "chips.5": "Bez zgadywania — jasne zasady",
+
+        "tabs.start": "Start",
+        "tabs.pakiety": "Pakiety",
+        "tabs.terminy": "Terminy",
+        "tabs.tag1": "pierwszy krok",
+        "tabs.tag2": "oferta",
+        "tabs.tag3": "szybko",
+
+        "side.how.title": "Jak testować",
+        "side.how.body": "Kliknij ikonę czatu. Zapytaj o pakiet, cenę, cel i terminy.",
+        "side.why.title": "Co zobaczysz",
+        "side.why.body": "Rozmowa nie jest „miła”. Jest skuteczna: prowadzi do konkretu i następnego kroku.",
+        "side.safe.title": "Kontrola",
+        "side.safe.body": "Jeśli czegoś nie ma — asystent dopyta, zamiast zmyślać.",
+        "side.time.title": "Pierwsze wrażenie",
+        "side.time.body": "Strona „odpowiada” — ludzie czują, że trafili do profesjonalisty.",
+
+        "panel.title": "FitKontakt",
+        "panel.desc": "Konkretny styl. Dobry dla osób, które chcą szybkiej odpowiedzi i jasnego planu działania.",
+
+        "buttons.open": "Otwórz asystenta",
+        "buttons.clear": "Wyczyść rozmowę",
+
+        "demoSites.title": "Trener personalny — przykład strony, która sprzedaje usługę",
+        "demoSites.sub": "To nie jest portfolio. To jest strona, która ma robić jedno: skrócić czas od wejścia do pierwszego kontaktu.",
+        "demoSites.cardTitle": "Pakiety, terminy, pierwszy kontakt",
+        "demoSites.cardDesc": "Dokładnie to, co ludzie chcą dostać w pierwszych 20 sekundach.",
+        "demoSites.cta": "Zobacz ofertę →",
+        "demoSites.cardTitle2": "Jak pracujemy",
+        "demoSites.cardDesc2": "Klarownie: co się dzieje, kiedy i jak wygląda start.",
+        "demoSites.cta2": "Zobacz proces →",
+
+        "offer.title": "Pakiety treningowe",
+        "offer.sub": "Wybierz poziom wsparcia. Asystent pomoże dobrać najlepszą opcję pod cel i tempo.",
+        "offer.badge": "Najczęściej wybierane",
+        "offer.b1.title": "Start",
+        "offer.b1.body": "Pierwszy plan, technika, fundamenty. Najlepsze jeśli zaczynasz lub wracasz po przerwie.",
+        "offer.b1.meta1": "Cel: fundament",
+        "offer.b1.meta2": "Tempo: spokojnie",
+        "offer.b2.title": "Regular",
+        "offer.b2.body": "Stałe treningi, monitoring postępów, korekty planu. Najlepszy balans efektów i ceny.",
+        "offer.b2.meta1": "Cel: forma",
+        "offer.b2.meta2": "Tempo: stabilnie",
+        "offer.b3.title": "Premium",
+        "offer.b3.body": "Maksymalnie dopasowane wsparcie: plan, nawyki, stały kontakt. Dla osób „idziemy po wynik”.",
+        "offer.b3.meta1": "Cel: wynik",
+        "offer.b3.meta2": "Tempo: mocno",
+        "offer.extra1.title": "Treningi stacjonarne",
+        "offer.extra1.body": "Łódź i okolice. Konkretna praca nad techniką, postawą i progresją.",
+        "offer.extra2.title": "Treningi online",
+        "offer.extra2.body": "Dla osób spoza miasta. Plan, feedback i prowadzenie w prostym rytmie.",
+
+        "how.title": "Jak wygląda start",
+        "how.sub": "Zero chaosu. Trzy kroki, które prowadzą do pierwszego realnego efektu.",
+        "how.s1.title": "Cel i kontekst",
+        "how.s1.body": "Co chcesz osiągnąć, ile masz czasu, jakie są ograniczenia i styl życia.",
+        "how.s2.title": "Plan i rytm",
+        "how.s2.body": "Dobieramy pakiet, tempo i ustalamy terminy. Bez presji, ale z kierunkiem.",
+        "how.s3.title": "Pierwszy trening",
+        "how.s3.body": "Fundamenty: technika, bezpieczeństwo, prosty plan na następny tydzień.",
+
+        "proof.title": "Jak to jest odbierane",
+        "proof.sub": "To jest to uczucie „ogarniętego procesu”. Szybkość + klarowność + następny krok.",
+        "proof.q1": "“Pierwszy raz strona trenera odpowiedziała mi konkretnie, a nie ‘napisz priv’.”",
+        "proof.w1": "Osoba początkująca",
+        "proof.q2": "“Szybko dostałem plan i opcje. Bez przepychanek.”",
+        "proof.w2": "Klient Regular",
+        "proof.q3": "“Widać profesjonalizm. Wchodzisz i wiesz, co zrobić dalej.”",
+        "proof.w3": "Osoba wracająca po przerwie",
+
+        "faq.title": "FAQ",
+        "faq.sub": "Najczęstsze pytania przed startem.",
+        "faq.q1": "Czy to jest dla mnie, jeśli zaczynam od zera?",
+        "faq.a1": "Tak. Start jest po to, żeby wejść spokojnie i bez kontuzji.",
+        "faq.q2": "Ile trwa pierwszy trening?",
+        "faq.a2": "Zwykle 60 minut — w tym rozmowa, technika i plan na następny tydzień.",
+        "faq.q3": "Czy można trenować online?",
+        "faq.a3": "Tak. Działa świetnie, jeśli masz jasny cel i trzymasz rytm.",
+        "faq.q4": "Jak szybko znajdziemy termin?",
+        "faq.a4": "Najczęściej w ciągu kilku dni. Asystent zbierze preferencje i przyspieszy kontakt.",
+
+        "cta.title": "Chcesz zacząć?",
+        "cta.sub": "Napisz cel + ile razy w tygodniu chcesz trenować. Asystent przeprowadzi Cię przez start.",
+        "cta.open": "Otwórz asystenta",
+
+        "footer.try": "Przetestuj",
+        "footer.contact": "Kontakt",
+
+        "sticky.title": "Zróbmy pierwszy krok",
+        "sticky.sub": "Wyślij cel + 3 informacje: poziom, czas, preferencje. Dostaniesz konkretny plan startu.",
+        "sticky.open": "Otwórz asystenta"
+      },
+      en: {
+        "top.tagline": "Personal trainer — packages, schedule, first contact",
+        "top.try": "Jump to chat",
+        "top.cta": "Let’s start",
+
+        "hero.title": "A personal trainer that answers instantly — and leads you to a plan.",
+        "hero.sub": "People ask the same things: packages, pricing, availability, “is this for me”. FitKontakt responds instantly, clearly, without fluff — and moves you to the first step: consult, plan, training.",
+        "hero.open": "Open the assistant",
+        "hero.how": "How it works",
+        "hero.hint": "Tip: click a ready prompt — it starts in a second.",
+
+        "chips.1": "Goal‑matched packages",
+        "chips.2": "Fast first contact",
+        "chips.3": "Clear next step: plan & schedule",
+        "chips.4": "Available 24/7",
+        "chips.5": "No guesswork — clear rules",
+
+        "tabs.start": "Start",
+        "tabs.pakiety": "Packages",
+        "tabs.terminy": "Schedule",
+        "tabs.tag1": "first step",
+        "tabs.tag2": "offer",
+        "tabs.tag3": "fast",
+
+        "side.how.title": "How to test",
+        "side.how.body": "Open chat. Ask about packages, price, goals, and schedule.",
+        "side.why.title": "What you’ll see",
+        "side.why.body": "The chat isn’t ‘nice’. It’s effective: it drives to an outcome.",
+        "side.safe.title": "Control",
+        "side.safe.body": "If something is missing, it asks instead of making it up.",
+        "side.time.title": "First impression",
+        "side.time.body": "Your website ‘responds’ — people feel professionalism instantly.",
+
+        "panel.title": "FitKontakt",
+        "panel.desc": "Direct style. Great for people who want clarity and a plan fast.",
+
+        "buttons.open": "Open the assistant",
+        "buttons.clear": "Clear chat",
+
+        "demoSites.title": "Personal trainer — a page designed to convert",
+        "demoSites.sub": "Not a portfolio. A page that reduces time from landing to first contact.",
+        "demoSites.cardTitle": "Packages, schedule, first contact",
+        "demoSites.cardDesc": "Exactly what people need in the first 20 seconds.",
+        "demoSites.cta": "View offer →",
+        "demoSites.cardTitle2": "How we work",
+        "demoSites.cardDesc2": "Clear: what happens, when, and how you start.",
+        "demoSites.cta2": "View process →",
+
+        "offer.title": "Training packages",
+        "offer.sub": "Choose your support level. The assistant helps match the best option to your goal.",
+        "offer.badge": "Most chosen",
+        "offer.b1.title": "Start",
+        "offer.b1.body": "Basics, technique, foundations. Best if you’re new or returning.",
+        "offer.b1.meta1": "Goal: foundation",
+        "offer.b1.meta2": "Pace: calm",
+        "offer.b2.title": "Regular",
+        "offer.b2.body": "Consistent sessions, progress tracking, plan adjustments. Best balance.",
+        "offer.b2.meta1": "Goal: shape",
+        "offer.b2.meta2": "Pace: steady",
+        "offer.b3.title": "Premium",
+        "offer.b3.body": "Maximum support: plan, habits, ongoing contact. For strong outcomes.",
+        "offer.b3.meta1": "Goal: results",
+        "offer.b3.meta2": "Pace: intensive",
+        "offer.extra1.title": "In‑person training",
+        "offer.extra1.body": "Łódź area. Technique, posture, progression.",
+        "offer.extra2.title": "Online training",
+        "offer.extra2.body": "Plan, feedback, and rhythm for remote clients.",
+
+        "how.title": "How you start",
+        "how.sub": "No chaos. Three steps that create the first real result.",
+        "how.s1.title": "Goal & context",
+        "how.s1.body": "What you want, how much time you have, limits and lifestyle.",
+        "how.s2.title": "Plan & rhythm",
+        "how.s2.body": "We match package and pace, and set schedule. No pressure, just direction.",
+        "how.s3.title": "First session",
+        "how.s3.body": "Foundations: technique, safety, and a simple plan for next week.",
+
+        "proof.title": "How it feels",
+        "proof.sub": "That ‘they’ve got a process’ feeling: speed + clarity + next step.",
+        "proof.q1": "“First time a trainer’s website answered me properly — not ‘DM me’.”",
+        "proof.w1": "Beginner",
+        "proof.q2": "“Got a plan and options fast. No back and forth.”",
+        "proof.w2": "Regular client",
+        "proof.q3": "“You land and instantly know what to do next.”",
+        "proof.w3": "Returning client",
+
+        "faq.title": "FAQ",
+        "faq.sub": "Questions before you start.",
+        "faq.q1": "Is this for me if I’m starting from zero?",
+        "faq.a1": "Yes. Start is designed for safe, steady entry without injuries.",
+        "faq.q2": "How long is the first session?",
+        "faq.a2": "Usually 60 minutes: consult, technique, and your next-week plan.",
+        "faq.q3": "Can we train online?",
+        "faq.a3": "Yes. Works great with clear goals and rhythm.",
+        "faq.q4": "How fast can we find a slot?",
+        "faq.a4": "Usually within a few days. The assistant collects preferences to speed it up.",
+
+        "cta.title": "Want to start?",
+        "cta.sub": "Send your goal + training frequency. The assistant guides you through onboarding.",
+        "cta.open": "Open the assistant",
+
+        "footer.try": "Try",
+        "footer.contact": "Contact",
+
+        "sticky.title": "Let’s do the first step",
+        "sticky.sub": "Send goal + 3 details: level, time, preferences. You’ll get a clear start plan.",
+        "sticky.open": "Open the assistant"
+      }
+    };
+
+    const PROMPTS = {
+      pl: {
+        start: {
+          goal: "Chcę schudnąć — od czego zacząć?",
+          packages: "Jakie są pakiety i różnice?",
+          price: "Ile to kosztuje i od czego zależy?",
+          schedule: "Jak szybko znajdziemy termin?",
+          first: "Jak wygląda pierwszy trening?"
+        },
+        pakiety: {
+          goal: "Mam cel: redukcja. Jaki pakiet będzie najlepszy?",
+          packages: "Daj mi porównanie Start vs Regular vs Premium.",
+          price: "Czy cena zależy od częstotliwości i prowadzenia?",
+          schedule: "Ile treningów tygodniowo ma sens na start?",
+          first: "Co dostaję poza treningiem w Premium?"
+        },
+        terminy: {
+          goal: "Chcę zacząć w tym tygodniu — co potrzebujesz ode mnie?",
+          packages: "Który pakiet pozwala najszybciej wejść w rytm?",
+          price: "Czy można zacząć od krótkiego planu i potem wejść w Regular?",
+          schedule: "Jakie dni/godziny są najlepsze na start?",
+          first: "Co przygotować na pierwszy trening?"
+        }
+      },
+      en: {
+        start: {
+          goal: "I want to lose weight — where do I start?",
+          packages: "What packages do you offer and what’s the difference?",
+          price: "What’s the price and what affects it?",
+          schedule: "How soon can we find a slot?",
+          first: "What does the first session look like?"
+        },
+        pakiety: {
+          goal: "My goal is fat loss. Which package fits best?",
+          packages: "Compare Start vs Regular vs Premium.",
+          price: "Does price depend on frequency and coaching level?",
+          schedule: "How many sessions per week make sense at the beginning?",
+          first: "What’s included in Premium beyond sessions?"
+        },
+        terminy: {
+          goal: "I want to start this week — what do you need from me?",
+          packages: "Which package helps build rhythm fastest?",
+          price: "Can I start small and move to Regular later?",
+          schedule: "Which days/times are best for starting?",
+          first: "How should I prepare for the first session?"
+        }
+      }
+    };
+
+    function t(key){
+      return (COPY[lang] && COPY[lang][key]) ? COPY[lang][key] : key;
     }
 
-    document.getElementById("openAssistant").onclick=loadAssistant;
-    document.getElementById("openAssistant2").onclick=loadAssistant;
-  </script>
+    function applyI18n(){
+      document.querySelectorAll("[data-i18n]").forEach((node) => {
+        const key = node.getAttribute("data-i18n");
+        node.textContent = t(key);
+      });
+      rebuildPromptButtons();
+      requestAnimationFrame(movePillToActive);
+    }
 
-  <!-- REVEAL + GLOW -->
-  <script>
-    const io=new IntersectionObserver(e=>{
-      e.forEach(x=>x.isIntersecting&&x.target.classList.add("on"))
-    },{threshold:.12});
-    document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+    function setLang(next){
+      lang = next;
+      $("langPL").classList.toggle("active", lang === "pl");
+      $("langEN").classList.toggle("active", lang === "en");
+      applyI18n();
+    }
 
-    const glow=document.getElementById("glow");
-    if(window.matchMedia("(hover:hover)").matches){
-      window.addEventListener("mousemove",e=>{
-        glow.style.transform=`translate(${e.clientX-390}px,${e.clientY-390}px)`
+    function rebuildPromptButtons(){
+      const row = $("promptRow");
+      if (!row) return;
+      const dict = (PROMPTS[lang] && PROMPTS[lang][currentMode]) ? PROMPTS[lang][currentMode] : PROMPTS.pl.start;
+
+      row.querySelectorAll("[data-prompt]").forEach(btn => {
+        const key = btn.getAttribute("data-prompt");
+        btn.textContent = dict[key] || btn.textContent;
       });
     }
+
+    function resetKontaktio(){
+      document.querySelectorAll("[id^='kontaktio-root']").forEach(el => el.remove());
+      if (currentScript) currentScript.remove();
+      window.__KontaktioBooted = false;
+    }
+
+    function loadAssistant(){
+      resetKontaktio();
+      const script = document.createElement("script");
+      script.src = SCRIPT_SRC;
+      script.setAttribute("data-kontaktio", "");
+      script.setAttribute("data-client", CLIENT_ID);
+      script.setAttribute("data-backend", BACKEND_URL);
+      document.body.appendChild(script);
+      currentScript = script;
+    }
+
+    function openAssistant(){
+      try { localStorage.setItem(`kontaktio-open-${CLIENT_ID}`, "1"); } catch {}
+      loadAssistant();
+    }
+
+    function clearHistory(){
+      try{
+        localStorage.removeItem(`kontaktio-history-${CLIENT_ID}`);
+        localStorage.removeItem(`kontaktio-session-${CLIENT_ID}`);
+        localStorage.removeItem(`kontaktio-open-${CLIENT_ID}`);
+      }catch{}
+    }
+
+    function tryPrefillAndSend(text){
+      const input = document.querySelector(".kontaktio-input");
+      if (!input) {
+        try { navigator.clipboard.writeText(text); } catch {}
+        return;
+      }
+      input.focus();
+      input.value = text;
+      input.dispatchEvent(new Event("input", { bubbles: true }));
+      const send = document.querySelector(".kontaktio-send");
+      if (send) send.click();
+    }
+
+    function jumpToDemo(){
+      document.querySelector("#demo")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      setTimeout(() => openAssistant(), 520);
+    }
+
+    function movePillToActive(){
+      const tabs = $("tabs");
+      const pill = $("pill");
+      const active = tabs?.querySelector("button.active");
+      if (!tabs || !pill || !active) return;
+
+      const tabsRect = tabs.getBoundingClientRect();
+      const aRect = active.getBoundingClientRect();
+      const x = aRect.left - tabsRect.left;
+
+      pill.style.width = aRect.width + "px";
+      pill.style.transform = `translate3d(${x}px, 0, 0)`;
+    }
+
+    function setMode(nextMode){
+      if (!MODES.includes(nextMode)) nextMode = "start";
+      currentMode = nextMode;
+
+      document.querySelectorAll("#tabs button").forEach(b => b.classList.remove("active"));
+      const btn = document.querySelector(`#tabs button[data-mode="${nextMode}"]`);
+      if (btn) btn.classList.add("active");
+
+      rebuildPromptButtons();
+      requestAnimationFrame(movePillToActive);
+    }
+
+    // reveal
+    (function reveal(){
+      const items = Array.from(document.querySelectorAll("[data-reveal]"));
+      if (!items.length) return;
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("on"); });
+      }, { threshold: 0.12 });
+      items.forEach(el => io.observe(el));
+    })();
+
+    // glow
+    (function initGlow(){
+      const glow = $("glow");
+      if (!glow) return;
+      if (!window.matchMedia("(hover:hover)").matches) return;
+
+      let raf = null;
+      let x = -9999, y = -9999;
+      function onMove(e){
+        x = e.clientX - 390;
+        y = e.clientY - 390;
+        if (raf) return;
+        raf = requestAnimationFrame(() => {
+          glow.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+          raf = null;
+        });
+      }
+      window.addEventListener("mousemove", onMove, { passive: true });
+    })();
+
+    // sticky
+    (function sticky(){
+      const bar = $("stickyCTA");
+      const close = $("stickyClose");
+      if (!bar || !close) return;
+
+      const key = "fitkontakt_sticky_closed";
+      const closed = (() => { try { return localStorage.getItem(key) === "1"; } catch { return false; } })();
+      if (closed) return;
+
+      function onScroll(){
+        const y = window.scrollY || 0;
+        if (y > 850) bar.classList.add("on");
+        else bar.classList.remove("on");
+      }
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+
+      close.addEventListener("click", () => {
+        bar.classList.remove("on");
+        try { localStorage.setItem(key, "1"); } catch {}
+      });
+    })();
+
+    // progress bar
+    (function progress(){
+      const el = $("progress");
+      if (!el) return;
+      function onScroll(){
+        const doc = document.documentElement;
+        const max = (doc.scrollHeight - doc.clientHeight) || 1;
+        const p = Math.max(0, Math.min(1, (doc.scrollTop || window.scrollY || 0) / max));
+        el.style.width = (p * 100).toFixed(2) + "%";
+      }
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+    })();
+
+    // Events
+    $("btnOpen")?.addEventListener("click", openAssistant);
+    $("btnOpenHero")?.addEventListener("click", openAssistant);
+    $("btnOpenCta")?.addEventListener("click", openAssistant);
+    $("btnOpenSticky")?.addEventListener("click", openAssistant);
+
+    $("btnClear")?.addEventListener("click", () => {
+      clearHistory();
+      loadAssistant();
+
+      const b = $("btnClear");
+      const old = b.textContent;
+      b.textContent = (lang === "pl") ? "Wyczyszczono" : "Cleared";
+      setTimeout(() => (b.textContent = old), 900);
+    });
+
+    $("btnScrollHow")?.addEventListener("click", () => {
+      document.querySelector("#jak")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    $("btnJumpDemo")?.addEventListener("click", jumpToDemo);
+
+    $("promptRow")?.addEventListener("click", (e) => {
+      const btn = e.target.closest("[data-prompt]");
+      if (!btn) return;
+
+      const key = btn.getAttribute("data-prompt");
+      const dict = (PROMPTS[lang] && PROMPTS[lang][currentMode]) ? PROMPTS[lang][currentMode] : PROMPTS.pl.start;
+      const text = dict[key] || btn.textContent;
+
+      openAssistant();
+      setTimeout(() => tryPrefillAndSend(text), 700);
+    });
+
+    $("langPL")?.addEventListener("click", () => setLang("pl"));
+    $("langEN")?.addEventListener("click", () => setLang("en"));
+
+    document.querySelectorAll("#tabs button").forEach(btn => {
+      btn.addEventListener("click", () => setMode(btn.dataset.mode));
+    });
+    window.addEventListener("resize", movePillToActive, { passive: true });
+
+    window.addEventListener("keydown", (e) => {
+      const isMac = navigator.platform.toLowerCase().includes("mac");
+      const combo = isMac ? e.metaKey : e.ctrlKey;
+      if (combo && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        jumpToDemo();
+      }
+    });
+
+    $("year").textContent = String(new Date().getFullYear());
+
+    // init
+    setLang("pl");
+    setMode("start");
+    requestAnimationFrame(movePillToActive);
+    rebuildPromptButtons();
+    loadAssistant(); // optional: pre-load so the launcher exists immediately
   </script>
 </body>
 </html>
