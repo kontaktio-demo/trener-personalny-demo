@@ -301,13 +301,14 @@ a:hover{ color: #fff; }
 /* ---------- Custom cursor ---------- */
 .cursor{
   position: fixed;
-  top: 0; left: 0;
-  width: 18px; height: 18px;
-  border-radius: 999px;
+  top: 0;
+  left: 0;
   pointer-events: none;
-  z-index: 10000;
-  transform: translate(-100px,-100px);
-  mix-blend-mode: screen;
+  z-index: 9999;
+  will-change: transform;
+  transform: translate3d(-100px, -100px, 0);
+}
+
 }
 .cursor--outer{
   width: 44px; height: 44px;
@@ -1540,5 +1541,12 @@ a:hover{ color: #fff; }
 @media (prefers-reduced-motion: reduce){
   *{ animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   [data-reveal],[data-reveal-delay]{ opacity:1; transform:none; filter:none; }
+   
+   @media (max-width: 1024px){
+  .cursor{
+    display: none;
+  }
 }
+
+
 
