@@ -2,35 +2,56 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <title>EliteShape Studio | Trener personalny</title>
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Premium studio treningu personalnego. Metamorfozy, plany żywieniowe, treningi 1:1 i online." />
-  <link rel="stylesheet" href="styles.css" />
+
+  <title>EliteShape | Trener personalny premium</title>
+  <meta name="description" content="Premium trening personalny: plan, technika, żywienie i monitoring. Efekt wow bez marnowania godzin na siłowni." />
+  <meta name="theme-color" content="#0b0d12" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="EliteShape | Trener personalny premium" />
+  <meta property="og:description" content="System, który dowozisz. Metamorfozy, siła, sylwetka — bez ekstremów." />
+  <meta property="og:type" content="website" />
 </head>
-<body class="page">
-  <!-- ===================== LOADER ===================== -->
-  <div class="loader" id="loader">
+
+<body class="page" data-page>
+  <!-- =========================================================
+       LOADER
+       ========================================================= -->
+  <div class="loader" id="loader" aria-hidden="true">
     <div class="loader__inner">
       <div class="loader__ring loader__ring--1"></div>
       <div class="loader__ring loader__ring--2"></div>
       <div class="loader__logo">ES</div>
-      <span class="loader__text">Ładowanie Twojej metamorfozy…</span>
+      <div class="loader__text">Ładowanie metamorfozy…</div>
     </div>
   </div>
 
-  <!-- ===================== CUSTOM CURSOR ===================== -->
-  <div class="cursor cursor--outer"></div>
-  <div class="cursor cursor--inner"></div>
+  <!-- =========================================================
+       NO-JS FALLBACK
+       ========================================================= -->
+  <noscript>
+    <div style="padding:16px;margin:16px;border-radius:12px;background:#111;color:#fff;border:1px solid rgba(255,255,255,.12);font-family:system-ui">
+      Ta strona działa najlepiej z włączonym JavaScript.
+    </div>
+  </noscript>
 
-  <!-- ===================== NAVBAR ===================== -->
-  <header class="nav">
+  <!-- =========================================================
+       NAV
+       ========================================================= -->
+  <header class="nav" data-nav>
     <div class="nav__blur"></div>
+
     <div class="nav__container">
-      <a href="#hero" class="nav__brand" data-magnetic>
-        <span class="nav__logo-mark">ES</span>
+      <a class="nav__brand" href="#hero" aria-label="EliteShape - przejdź do góry">
+        <span class="nav__logo-mark" aria-hidden="true">ES</span>
         <span class="nav__brand-text">
           <span class="nav__brand-main">EliteShape</span>
           <span class="nav__brand-sub">Trening personalny premium</span>
@@ -38,979 +59,1303 @@
       </a>
 
       <nav class="nav__menu" aria-label="Główne menu">
-        <button class="nav__toggle" id="navToggle" aria-label="Otwórz menu">
+        <button class="nav__toggle" type="button" aria-label="Otwórz menu" aria-expanded="false" aria-controls="navList" data-nav-toggle>
           <span class="nav__toggle-line"></span>
           <span class="nav__toggle-line"></span>
         </button>
 
-        <ul class="nav__list" id="navList">
-          <li class="nav__item"><a href="#about" class="nav__link">O mnie</a></li>
-          <li class="nav__item"><a href="#methods" class="nav__link">Metoda</a></li>
-          <li class="nav__item"><a href="#transformations" class="nav__link">Metamorfozy</a></li>
-          <li class="nav__item"><a href="#pricing" class="nav__link">Pakiety</a></li>
-          <li class="nav__item"><a href="#faq" class="nav__link">FAQ</a></li>
-          <li class="nav__item"><a href="#contact" class="nav__link nav__link--primary">Umów konsultację</a></li>
+        <ul class="nav__list" id="navList" data-nav-list>
+          <li class="nav__item"><a class="nav__link" href="#about">O mnie</a></li>
+          <li class="nav__item"><a class="nav__link" href="#system">System</a></li>
+          <li class="nav__item"><a class="nav__link" href="#results">Wyniki</a></li>
+          <li class="nav__item"><a class="nav__link" href="#programs">Programy</a></li>
+          <li class="nav__item"><a class="nav__link" href="#pricing">Pakiety</a></li>
+          <li class="nav__item"><a class="nav__link" href="#faq">FAQ</a></li>
+          <li class="nav__item"><a class="nav__link nav__link--primary" href="#contact">Bezpłatna konsultacja</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- ===================== HERO ===================== -->
-  <main>
+  <!-- =========================================================
+       HERO
+       ========================================================= -->
+  <main class="main">
     <section class="hero" id="hero" style="isolation:isolate;">
-      <div class="hero__background">
-        <div class="hero__gradient hero__gradient--left"></div>
-        <div class="hero__gradient hero__gradient--right"></div>
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__glow hero__glow--a"></div>
+        <div class="hero__glow hero__glow--b"></div>
         <div class="hero__grid"></div>
+        <div class="hero__noise"></div>
       </div>
 
       <div class="hero__container">
         <div class="hero__left">
           <div class="hero__badge" data-reveal>
-            <span class="hero__badge-dot"></span>
-            <span class="hero__badge-text">Limitowana liczba miejsc 1:1</span>
+            <span class="hero__badge-dot" aria-hidden="true"></span>
+            <span class="hero__badge-text">Limitowana liczba miejsc 1:1 w tym miesiącu</span>
           </div>
 
-          <h1 class="hero__title" data-reveal-delay="0.1">
+          <h1 class="hero__title" data-reveal-delay="0.08">
             Zmień swoje ciało<br />
             <span class="hero__title-gradient">bez jałowych godzin na siłowni</span>
           </h1>
 
-          <p class="hero__subtitle" data-reveal-delay="0.2">
-            Indywidualne treningi, dopasowane odżywianie i pełne prowadzenie. Zero przypadkowych planów z internetu,
-            tylko precyzyjna strategia pod Twoje życie.
+          <p class="hero__subtitle" data-reveal-delay="0.16">
+            Indywidualne treningi, dopasowane odżywianie i stały monitoring. Zero szablonów.
+            Jedna strategia — dopasowana do Twojej pracy, stresu i regeneracji.
           </p>
 
-          <div class="hero__cta-group" data-reveal-delay="0.3">
-            <a href="#contact" class="btn btn--primary" data-magnetic>
+          <div class="hero__cta" data-reveal-delay="0.24">
+            <a class="btn btn--primary" href="#contact" data-magnetic>
               Zarezerwuj bezpłatną konsultację
-              <span class="btn__pulse"></span>
+              <span class="btn__pulse" aria-hidden="true"></span>
             </a>
-            <button class="btn btn--ghost" data-scroll-to="#transformations" data-magnetic>
-              Zobacz realne metamorfozy
+
+            <button class="btn btn--ghost" type="button" data-scroll-to="#results" data-magnetic>
+              Zobacz realne wyniki
+            </button>
+
+            <button class="btn btn--outline" type="button" data-open-modal="#leadModal" data-magnetic>
+              Jak wygląda współpraca?
             </button>
           </div>
 
-          <div class="hero__meta" data-reveal-delay="0.4">
-            <div class="hero__meta-item">
-              <span class="hero__meta-label">Średnia utrata</span>
-              <span class="hero__meta-value" data-counter data-counter-from="0" data-counter-to="9.8" data-counter-suffix=" kg">
-                0 kg
-              </span>
+          <div class="hero__stats" data-reveal-delay="0.32">
+            <div class="stat">
+              <div class="stat__label">Średnia utrata</div>
+              <div class="stat__value" data-counter data-from="0" data-to="9.8" data-decimals="1" data-suffix=" kg">0 kg</div>
+              <div class="stat__note">w pierwszych 12 tygodniach</div>
             </div>
-            <div class="hero__meta-divider"></div>
-            <div class="hero__meta-item">
-              <span class="hero__meta-label">Ponad</span>
-              <span class="hero__meta-value" data-counter data-counter-from="0" data-counter-to="170" data-counter-suffix="+">
-                0+
-              </span>
-              <span class="hero__meta-note">ukończonych metamorfoz</span>
+            <div class="stat__divider" aria-hidden="true"></div>
+            <div class="stat">
+              <div class="stat__label">Ponad</div>
+              <div class="stat__value" data-counter data-from="0" data-to="170" data-decimals="0" data-suffix="+">0+</div>
+              <div class="stat__note">ukończonych metamorfoz</div>
             </div>
-            <div class="hero__meta-divider"></div>
-            <div class="hero__meta-item">
-              <span class="hero__meta-label">Satysfakcja</span>
-              <span class="hero__meta-stars">★★★★★</span>
-              <span class="hero__meta-note">5.0 / 5.0 na Google</span>
+            <div class="stat__divider" aria-hidden="true"></div>
+            <div class="stat">
+              <div class="stat__label">Satysfakcja</div>
+              <div class="stat__value">★★★★★</div>
+              <div class="stat__note">5.0 / 5.0 na Google</div>
+            </div>
+          </div>
+
+          <div class="hero__proof" data-reveal-delay="0.4">
+            <div class="proof-pill">
+              <span class="proof-pill__dot" aria-hidden="true"></span>
+              <span class="proof-pill__text">Start: ankieta 60 sekund → plan w 24–48h</span>
+            </div>
+            <div class="proof-pill">
+              <span class="proof-pill__dot" aria-hidden="true"></span>
+              <span class="proof-pill__text">Zero „fit-mitu”: prosto, policzalnie, do utrzymania</span>
             </div>
           </div>
         </div>
 
         <div class="hero__right" aria-hidden="true">
-          <div class="hero__card hero__card--main" data-parallax data-parallax-depth="30">
-            <div class="hero__card-header">
-              <span class="hero__card-title">Sesja 1:1</span>
-              <span class="hero__card-status hero__card-status--live">LIVE</span>
+          <div class="hud" data-parallax data-depth="24">
+            <div class="hud__top">
+              <div class="hud__title">Sesja 1:1</div>
+              <div class="hud__chip hud__chip--live">LIVE</div>
             </div>
-            <div class="hero__card-body">
-              <div class="hero__avatar-stack">
-                <div class="hero__avatar hero__avatar--coach"></div>
-                <div class="hero__avatar hero__avatar--client"></div>
-                <div class="hero__pulse-circle"></div>
+
+            <div class="hud__body">
+              <div class="hud__avatars">
+                <div class="hud__avatar hud__avatar--coach"></div>
+                <div class="hud__avatar hud__avatar--client"></div>
+                <div class="hud__pulse"></div>
               </div>
-              <ul class="hero__session-list">
-                <li class="hero__session-item">
-                  <span class="hero__session-label">Plan na dziś</span>
-                  <span class="hero__session-value">Siła &amp; brzuch + mobilność</span>
-                </li>
-                <li class="hero__session-item">
-                  <span class="hero__session-label">Poziom</span>
-                  <span class="hero__session-value">Średniozaawansowany</span>
-                </li>
-                <li class="hero__session-item">
-                  <span class="hero__session-label">Intensywność</span>
-                  <span class="hero__session-badges">
-                    <span class="badge badge--warm">Cardio</span>
-                    <span class="badge badge--hot">Siła</span>
-                    <span class="badge badge--soft">Mobilność</span>
-                  </span>
-                </li>
-              </ul>
+
+              <div class="hud__rows">
+                <div class="hud__row">
+                  <div class="hud__k">Plan na dziś</div>
+                  <div class="hud__v">Siła &amp; brzuch + mobilność</div>
+                </div>
+                <div class="hud__row">
+                  <div class="hud__k">Poziom</div>
+                  <div class="hud__v">Średniozaawansowany</div>
+                </div>
+                <div class="hud__row">
+                  <div class="hud__k">Intensywność</div>
+                  <div class="hud__v">
+                    <span class="tag tag--warm">Cardio</span>
+                    <span class="tag tag--hot">Siła</span>
+                    <span class="tag tag--soft">Mobilność</span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="hero__card-footer">
-              <span class="hero__card-tag">Personalizacja 100%</span>
-              <span class="hero__card-tag hero__card-tag--accent">Bez powtarzania tych samych błędów</span>
+
+            <div class="hud__bottom">
+              <span class="hud__badge">Personalizacja 100%</span>
+              <span class="hud__badge hud__badge--accent">Bez losowych planów z neta</span>
             </div>
           </div>
 
-          <div class="hero__card hero__card--secondary hero__card--floating" data-parallax data-parallax-depth="60">
-            <div class="hero__progress-label">Twój miesięczny progres</div>
-            <div class="hero__progress-bars">
-              <div class="hero__progress-row">
-                <span class="hero__progress-name">Siła</span>
-                <div class="hero__progress-track">
-                  <div class="hero__progress-fill" data-progress="86"></div>
+          <div class="meter" data-parallax data-depth="42">
+            <div class="meter__title">Twój miesięczny progres</div>
+
+            <div class="meter__list">
+              <div class="meter__item">
+                <div class="meter__head">
+                  <span class="meter__name">Siła</span>
+                  <span class="meter__val">+18%</span>
                 </div>
-                <span class="hero__progress-value">+18%</span>
+                <div class="meter__track">
+                  <div class="meter__fill" data-progress="86"></div>
+                </div>
               </div>
-              <div class="hero__progress-row">
-                <span class="hero__progress-name">Sylwetka</span>
-                <div class="hero__progress-track">
-                  <div class="hero__progress-fill" data-progress="91"></div>
+
+              <div class="meter__item">
+                <div class="meter__head">
+                  <span class="meter__name">Sylwetka</span>
+                  <span class="meter__val">+3.2 kg mięśni</span>
                 </div>
-                <span class="hero__progress-value">+3,2 kg mięśni</span>
+                <div class="meter__track">
+                  <div class="meter__fill" data-progress="91"></div>
+                </div>
               </div>
-              <div class="hero__progress-row">
-                <span class="hero__progress-name">Energia</span>
-                <div class="hero__progress-track">
-                  <div class="hero__progress-fill" data-progress="78"></div>
+
+              <div class="meter__item">
+                <div class="meter__head">
+                  <span class="meter__name">Energia</span>
+                  <span class="meter__val">bez zjazdów</span>
                 </div>
-                <span class="hero__progress-value">Bez zjazdów w ciągu dnia</span>
+                <div class="meter__track">
+                  <div class="meter__fill" data-progress="78"></div>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="hero__floating-label">
-            <span class="hero__floating-dot"></span>
-            <span class="hero__floating-text">Start wypełniasz w 60 sekund – resztą zajmuję się ja.</span>
+          <div class="hero__floating" data-parallax data-depth="60">
+            <span class="hero__floating-dot" aria-hidden="true"></span>
+            <span class="hero__floating-text">Działamy systemem: plan → dowóz → korekty → wynik.</span>
           </div>
         </div>
       </div>
 
-      <div class="hero__scroll-indicator" data-scroll-to="#about">
-        <span class="hero__scroll-line"></span>
-        <span class="hero__scroll-text">Przewiń w dół</span>
-      </div>
+      <button class="hero__scroll" type="button" data-scroll-to="#about" aria-label="Przewiń do sekcji O mnie">
+        <span class="hero__scroll-line" aria-hidden="true"></span>
+        <span class="hero__scroll-text">Przewiń</span>
+      </button>
     </section>
 
-    <!-- ===================== ABOUT ===================== -->
+    <!-- =========================================================
+         ABOUT
+         ========================================================= -->
     <section class="section section--dark" id="about">
       <div class="section__container section__container--split">
         <div class="section__label" data-reveal>O mnie</div>
+
         <div class="section__content">
-          <div class="about about--left" data-reveal-delay="0.1">
+          <div class="stack" data-reveal-delay="0.08">
             <h2 class="section__title">
               Trening, który w końcu<br />
               <span class="section__title-gradient">pasuje do Twojego życia</span>
             </h2>
+
             <p class="section__text">
-              Nazywam się Michał i od ponad 8 lat pomagam osobom zapracowanym zbudować sylwetkę, która przyciąga wzrok,
-              bez poświęcania pracy, rodziny i normalnego jedzenia. Łączę trening siłowy, mobilność i świadome
-              odżywianie w jeden system, który jest do udźwignięcia na co dzień.
-            </p>
-            <p class="section__text">
-              Nie wierzę w uniwersalne plany. Zanim wejdziemy na siłownię, rozkładam na czynniki pierwsze Twój grafik,
-              możliwości regeneracji, poziom stresu i dotychczasowe doświadczenia. Dzięki temu możesz robić realny
-              progres, nawet jeśli trenujesz 2–3 razy w tygodniu.
+              Jestem trenerem, który nie „sprzedaje motywacji” — sprzedaję system. Najpierw stabilizujemy podstawy:
+              ruch, technikę, regenerację, stres. Dopiero potem dociskamy gaz w treningu i jedzeniu.
             </p>
 
-            <div class="about__pills">
-              <div class="pill" data-reveal-delay="0.15">
-                <span class="pill__label">8+</span>
-                <span class="pill__desc">lat doświadczenia</span>
+            <p class="section__text">
+              Dzięki temu robisz progres nawet wtedy, gdy masz pracę, rodzinę i tydzień z kosmosu.
+              To nie jest 4-tygodniowy zryw. To nowa normalność.
+            </p>
+
+            <div class="pill-row">
+              <div class="pill" data-reveal-delay="0.12">
+                <div class="pill__k">8+</div>
+                <div class="pill__v">lat doświadczenia</div>
+              </div>
+              <div class="pill" data-reveal-delay="0.16">
+                <div class="pill__k">170+</div>
+                <div class="pill__v">zakończonych procesów</div>
               </div>
               <div class="pill" data-reveal-delay="0.2">
-                <span class="pill__label">170+</span>
-                <span class="pill__desc">zakończonych współprac</span>
+                <div class="pill__k">0</div>
+                <div class="pill__v">gotowych szablonów</div>
               </div>
-              <div class="pill" data-reveal-delay="0.25">
-                <span class="pill__label">0</span>
-                <span class="pill__desc">gotowych szablonów planów</span>
-              </div>
+            </div>
+
+            <div class="callout" data-reveal-delay="0.24">
+              Jeśli chcesz „kogoś od dopingu” — to nie ja. Jeśli chcesz strategii, którą dowozisz latami — pogadamy.
             </div>
           </div>
 
-          <div class="about about--right">
-            <div class="about__card about__card--photo" data-reveal-delay="0.2">
-              <div class="about__photo"></div>
-              <div class="about__tag">
-                <span class="about__tag-title">Specjalizacja</span>
-                <span class="about__tag-text">Sylwetka męska &amp; damska, redukcja, rekompozycja, siła</span>
+          <div class="about-cards">
+            <div class="card card--photo" data-reveal-delay="0.14" aria-hidden="true">
+              <div class="card__media"></div>
+              <div class="card__bar">
+                <div class="card__bar-k">Specjalizacja</div>
+                <div class="card__bar-v">Sylwetka, siła, redukcja, mobilność</div>
               </div>
             </div>
 
-            <div class="about__card about__card--grid" data-reveal-delay="0.3">
-              <div class="about__grid-item">
-                <span class="about__grid-label">Styl pracy</span>
-                <span class="about__grid-value">Konkretnie, bez lukru, ale z pełnym wsparciem</span>
+            <div class="card card--grid" data-reveal-delay="0.22">
+              <div class="kv">
+                <div class="kv__k">Styl pracy</div>
+                <div class="kv__v">Konkretnie, policzalnie, bez ściemy</div>
               </div>
-              <div class="about__grid-item">
-                <span class="about__grid-label">Forma współpracy</span>
-                <span class="about__grid-value">Studio treningowe w mieście + prowadzenie online</span>
+              <div class="kv">
+                <div class="kv__k">Forma</div>
+                <div class="kv__v">Studio + online</div>
               </div>
-              <div class="about__grid-item">
-                <span class="about__grid-label">Pierwszy krok</span>
-                <span class="about__grid-value">15-minutowa rozmowa wstępna (online lub telefon)</span>
+              <div class="kv">
+                <div class="kv__k">Pierwszy krok</div>
+                <div class="kv__v">15–20 min rozmowy</div>
               </div>
-              <div class="about__grid-item">
-                <span class="about__grid-label">Języki</span>
-                <span class="about__grid-value">Polski / English</span>
+              <div class="kv">
+                <div class="kv__k">Cel</div>
+                <div class="kv__v">Wynik, który da się utrzymać</div>
               </div>
             </div>
 
-            <div class="about__note" data-reveal-delay="0.35">
-              Jeśli szukasz kogoś, kto „motywuje krzykiem” – nie dogadamy się. Jeśli chcesz systemu, który
-              możesz dowieźć latami, a nie 4 tygodnie – porozmawiajmy.
+            <div class="card card--mini" data-reveal-delay="0.28">
+              <div class="mini">
+                <div class="mini__dot" aria-hidden="true"></div>
+                <div class="mini__text">
+                  Współpraca nie zaczyna się od „pakietu”. Zaczyna się od diagnozy i decyzji, czy to ma sens.
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===================== METHODS ===================== -->
-    <section class="section section--light" id="methods">
+    <!-- =========================================================
+         SYSTEM / METHOD
+         ========================================================= -->
+    <section class="section section--light" id="system">
       <div class="section__container">
         <div class="section__header">
-          <div class="section__label" data-reveal>Jak pracuję</div>
-          <h2 class="section__title" data-reveal-delay="0.1">
-            Trzy filary współpracy,<br />
-            <span class="section__title-gradient">które robią realny progres</span>
+          <div class="section__label" data-reveal>System</div>
+          <h2 class="section__title" data-reveal-delay="0.08">
+            Trzy filary, które robią wynik<br />
+            <span class="section__title-gradient">bez chaosu i zgadywania</span>
           </h2>
-        </div>
-
-        <div class="methods">
-          <article class="method-card" data-reveal-delay="0.15">
-            <div class="method-card__badge">1</div>
-            <h3 class="method-card__title">Diagnostyka &amp; strategia</h3>
-            <p class="method-card__text">
-              Analizujemy Twój dzień, stres, sen, historię treningów i kontuzji. Na tej podstawie układam strategię –
-              nie tylko plan treningowy, ale też ramy odżywiania i regeneracji.
-            </p>
-            <ul class="method-card__list">
-              <li>Analiza sylwetki i ruchu (online lub na żywo)</li>
-              <li>Ocena ograniczeń ruchowych i wzorców</li>
-              <li>Określenie realnego celu i terminu</li>
-            </ul>
-          </article>
-
-          <article class="method-card" data-reveal-delay="0.2">
-            <div class="method-card__badge">2</div>
-            <h3 class="method-card__title">Treningi 1:1 lub hybrydowe</h3>
-            <p class="method-card__text">
-              Spotykamy się na sali lub pracujemy hybrydowo – część treningów 1:1, część w oparciu o dokładne video
-              instrukcje. Wszystko z uwzględnieniem Twojej pracy i życia rodzinnego.
-            </p>
-            <ul class="method-card__list">
-              <li>Precyzyjna technika i korekta ruchu</li>
-              <li>Skalowanie obciążeń i objętości</li>
-              <li>Plan B na tygodnie, gdy „życie się dzieje”</li>
-            </ul>
-          </article>
-
-          <article class="method-card" data-reveal-delay="0.25">
-            <div class="method-card__badge">3</div>
-            <h3 class="method-card__title">Monitoring &amp; wsparcie</h3>
-            <p class="method-card__text">
-              Razem śledzimy progres: pomiary, wymiary, samopoczucie, siłę. Koryguję plan, gdy tylko widzę, że coś nie
-              gra – zanim pojawi się frustracja.
-            </p>
-            <ul class="method-card__list">
-              <li>Krótkie check-iny co tydzień</li>
-              <li>Pełny update planu co 4–6 tygodni</li>
-              <li>Wsparcie na komunikatorze w godzinach pracy</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="methods__bottom">
-          <div class="methods__highlight" data-reveal-delay="0.3">
-            <span class="methods__highlight-dot"></span>
-            <p>
-              Nie sprzedaję jednorazowych „pakietów 5 treningów”. To proces, za który biorę odpowiedzialność od A do Z.
-            </p>
-          </div>
-          <a href="#pricing" class="btn btn--outline" data-magnetic data-reveal-delay="0.35">
-            Sprawdź, jak wyglądają pakiety
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== TRANSFORMATIONS ===================== -->
-    <section class="section section--dark section--angled" id="transformations">
-      <div class="section__container">
-        <div class="section__header section__header--center">
-          <div class="section__label" data-reveal>Metamorfozy</div>
-          <h2 class="section__title" data-reveal-delay="0.1">
-            Realni ludzie,<br />
-            <span class="section__title-gradient">realne wyniki, bez filtrów</span>
-          </h2>
-          <p class="section__text section__text--center" data-reveal-delay="0.15">
-            Każda z tych osób miała pracę, obowiązki i swoje „ale”. Twoja sytuacja nie jest wyjątkiem – chodzi o system,
-            który da się dowieźć.
+          <p class="section__text" data-reveal-delay="0.12">
+            Wszystko, co robimy, ma uzasadnienie i miernik. Nie „czujesz, że działa” — Ty widzisz, że działa.
           </p>
         </div>
 
-        <div class="transformations">
-          <article class="transform-card" data-reveal-delay="0.2">
-            <div class="transform-card__photo transform-card__photo--1"></div>
-            <div class="transform-card__overlay">
-              <div class="transform-card__label">– 12,4 kg w 6 miesięcy</div>
-              <div class="transform-card__name">Ania, 32 lata</div>
-              <p class="transform-card__story">
-                „Zero głodówek, zero biegania, którego nienawidzę. Zamiast tego 3 treningi siłowe i normalne jedzenie.
-                Pierwszy raz czuję, że mam kontrolę nad swoim ciałem.”
-              </p>
+        <div class="grid-3">
+          <article class="feature" data-reveal-delay="0.14">
+            <div class="feature__top">
+              <div class="feature__num">01</div>
+              <div class="feature__icon" aria-hidden="true"></div>
             </div>
+            <h3 class="feature__title">Diagnostyka &amp; plan</h3>
+            <p class="feature__text">
+              Wywiad, analiza ruchu, priorytety, czas i regeneracja. Dopiero potem plan: taki, który dowieziesz.
+            </p>
+            <ul class="feature__list">
+              <li>Analiza celu i ograniczeń</li>
+              <li>Plan treningowy + progresja</li>
+              <li>Ramy żywieniowe (bez ekstremów)</li>
+            </ul>
           </article>
 
-          <article class="transform-card" data-reveal-delay="0.25">
-            <div class="transform-card__photo transform-card__photo--2"></div>
-            <div class="transform-card__overlay">
-              <div class="transform-card__label">+ 6,8 kg mięśni w rok</div>
-              <div class="transform-card__name">Kamil, 28 lat</div>
-              <p class="transform-card__story">
-                „Zawsze byłem tym „za chudym”. Teraz pierwszy raz nie wstydzę się koszulki na plaży, a plecy nie bolą
-                mnie po 8h pracy przy biurku.”
-              </p>
+          <article class="feature" data-reveal-delay="0.18">
+            <div class="feature__top">
+              <div class="feature__num">02</div>
+              <div class="feature__icon feature__icon--b" aria-hidden="true"></div>
             </div>
+            <h3 class="feature__title">Technika &amp; wykonanie</h3>
+            <p class="feature__text">
+              Najwięcej ludzi „trenuje”, ale nie buduje. My budujemy. Poprawiamy wykonanie, dobieramy bodziec.
+            </p>
+            <ul class="feature__list">
+              <li>Korekta ruchu i zakresów</li>
+              <li>Skalowanie ciężaru / objętości</li>
+              <li>Plan B na trudne tygodnie</li>
+            </ul>
           </article>
 
-          <article class="transform-card" data-reveal-delay="0.3">
-            <div class="transform-card__photo transform-card__photo--3"></div>
-            <div class="transform-card__overlay">
-              <div class="transform-card__label">– 9,1 kg + płaski brzuch</div>
-              <div class="transform-card__name">Marta, 38 lat</div>
-              <p class="transform-card__story">
-                „Miałam wrażenie, że po dzieciach już nie wrócę do formy. Okazało się, że nie muszę trenować codziennie,
-                tylko mądrzej.”
-              </p>
+          <article class="feature" data-reveal-delay="0.22">
+            <div class="feature__top">
+              <div class="feature__num">03</div>
+              <div class="feature__icon feature__icon--c" aria-hidden="true"></div>
             </div>
+            <h3 class="feature__title">Monitoring &amp; korekty</h3>
+            <p class="feature__text">
+              Progres nie jest liniowy. Dlatego masz system korekt — zanim pojawi się frustracja i drop.
+            </p>
+            <ul class="feature__list">
+              <li>Check-in co tydzień</li>
+              <li>Aktualizacje planu co 4–6 tygodni</li>
+              <li>Wsparcie w godzinach pracy</li>
+            </ul>
           </article>
         </div>
 
-        <div class="transformations__cta" data-reveal-delay="0.35">
-          <span class="transformations__note">
-            Twoja metamorfoza nie musi wyglądać jak na Instagramie. Ma być Twoja – i do utrzymania.
-          </span>
-          <a href="#contact" class="btn btn--primary btn--glow" data-magnetic>
-            Sprawdź, czy mam wolny termin
-          </a>
+        <div class="split-line" data-reveal-delay="0.28">
+          <div class="split-line__left">
+            <div class="split-line__dot" aria-hidden="true"></div>
+            <p class="split-line__text">
+              Nie sprzedaję „pakietu treningów”. Sprzedaję proces i odpowiedzialność za wynik.
+            </p>
+          </div>
+          <div class="split-line__right">
+            <a class="btn btn--outline" href="#pricing" data-magnetic>Sprawdź pakiety</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ===================== PRICING ===================== -->
-    <section class="section section--light" id="pricing">
+    <!-- =========================================================
+         RESULTS
+         ========================================================= -->
+    <section class="section section--dark section--angled" id="results">
+      <div class="section__container">
+        <div class="section__header section__header--center">
+          <div class="section__label" data-reveal>Wyniki</div>
+          <h2 class="section__title" data-reveal-delay="0.08">
+            Realni ludzie, realny wynik<br />
+            <span class="section__title-gradient">bez filtrów i bajek</span>
+          </h2>
+          <p class="section__text section__text--center" data-reveal-delay="0.12">
+            Każda z tych osób miała pracę, obowiązki i swoje „nie mam czasu”. To nie problem czasu — to problem systemu.
+          </p>
+        </div>
+
+        <div class="masonry">
+          <article class="case" data-reveal-delay="0.14">
+            <div class="case__media case__media--1" aria-hidden="true"></div>
+            <div class="case__overlay">
+              <div class="case__pill">– 12.4 kg • 6 miesięcy</div>
+              <div class="case__name">Ania, 32</div>
+              <p class="case__quote">„Zero głodówek. 3 treningi w tygodniu i normalne jedzenie. Mam kontrolę.”</p>
+            </div>
+          </article>
+
+          <article class="case" data-reveal-delay="0.18">
+            <div class="case__media case__media--2" aria-hidden="true"></div>
+            <div class="case__overlay">
+              <div class="case__pill">+ 6.8 kg mięśni • 12 miesięcy</div>
+              <div class="case__name">Kamil, 28</div>
+              <p class="case__quote">„W końcu rosnę. Plecy przestały boleć od siedzenia przy biurku.”</p>
+            </div>
+          </article>
+
+          <article class="case" data-reveal-delay="0.22">
+            <div class="case__media case__media--3" aria-hidden="true"></div>
+            <div class="case__overlay">
+              <div class="case__pill">– 9.1 kg • 10 tygodni</div>
+              <div class="case__name">Marta, 38</div>
+              <p class="case__quote">„Bez codziennego trenowania. Mądrzej, nie więcej.”</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="results-cta" data-reveal-delay="0.26">
+          <div class="results-cta__note">
+            Twoja metamorfoza ma być do utrzymania — nie „idealna”. Zrobimy ją po Twojemu.
+          </div>
+          <a class="btn btn--primary btn--glow" href="#contact" data-magnetic>Sprawdź wolny termin</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         PROGRAMS
+         ========================================================= -->
+    <section class="section section--light" id="programs">
+      <div class="section__container">
+        <div class="section__header">
+          <div class="section__label" data-reveal>Programy</div>
+          <h2 class="section__title" data-reveal-delay="0.08">
+            Dla różnych celów, jedna zasada:<br />
+            <span class="section__title-gradient">system wygrywa z zrywem</span>
+          </h2>
+        </div>
+
+        <div class="tabs" data-tabs>
+          <div class="tabs__bar" role="tablist" aria-label="Programy">
+            <button class="tabs__tab is-active" type="button" role="tab" aria-selected="true" data-tab="tab-1">Redukcja</button>
+            <button class="tabs__tab" type="button" role="tab" aria-selected="false" data-tab="tab-2">Masa / siła</button>
+            <button class="tabs__tab" type="button" role="tab" aria-selected="false" data-tab="tab-3">Ruch / bóle</button>
+            <div class="tabs__glider" aria-hidden="true" data-tabs-glider></div>
+          </div>
+
+          <div class="tabs__panes">
+            <section class="pane is-active" id="tab-1" role="tabpanel">
+              <div class="pane__grid">
+                <div class="pane__left">
+                  <h3 class="pane__title">Redukcja bez rozjechania głowy</h3>
+                  <p class="pane__text">
+                    Redukcja to nie kara. Ustawiamy deficyt, który dowozisz. Trening buduje sylwetkę, a jedzenie trzyma kierunek.
+                  </p>
+                  <ul class="pane__bullets">
+                    <li>2–4 treningi tygodniowo</li>
+                    <li>Proste zasady jedzenia</li>
+                    <li>Korekty, gdy spada energia</li>
+                  </ul>
+                  <button class="btn btn--outline" type="button" data-open-modal="#leadModal" data-magnetic>Zobacz proces</button>
+                </div>
+                <div class="pane__right" aria-hidden="true">
+                  <div class="pane__card">
+                    <div class="pane__card-k">Typowy wynik</div>
+                    <div class="pane__card-v">–4 do –8 kg / 8 tygodni</div>
+                    <div class="pane__spark" data-sparkline></div>
+                  </div>
+                  <div class="pane__card">
+                    <div class="pane__card-k">Priorytet</div>
+                    <div class="pane__card-v">Utrzymanie siły + estetyka</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="pane" id="tab-2" role="tabpanel">
+              <div class="pane__grid">
+                <div class="pane__left">
+                  <h3 class="pane__title">Masa i siła bez “brzucha bonus”</h3>
+                  <p class="pane__text">
+                    Budujemy mięśnie w kontrolowany sposób. Tak, żeby rosnąć, ale nie “zalać się” tłuszczem.
+                  </p>
+                  <ul class="pane__bullets">
+                    <li>Progresja ciężaru i objętości</li>
+                    <li>Kalorie i białko pod kontrolą</li>
+                    <li>Technika jako fundament</li>
+                  </ul>
+                  <a class="btn btn--primary" href="#pricing" data-magnetic>Dobierz pakiet</a>
+                </div>
+                <div class="pane__right" aria-hidden="true">
+                  <div class="pane__card">
+                    <div class="pane__card-k">Typowy wynik</div>
+                    <div class="pane__card-v">+2 do +4 kg mięśni / 12 tygodni</div>
+                  </div>
+                  <div class="pane__card">
+                    <div class="pane__card-k">Priorytet</div>
+                    <div class="pane__card-v">Siła, barki, plecy, nogi</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section class="pane" id="tab-3" role="tabpanel">
+              <div class="pane__grid">
+                <div class="pane__left">
+                  <h3 class="pane__title">Ruch, mobilność i „plecy z biura”</h3>
+                  <p class="pane__text">
+                    Najpierw naprawiamy wzorce, potem dokładamy bodziec. Ruch ma działać w życiu, nie tylko na sali.
+                  </p>
+                  <ul class="pane__bullets">
+                    <li>Mobilność i stabilizacja</li>
+                    <li>Bezpieczny trening siłowy</li>
+                    <li>Nawyki na co dzień</li>
+                  </ul>
+                  <button class="btn btn--outline" type="button" data-scroll-to="#contact" data-magnetic>Umów konsultację</button>
+                </div>
+                <div class="pane__right" aria-hidden="true">
+                  <div class="pane__card">
+                    <div class="pane__card-k">Typowy wynik</div>
+                    <div class="pane__card-v">mniej bólu • więcej energii • lepsza postura</div>
+                  </div>
+                  <div class="pane__card">
+                    <div class="pane__card-k">Priorytet</div>
+                    <div class="pane__card-v">Wzorce + kontrola + zakres</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         PRICING
+         ========================================================= -->
+    <section class="section section--dark" id="pricing">
       <div class="section__container">
         <div class="section__header section__header--center">
           <div class="section__label" data-reveal>Pakiety</div>
-          <h2 class="section__title" data-reveal-delay="0.1">
-            Współpraca dla osób,<br />
-            <span class="section__title-gradient">które naprawdę chcą zmiany</span>
+          <h2 class="section__title" data-reveal-delay="0.08">
+            Współpraca dla osób, które<br />
+            <span class="section__title-gradient">naprawdę chcą zmiany</span>
           </h2>
+          <p class="section__text section__text--center" data-reveal-delay="0.12">
+            Zamiast „cennika z internetu” — dobieramy formę, która ma sens pod Twoje życie.
+          </p>
+        </div>
+
+        <div class="toggle" data-reveal-delay="0.16" data-pricing-toggle>
+          <button class="toggle__btn is-active" type="button" data-pricing="monthly">Wariant miesięczny</button>
+          <button class="toggle__btn" type="button" data-pricing="quarterly">Wariant 12 tygodni</button>
+          <div class="toggle__glider" aria-hidden="true"></div>
         </div>
 
         <div class="pricing">
-          <article class="pricing-card" data-reveal-delay="0.15">
-            <div class="pricing-card__header">
-              <h3 class="pricing-card__title">Start</h3>
-              <p class="pricing-card__subtitle">Dla osób, które chcą zacząć świadomie</p>
+          <article class="price" data-reveal-delay="0.2">
+            <div class="price__head">
+              <h3 class="price__title">Start</h3>
+              <p class="price__sub">Najlepsze, gdy chcesz wejść w system</p>
             </div>
-            <div class="pricing-card__price">
-              <span class="pricing-card__amount">Program 8 tygodni</span>
+
+            <div class="price__value">
+              <span class="price__big" data-price="monthly">Program 8 tygodni</span>
+              <span class="price__big is-hidden" data-price="quarterly">Program 12 tygodni</span>
+              <div class="price__note">Plan + korekty + check-in</div>
             </div>
-            <ul class="pricing-card__list">
-              <li>Diagnoza ruchowa i wywiad (online lub na żywo)</li>
-              <li>Indywidualny plan treningowy na 8 tygodni</li>
-              <li>Ramy żywieniowe dopasowane do stylu życia</li>
+
+            <ul class="price__list">
+              <li>Wywiad i diagnoza</li>
+              <li>Plan treningowy + progresja</li>
+              <li>Ramy żywieniowe</li>
               <li>Check-in co 2 tygodnie</li>
             </ul>
-            <button class="btn btn--outline btn--full" data-magnetic data-open-modal="#consultModal">
-              Zapytaj o wolne terminy
-            </button>
+
+            <button class="btn btn--outline btn--full" type="button" data-open-modal="#leadModal" data-magnetic>Zapytaj o termin</button>
           </article>
 
-          <article class="pricing-card pricing-card--highlight" data-reveal-delay="0.2">
-            <div class="pricing-card__ribbon">Najczęściej wybierany</div>
-            <div class="pricing-card__header">
-              <h3 class="pricing-card__title">1:1 Premium</h3>
-              <p class="pricing-card__subtitle">Pełne prowadzenie z treningami na żywo</p>
+          <article class="price price--hot" data-reveal-delay="0.24">
+            <div class="price__ribbon">Najczęściej wybierany</div>
+
+            <div class="price__head">
+              <h3 class="price__title">1:1 Premium</h3>
+              <p class="price__sub">Pełne prowadzenie + treningi na żywo</p>
             </div>
-            <div class="pricing-card__price">
-              <span class="pricing-card__amount">Min. 3 miesiące współpracy</span>
+
+            <div class="price__value">
+              <span class="price__big" data-price="monthly">Min. 3 miesiące</span>
+              <span class="price__big is-hidden" data-price="quarterly">Min. 12 tygodni</span>
+              <div class="price__note">Najmocniejsza opcja pod wynik</div>
             </div>
-            <ul class="pricing-card__list">
-              <li>Treningi personalne 1:1 w studio (2–3x w tygodniu)</li>
-              <li>Plan treningowy pod pozostałe dni</li>
-              <li>Indywidualny plan żywieniowy + korekty</li>
-              <li>Check-in co tydzień + wsparcie na komunikatorze</li>
-              <li>Pełna aktualizacja planu co 4–6 tygodni</li>
+
+            <ul class="price__list">
+              <li>Treningi 1:1 (2–3x / tydzień)</li>
+              <li>Plan na pozostałe dni</li>
+              <li>Indywidualny plan żywieniowy</li>
+              <li>Check-in co tydzień</li>
+              <li>Stałe korekty i wsparcie</li>
             </ul>
-            <button class="btn btn--primary btn--full" data-magnetic data-open-modal="#consultModal">
-              Aplikuj do współpracy
-            </button>
+
+            <button class="btn btn--primary btn--full" type="button" data-open-modal="#leadModal" data-magnetic>Aplikuj do współpracy</button>
           </article>
 
-          <article class="pricing-card" data-reveal-delay="0.25">
-            <div class="pricing-card__header">
-              <h3 class="pricing-card__title">Online Hybrid</h3>
-              <p class="pricing-card__subtitle">Dla osób spoza miasta lub z własną siłownią</p>
+          <article class="price" data-reveal-delay="0.28">
+            <div class="price__head">
+              <h3 class="price__title">Online Hybrid</h3>
+              <p class="price__sub">Dla osób spoza miasta / własna siłownia</p>
             </div>
-            <div class="pricing-card__price">
-              <span class="pricing-card__amount">Min. 12 tygodni współpracy</span>
+
+            <div class="price__value">
+              <span class="price__big" data-price="monthly">Min. 4 tygodnie</span>
+              <span class="price__big is-hidden" data-price="quarterly">Min. 12 tygodni</span>
+              <div class="price__note">Video feedback + korekty</div>
             </div>
-            <ul class="pricing-card__list">
-              <li>Plan treningowy z dokładnym opisem i video</li>
-              <li>Analiza techniki na bazie nagrań</li>
-              <li>Ramy żywieniowe + przykładowe jadłospisy</li>
-              <li>Check-in co tydzień + korekty</li>
+
+            <ul class="price__list">
+              <li>Plan treningowy + video</li>
+              <li>Analiza techniki z nagrań</li>
+              <li>Ramy żywienia</li>
+              <li>Check-in co tydzień</li>
             </ul>
-            <button class="btn btn--outline btn--full" data-magnetic data-open-modal="#consultModal">
-              Sprawdź, czy się kwalifikujesz
-            </button>
+
+            <button class="btn btn--outline btn--full" type="button" data-scroll-to="#contact" data-magnetic>Umów rozmowę</button>
           </article>
         </div>
 
-        <div class="pricing__note" data-reveal-delay="0.3">
-          Ceny ustalam indywidualnie, po rozmowie wstępnej – tak, byś płacił za realną wartość, a nie za „pakiet z
-          cennika”.
+        <div class="pricing__fineprint" data-reveal-delay="0.32">
+          Ceny ustalane po rozmowie — płacisz za realną wartość i dopasowanie, nie za „szablon”.
         </div>
       </div>
     </section>
 
-    <!-- ===================== TESTIMONIALS & FAQ ===================== -->
+    <!-- =========================================================
+         SOCIAL PROOF
+         ========================================================= -->
+    <section class="section section--light" id="proof">
+      <div class="section__container section__container--split">
+        <div class="stack">
+          <div class="section__label" data-reveal>Opinie</div>
+          <h2 class="section__title" data-reveal-delay="0.08">
+            To działa, bo jest<br />
+            <span class="section__title-gradient">do dowiezienia</span>
+          </h2>
+
+          <div class="quote" data-reveal-delay="0.14">
+            <div class="quote__icon" aria-hidden="true">“</div>
+            <p class="quote__text">
+              „Największa różnica? Nie tylko wyglądam lepiej — mam energię po pracy i przestały boleć plecy.
+              Trening nie jest centrum życia. Jest jego częścią.”
+            </p>
+            <div class="quote__meta">
+              <span class="quote__name">Paweł</span>
+              <span class="quote__sep" aria-hidden="true">•</span>
+              <span class="quote__tag">1:1 Premium</span>
+              <span class="quote__rating">★★★★★</span>
+            </div>
+          </div>
+
+          <div class="logos" data-reveal-delay="0.18" aria-hidden="true">
+            <div class="logos__item"></div>
+            <div class="logos__item"></div>
+            <div class="logos__item"></div>
+            <div class="logos__item"></div>
+          </div>
+        </div>
+
+        <div class="slider" data-slider data-reveal-delay="0.12">
+          <div class="slider__track" data-slider-track>
+            <article class="slide is-active" data-slide>
+              <div class="slide__top">
+                <div class="slide__avatar slide__avatar--1" aria-hidden="true"></div>
+                <div class="slide__who">
+                  <div class="slide__name">Marta</div>
+                  <div class="slide__meta">Online Hybrid</div>
+                </div>
+                <div class="slide__stars">★★★★★</div>
+              </div>
+              <p class="slide__text">
+                „Miałam wrażenie, że nie dam rady przy dzieciach i pracy. A tu dostałam plan, który faktycznie pasuje do tygodnia.”
+              </p>
+            </article>
+
+            <article class="slide" data-slide>
+              <div class="slide__top">
+                <div class="slide__avatar slide__avatar--2" aria-hidden="true"></div>
+                <div class="slide__who">
+                  <div class="slide__name">Kamil</div>
+                  <div class="slide__meta">Start → Premium</div>
+                </div>
+                <div class="slide__stars">★★★★★</div>
+              </div>
+              <p class="slide__text">
+                „Pierwszy raz nie robię wszystkiego naraz. Progres jest prosty: trening, jedzenie, sen. I działa.”
+              </p>
+            </article>
+
+            <article class="slide" data-slide>
+              <div class="slide__top">
+                <div class="slide__avatar slide__avatar--3" aria-hidden="true"></div>
+                <div class="slide__who">
+                  <div class="slide__name">Ania</div>
+                  <div class="slide__meta">1:1 Premium</div>
+                </div>
+                <div class="slide__stars">★★★★★</div>
+              </div>
+              <p class="slide__text">
+                „Zero presji, a jednocześnie konkret. W końcu czuję, że to ja kontroluję proces, a nie odwrotnie.”
+              </p>
+            </article>
+          </div>
+
+          <div class="slider__controls">
+            <button class="slider__btn" type="button" data-slider-prev aria-label="Poprzednia opinia">←</button>
+            <div class="slider__dots" data-slider-dots aria-hidden="true"></div>
+            <button class="slider__btn" type="button" data-slider-next aria-label="Następna opinia">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         FAQ
+         ========================================================= -->
     <section class="section section--dark" id="faq">
       <div class="section__container section__container--split">
-        <div class="section__content section__content--stack">
-          <div class="section__label" data-reveal>Opinie</div>
-          <h2 class="section__title" data-reveal-delay="0.1">
-            Co mówią osoby,<br />
-            <span class="section__title-gradient">które już przeszły proces</span>
+        <div class="stack">
+          <div class="section__label" data-reveal>FAQ</div>
+          <h2 class="section__title" data-reveal-delay="0.08">
+            Pytania, które słyszę<br />
+            <span class="section__title-gradient">najczęściej</span>
           </h2>
+          <p class="section__text" data-reveal-delay="0.12">
+            Jeśli coś Cię blokuje — zwykle to nie brak charakteru, tylko brak jasnej struktury. Wyjaśnijmy to.
+          </p>
 
-          <div class="testimonials" data-reveal-delay="0.15">
-            <div class="testimonial">
-              <div class="testimonial__header">
-                <div class="testimonial__avatar testimonial__avatar--1"></div>
-                <div>
-                  <div class="testimonial__name">Paweł</div>
-                  <div class="testimonial__meta">Program 1:1 Premium</div>
-                </div>
-                <div class="testimonial__rating">★★★★★</div>
-              </div>
-              <p class="testimonial__text">
-                „Największa różnica? Nie tylko wyglądam lepiej, ale przestały boleć plecy i pierwszy raz od lat mam
-                energię po pracy. Trening nie jest centrum życia – tylko jego naturalną częścią.”
-              </p>
-            </div>
-
-            <div class="testimonial testimonial--ghost">
-              <div class="testimonial__quote-icon">“</div>
-              <p class="testimonial__text">
-                „Michał jest wymagający, ale nigdy nie czułam presji. Zawsze miał plan B, gdy dzieci chorowały albo
-                praca się sypała.”
-              </p>
-              <div class="testimonial__meta testimonial__meta--light">Marta, współpraca hybrydowa</div>
-            </div>
+          <div class="cta-card" data-reveal-delay="0.16">
+            <div class="cta-card__k">Nie wiesz, jaki pakiet?</div>
+            <div class="cta-card__v">Zróbmy szybkie 15 min i dobierzemy sensownie.</div>
+            <button class="btn btn--primary" type="button" data-scroll-to="#contact" data-magnetic>Umów konsultację</button>
           </div>
         </div>
 
-        <div class="faq">
-          <div class="section__label section__label--sub" data-reveal>FAQ</div>
-          <div class="faq__list">
-            <button class="faq__item faq__item--active" data-faq>
-              <div class="faq__question">
-                Czy muszę mieć doświadczenie na siłowni?
-                <span class="faq__icon"></span>
-              </div>
-              <div class="faq__answer">
-                Nie. Wielu moich podopiecznych zaczynało od zera. Zaczynamy od nauki podstawowych wzorców ruchowych,
-                pracy z własnym ciałem i lekkimi obciążeniami. Tempo dopasowuję do Ciebie.
-              </div>
-            </button>
+        <div class="accordion" data-accordion data-reveal-delay="0.12">
+          <button class="acc is-open" type="button" data-acc>
+            <div class="acc__q">
+              Czy muszę mieć doświadczenie na siłowni?
+              <span class="acc__icon" aria-hidden="true"></span>
+            </div>
+            <div class="acc__a">
+              Nie. Zaczynamy od fundamentów: wzorce ruchowe, mobilność, technika. Tempo jest dopasowane do Ciebie.
+            </div>
+          </button>
 
-            <button class="faq__item" data-faq>
-              <div class="faq__question">
-                Ile razy w tygodniu muszę trenować?
-                <span class="faq__icon"></span>
-              </div>
-              <div class="faq__answer">
-                Minimalnie 2 treningi tygodniowo, optymalnie 3–4. Dobieramy to wspólnie, biorąc pod uwagę Twoją pracę,
-                rodzinę i regenerację. Nie ma sensu układać planu, którego nie dowieziesz.
-              </div>
-            </button>
+          <button class="acc" type="button" data-acc>
+            <div class="acc__q">
+              Ile razy w tygodniu muszę trenować?
+              <span class="acc__icon" aria-hidden="true"></span>
+            </div>
+            <div class="acc__a">
+              Minimum 2 treningi, optymalnie 3–4. Ustalamy to pod Twoją regenerację i realny tydzień.
+            </div>
+          </button>
 
-            <button class="faq__item" data-faq>
-              <div class="faq__question">
-                Co jeśli „nie mam diety”, bo jem z rodziną?
-                <span class="faq__icon"></span>
-              </div>
-              <div class="faq__answer">
-                Nie będziemy układać pięciu innych posiłków tylko dla Ciebie. Dopasujemy ramy żywieniowe do tego, co
-                jest realistyczne w Twoim domu – z drobnymi zmianami, które robią ogromną różnicę.
-              </div>
-            </button>
+          <button class="acc" type="button" data-acc>
+            <div class="acc__q">
+              Czy dostanę „dietę” czy zasady?
+              <span class="acc__icon" aria-hidden="true"></span>
+            </div>
+            <div class="acc__a">
+              Zależy od pakietu. W praktyce: ramy, które utrzymasz + opcjonalnie plan żywieniowy i korekty.
+            </div>
+          </button>
 
-            <button class="faq__item" data-faq>
-              <div class="faq__question">
-                Jak wygląda pierwsza konsultacja?
-                <span class="faq__icon"></span>
-              </div>
-              <div class="faq__answer">
-                Rozmawiamy około 15–20 minut. Pytam o Twoje cele, zdrowie, historię treningów i aktualny styl życia.
-                Na końcu mówię otwarcie, czy i jak mogę pomóc – bez nacisku na „kupowanie pakietu od razu”.
-              </div>
-            </button>
-          </div>
+          <button class="acc" type="button" data-acc>
+            <div class="acc__q">
+              Co jeśli mam słabszy tydzień?
+              <span class="acc__icon" aria-hidden="true"></span>
+            </div>
+            <div class="acc__a">
+              Właśnie po to jest system. Dostajesz plan B (krótsze treningi, mniejsza objętość, inny bodziec).
+            </div>
+          </button>
         </div>
       </div>
     </section>
 
-    <!-- ===================== CONTACT ===================== -->
+    <!-- =========================================================
+         CONTACT
+         ========================================================= -->
     <section class="section section--light" id="contact">
       <div class="section__container section__container--split">
-        <div class="contact-intro">
+        <div class="stack">
           <div class="section__label" data-reveal>Kontakt</div>
-          <h2 class="section__title" data-reveal-delay="0.1">
-            60 sekund,<br />
-            <span class="section__title-gradient">żeby zrobić pierwszy krok</span>
+          <h2 class="section__title" data-reveal-delay="0.08">
+            60 sekund, żeby zrobić krok<br />
+            <span class="section__title-gradient">który zmienia proces</span>
           </h2>
-          <p class="section__text" data-reveal-delay="0.15">
-            Wypełnij krótki formularz. Odezwę się w ciągu jednego dnia roboczego z propozycją terminu rozmowy
-            wstępnej. Jeśli teraz nie jest dobry moment – też powiedz to wprost.
+
+          <p class="section__text" data-reveal-delay="0.12">
+            Zostaw krótkie info. Odpowiem w 1 dzień roboczy z propozycją terminu rozmowy. Bez presji, bez wciskania.
           </p>
 
-          <div class="contact-intro__details" data-reveal-delay="0.2">
-            <div class="contact-intro__item">
-              <div class="contact-intro__label">Lokalizacja</div>
-              <div class="contact-intro__value">Studio treningowe w centrum miasta</div>
+          <div class="details" data-reveal-delay="0.16">
+            <div class="detail">
+              <div class="detail__k">Lokalizacja</div>
+              <div class="detail__v">Studio w centrum miasta + online</div>
             </div>
-            <div class="contact-intro__item">
-              <div class="contact-intro__label">Godziny współpracy</div>
-              <div class="contact-intro__value">Pon–Pt 6:00–21:00, soboty wybrane</div>
+            <div class="detail">
+              <div class="detail__k">Godziny</div>
+              <div class="detail__v">Pon–Pt 6:00–21:00</div>
             </div>
-            <div class="contact-intro__item">
-              <div class="contact-intro__label">Forma</div>
-              <div class="contact-intro__value">Na miejscu &amp; online (PL / EN)</div>
+            <div class="detail">
+              <div class="detail__k">Kontakt</div>
+              <div class="detail__v"><a href="mailto:kontakt@eliteshape.pl">kontakt@eliteshape.pl</a></div>
             </div>
           </div>
         </div>
 
-        <div class="contact-form__wrapper" data-reveal-delay="0.25">
-          <form class="contact-form" autocomplete="off">
-            <div class="contact-form__row">
-              <div class="field">
-                <label for="name" class="field__label">Imię</label>
-                <input type="text" id="name" name="name" class="field__input" placeholder="Jak się przedstawiasz?" required />
-              </div>
-              <div class="field">
-                <label for="email" class="field__label">E-mail</label>
-                <input type="email" id="email" name="email" class="field__input" placeholder="Twój adres e-mail" required />
-              </div>
-            </div>
-
-            <div class="contact-form__row">
-              <div class="field">
-                <label for="goal" class="field__label">Twój główny cel</label>
-                <select id="goal" name="goal" class="field__input">
-                  <option value="" disabled selected>Wybierz</option>
-                  <option value="fat-loss">Redukcja tkanki tłuszczowej</option>
-                  <option value="muscle">Budowa masy mięśniowej</option>
-                  <option value="recomp">Rekompozycja (tłuszcz w dół, mięśnie w górę)</option>
-                  <option value="health">Zdrowie / bóle kręgosłupa / ruch</option>
-                  <option value="other">Coś innego</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="experience" class="field__label">Doświadczenie treningowe</label>
-                <select id="experience" name="experience" class="field__input">
-                  <option value="" disabled selected>Wybierz</option>
-                  <option value="none">Nigdy nie trenowałem/-am</option>
-                  <option value="beginner">Początkujący (mniej niż rok)</option>
-                  <option value="intermediate">Średniozaawansowany</option>
-                  <option value="advanced">Zaawansowany</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="message" class="field__label">Opowiedz w 2–3 zdaniach, z czym się mierzysz</label>
-              <textarea id="message" name="message" class="field__input field__input--textarea" rows="4" placeholder="Im konkretniej, tym lepiej mogę przygotować się do rozmowy."></textarea>
-            </div>
-
-            <div class="contact-form__row contact-form__row--bottom">
-              <label class="checkbox">
-                <input type="checkbox" class="checkbox__input" required />
-                <span class="checkbox__box"></span>
-                <span class="checkbox__label">
-                  Akceptuję kontakt w sprawie współpracy i rozumiem, że to wstępna rozmowa, a nie zapis na stałe.
-                </span>
+        <div class="form-card" data-reveal-delay="0.14">
+          <form class="form" data-form>
+            <div class="form__row">
+              <label class="field">
+                <span class="field__label">Imię</span>
+                <input class="field__input" name="name" type="text" placeholder="Jak się przedstawiasz?" required />
               </label>
-              <button type="submit" class="btn btn--primary btn--full" data-magnetic>
-                Wyślij zgłoszenie
-              </button>
+
+              <label class="field">
+                <span class="field__label">E-mail</span>
+                <input class="field__input" name="email" type="email" placeholder="Twój e-mail" required />
+              </label>
             </div>
 
-            <div class="contact-form__status" id="formStatus" aria-live="polite"></div>
+            <div class="form__row">
+              <label class="field">
+                <span class="field__label">Cel</span>
+                <select class="field__input" name="goal" required>
+                  <option value="" selected disabled>Wybierz</option>
+                  <option value="fatloss">Redukcja</option>
+                  <option value="muscle">Budowa mięśni</option>
+                  <option value="recomp">Rekompozycja</option>
+                  <option value="health">Ruch / zdrowie</option>
+                  <option value="other">Inne</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span class="field__label">Doświadczenie</span>
+                <select class="field__input" name="lvl" required>
+                  <option value="" selected disabled>Wybierz</option>
+                  <option value="0">Startuję od zera</option>
+                  <option value="1">Wracam po przerwie</option>
+                  <option value="2">Trenuję regularnie</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="field">
+              <span class="field__label">Krótko: z czym się mierzysz?</span>
+              <textarea class="field__input field__input--textarea" name="msg" rows="4" placeholder="2–3 zdania wystarczą."></textarea>
+            </label>
+
+            <label class="check">
+              <input class="check__input" type="checkbox" required />
+              <span class="check__box" aria-hidden="true"></span>
+              <span class="check__text">
+                Akceptuję kontakt w sprawie współpracy. To rozmowa wstępna — bez zobowiązań.
+              </span>
+            </label>
+
+            <button class="btn btn--primary btn--full" type="submit" data-magnetic>Wyślij zgłoszenie</button>
+
+            <div class="form__status" data-form-status aria-live="polite"></div>
+
+            <div class="form__fine">
+              Nie spamuję. Jeśli nie ma sensu — powiem to wprost.
+            </div>
           </form>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ===================== FOOTER ===================== -->
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
   <footer class="footer">
     <div class="footer__container">
       <div class="footer__left">
         <div class="footer__brand">
-          <span class="footer__logo-mark">ES</span>
-          <span class="footer__brand-text">EliteShape Studio</span>
+          <span class="footer__logo-mark" aria-hidden="true">ES</span>
+          <span class="footer__brand-text">EliteShape</span>
         </div>
+
         <p class="footer__text">
-          Trening personalny i prowadzenie online dla osób, które chcą realnej zmiany – bez ekstremów i chwilowych
-          zrywów.
+          Premium trening personalny i prowadzenie online. Wynik, który dowozisz — i utrzymujesz.
+        </p>
+
+        <p class="footer__demo">
+          Strona demonstracyjna Kontaktio © 2026
         </p>
       </div>
 
-      <div class="footer__middle">
+      <div class="footer__mid">
         <div class="footer__group">
           <div class="footer__label">Nawigacja</div>
           <ul class="footer__links">
             <li><a href="#about">O mnie</a></li>
-            <li><a href="#methods">Jak pracuję</a></li>
-            <li><a href="#transformations">Metamorfozy</a></li>
+            <li><a href="#system">System</a></li>
+            <li><a href="#results">Wyniki</a></li>
             <li><a href="#pricing">Pakiety</a></li>
             <li><a href="#contact">Kontakt</a></li>
           </ul>
         </div>
+
         <div class="footer__group">
           <div class="footer__label">Kontakt</div>
           <ul class="footer__links">
-            <li><a href="tel:+48000000000">+48 000 000 000</a></li>
             <li><a href="mailto:kontakt@eliteshape.pl">kontakt@eliteshape.pl</a></li>
-            <li>Studio w centrum miasta</li>
+            <li><a href="tel:+48000000000">+48 000 000 000</a></li>
+            <li><span>PL / EN</span></li>
           </ul>
         </div>
       </div>
 
       <div class="footer__right">
-        <div class="footer__label">Media społecznościowe</div>
+        <div class="footer__label">Social</div>
         <div class="footer__socials">
-          <a href="#" class="footer__social" aria-label="Instagram">
-            <span class="footer__social-dot"></span>
-            Instagram
-          </a>
-          <a href="#" class="footer__social" aria-label="Facebook">
-            <span class="footer__social-dot"></span>
-            Facebook
-          </a>
-          <a href="#" class="footer__social" aria-label="YouTube">
-            <span class="footer__social-dot"></span>
-            YouTube
-          </a>
+          <a class="footer__social" href="#" aria-label="Instagram"><span class="footer__dot" aria-hidden="true"></span>Instagram</a>
+          <a class="footer__social" href="#" aria-label="Facebook"><span class="footer__dot" aria-hidden="true"></span>Facebook</a>
+          <a class="footer__social" href="#" aria-label="YouTube"><span class="footer__dot" aria-hidden="true"></span>YouTube</a>
         </div>
-        <div class="footer__bottom-text">
-          © <span id="year"></span> EliteShape Studio. Wszelkie prawa zastrzeżone.
+
+        <div class="footer__bottom">
+          © <span data-year></span> EliteShape. Wszelkie prawa zastrzeżone.
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- ===================== MODAL: CONSULTATION ===================== -->
-  <div class="modal" id="consultModal" aria-hidden="true">
+  <!-- =========================================================
+       MODAL: LEAD / PROCESS
+       ========================================================= -->
+  <div class="modal" id="leadModal" aria-hidden="true">
     <div class="modal__backdrop" data-close-modal></div>
-    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="consultModalTitle">
-      <button class="modal__close" aria-label="Zamknij" data-close-modal></button>
+
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="leadTitle">
+      <button class="modal__close" type="button" aria-label="Zamknij" data-close-modal></button>
+
       <div class="modal__content">
         <div class="modal__badge">Krok 1 z 2</div>
-        <h2 class="modal__title" id="consultModalTitle">Szybka aplikacja do współpracy</h2>
+        <h2 class="modal__title" id="leadTitle">Jak wygląda współpraca?</h2>
         <p class="modal__text">
-          Odpowiedz na kilka krótkich pytań. Na podstawie tych informacji przygotuję propozycję optymalnej formy
-          współpracy i ceny.
+          Krótko, konkretnie: diagnoza → plan → dowóz → korekty. Wybierasz wersję 1:1 lub hybrydę online.
         </p>
 
-        <form class="modal-form">
-          <div class="field">
-            <label class="field__label">Na jakim etapie jesteś?</label>
-            <div class="pill-toggle-group">
-              <button type="button" class="pill-toggle pill-toggle--active" data-toggle-group="stage">Zaczynam od zera</button>
-              <button type="button" class="pill-toggle" data-toggle-group="stage">Wracam po przerwie</button>
-              <button type="button" class="pill-toggle" data-toggle-group="stage">Trenuję regularnie</button>
-            </div>
+        <div class="modal__grid">
+          <div class="modal-card">
+            <div class="modal-card__k">Diagnoza</div>
+            <div class="modal-card__v">cel, ograniczenia, regeneracja</div>
           </div>
-
-          <div class="field">
-            <label class="field__label">Co jest dla Ciebie najważniejsze?</label>
-            <div class="pill-toggle-group pill-toggle-group--multi">
-              <button type="button" class="pill-toggle" data-toggle-multi>Wygląd</button>
-              <button type="button" class="pill-toggle" data-toggle-multi>Zdrowie / kręgosłup</button>
-              <button type="button" class="pill-toggle" data-toggle-multi>Siła</button>
-              <button type="button" class="pill-toggle" data-toggle-multi>Energia na co dzień</button>
-              <button type="button" class="pill-toggle" data-toggle-multi>Psychika / głowa</button>
-            </div>
+          <div class="modal-card">
+            <div class="modal-card__k">Plan</div>
+            <div class="modal-card__v">trening + żywienie pod tydzień</div>
           </div>
-
-          <div class="field">
-            <label class="field__label">Jak wyglądał Twój ostatni rok z aktywnością?</label>
-            <textarea class="field__input field__input--textarea" rows="3" placeholder="Np. siłownia raz w tygodniu, bieganie, zupełny brak ruchu…"></textarea>
+          <div class="modal-card">
+            <div class="modal-card__k">Dowóz</div>
+            <div class="modal-card__v">wykonanie, technika, rutyna</div>
           </div>
+          <div class="modal-card">
+            <div class="modal-card__k">Korekty</div>
+            <div class="modal-card__v">check-in i aktualizacja bodźca</div>
+          </div>
+        </div>
 
-          <button type="button" class="btn btn--primary btn--full" data-close-modal data-scroll-to="#contact">
-            Przejdź do formularza kontaktowego
-          </button>
-        </form>
+        <div class="modal__actions">
+          <button class="btn btn--outline" type="button" data-close-modal data-magnetic>Ok</button>
+          <button class="btn btn--primary" type="button" data-close-modal data-scroll-to="#contact" data-magnetic>Przejdź do zgłoszenia</button>
+        </div>
+
+        <div class="modal__fine">
+          Jeśli nie będę właściwą osobą — powiem Ci to od razu.
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- ===================== SCRIPTS ===================== -->
+  <!-- =========================================================
+       SCRIPTS (stabilne, bez bugów layoutu)
+       ========================================================= -->
   <script>
-    // Helper: select
-    const $ = (selector, scope = document) => scope.querySelector(selector);
-    const $$ = (selector, scope = document) => Array.from(scope.querySelectorAll(selector));
+    /* ==========================
+       Helpers
+       ========================== */
+    const $ = (s, scope = document) => scope.querySelector(s);
+    const $$ = (s, scope = document) => Array.from(scope.querySelectorAll(s));
 
-    // Loader
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ==========================
+       Loader
+       ========================== */
     window.addEventListener('load', () => {
       const loader = $('#loader');
-      if (loader) {
-        loader.classList.add('loader--hidden');
-        setTimeout(() => loader.remove(), 600);
-      }
+      if (!loader) return;
+      loader.classList.add('loader--hidden');
+      setTimeout(() => loader.remove(), 650);
     });
 
-    // Year in footer
-    $('#year').textContent = new Date().getFullYear();
+    /* ==========================
+       Year
+       ========================== */
+    const year = $('[data-year]');
+    if (year) year.textContent = new Date().getFullYear();
 
-    // Mobile nav toggle
-    const navToggle = $('#navToggle');
-    const navList = $('#navList');
-    if (navToggle && navList) {
-      navToggle.addEventListener('click', () => {
-        navToggle.classList.toggle('nav__toggle--open');
-        navList.classList.toggle('nav__list--open');
-        document.body.classList.toggle('page--no-scroll');
-      });
-
-      $$('.nav__link').forEach(link => {
-        link.addEventListener('click', () => {
-          navToggle.classList.remove('nav__toggle--open');
-          navList.classList.remove('nav__list--open');
-          document.body.classList.remove('page--no-scroll');
-        });
-      });
-    }
-
-    // Smooth scroll buttons
-    $$('[data-scroll-to]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const target = btn.getAttribute('data-scroll-to');
+    /* ==========================
+       Smooth scroll
+       ========================== */
+    $$('[data-scroll-to]').forEach(el => {
+      el.addEventListener('click', () => {
+        const target = el.getAttribute('data-scroll-to');
         if (!target) return;
-        const el = document.querySelector(target);
-        if (!el) return;
-        const offset = 80;
-        const top = el.getBoundingClientRect().top + window.scrollY - offset;
+        const node = document.querySelector(target);
+        if (!node) return;
+
+        const nav = $('[data-nav]');
+        const offset = (nav?.offsetHeight || 0) + 12;
+        const top = node.getBoundingClientRect().top + window.scrollY - offset;
+
         window.scrollTo({ top, behavior: 'smooth' });
       });
     });
 
-    // FAQ accordion
-    $$('[data-faq]').forEach(item => {
-      item.addEventListener('click', () => {
-        const isActive = item.classList.contains('faq__item--active');
-        $$('[data-faq]').forEach(i => i.classList.remove('faq__item--active'));
-        if (!isActive) item.classList.add('faq__item--active');
-      });
-    });
+    /* ==========================
+       Mobile nav
+       ========================== */
+    const navToggle = $('[data-nav-toggle]');
+    const navList = $('[data-nav-list]');
 
-    // Modal open/close
-    const openModalButtons = $$('[data-open-modal]');
-    const closeModalTargets = $$('[data-close-modal]');
-    const modals = $$('.modal');
+    if (navToggle && navList) {
+      const setExpanded = (v) => navToggle.setAttribute('aria-expanded', String(v));
 
-    const openModal = id => {
-      const modal = document.querySelector(id);
-      if (!modal) return;
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.classList.add('page--no-scroll');
-    };
-
-    const closeModal = () => {
-      modals.forEach(modal => modal.setAttribute('aria-hidden', 'true'));
-      document.body.classList.remove('page--no-scroll');
-    };
-
-    openModalButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const id = btn.getAttribute('data-open-modal');
-        if (id) openModal(id);
-      });
-    });
-
-    closeModalTargets.forEach(el => {
-      el.addEventListener('click', closeModal);
-    });
-
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') closeModal();
-    });
-
-    // Counter animation
-    const counters = $$('[data-counter]');
-    const observerCounters = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const el = entry.target;
-            const to = parseFloat(el.getAttribute('data-counter-to')) || 0;
-            const from = parseFloat(el.getAttribute('data-counter-from')) || 0;
-            const suffix = el.getAttribute('data-counter-suffix') || '';
-            const duration = 1500;
-            const start = performance.now();
-
-            const animate = time => {
-              const progress = Math.min((time - start) / duration, 1);
-              const value = from + (to - from) * progress;
-              el.textContent = value.toFixed(to % 1 !== 0 ? 1 : 0) + suffix;
-              if (progress < 1) requestAnimationFrame(animate);
-            };
-            requestAnimationFrame(animate);
-            observerCounters.unobserve(el);
-          }
-        });
-      },
-      { threshold: 0.6 }
-    );
-    counters.forEach(el => observerCounters.observe(el));
-
-    // Progress bars animation
-    const progressFills = $$('[data-progress]');
-    const observerProgress = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const el = entry.target;
-            const val = el.getAttribute('data-progress');
-            el.style.setProperty('--progress-target', val + '%');
-            observerProgress.unobserve(el);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-    progressFills.forEach(el => observerProgress.observe(el));
-
-    // Reveal on scroll
-    const revealElems = $$('[data-reveal], [data-reveal-delay]');
-    const observerReveal = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const el = entry.target;
-            const delay = parseFloat(el.getAttribute('data-reveal-delay')) || 0;
-            setTimeout(() => {
-              el.classList.add('is-revealed');
-            }, delay * 1000);
-            observerReveal.unobserve(el);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-    revealElems.forEach(el => observerReveal.observe(el));
-
-    // Magnetic hover
-    const magneticElems = $$('[data-magnetic]');
-    magneticElems.forEach(el => {
-      const strength = 0.4;
-      let bounds;
-      const updateBounds = () => (bounds = el.getBoundingClientRect());
-      updateBounds();
-      window.addEventListener('resize', updateBounds);
-
-      el.addEventListener('mousemove', e => {
-        const relX = e.clientX - bounds.left - bounds.width / 2;
-        const relY = e.clientY - bounds.top - bounds.height / 2;
-        el.style.transform = `translate(${relX * strength}px, ${relY * strength}px)`;
+      navToggle.addEventListener('click', () => {
+        const open = navList.classList.toggle('nav__list--open');
+        navToggle.classList.toggle('nav__toggle--open', open);
+        document.body.classList.toggle('page--no-scroll', open);
+        setExpanded(open);
       });
 
-      el.addEventListener('mouseleave', () => {
-        el.style.transform = 'translate(0, 0)';
-      });
-    });
-
-    // Pill toggles
-    const singleToggleGroups = {};
-    $$('[data-toggle-group]').forEach(btn => {
-      const group = btn.getAttribute('data-toggle-group');
-      if (!singleToggleGroups[group]) singleToggleGroups[group] = [];
-      singleToggleGroups[group].push(btn);
-      btn.addEventListener('click', () => {
-        singleToggleGroups[group].forEach(b => b.classList.remove('pill-toggle--active'));
-        btn.classList.add('pill-toggle--active');
-      });
-    });
-
-    $$('[data-toggle-multi]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        btn.classList.toggle('pill-toggle--active');
-      });
-    });
-
-    // Custom cursor
-    const cursorOuter = document.querySelector('.cursor--outer');
-    const cursorInner = document.querySelector('.cursor--inner');
-
-    if (cursorOuter && cursorInner) {
-      let mouseX = window.innerWidth / 2;
-      let mouseY = window.innerHeight / 2;
-      let innerX = mouseX;
-      let innerY = mouseY;
-
-      const renderCursor = () => {
-        cursorOuter.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
-        innerX += (mouseX - innerX) * 0.2;
-        innerY += (mouseY - innerY) * 0.2;
-        cursorInner.style.transform = `translate(${innerX}px, ${innerY}px)`;
-        requestAnimationFrame(renderCursor);
-      };
-      renderCursor();
-
-      document.addEventListener('mousemove', e => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-      });
-
-      const interactive = 'a, button, .btn, [data-magnetic], .pill-toggle, .faq__item';
-      $$(interactive).forEach(el => {
-        el.addEventListener('mouseenter', () => {
-          cursorOuter.classList.add('cursor--active');
-          cursorInner.classList.add('cursor--active');
-        });
-        el.addEventListener('mouseleave', () => {
-          cursorOuter.classList.remove('cursor--active');
-          cursorInner.classList.remove('cursor--active');
+      $$('.nav__link', navList).forEach(link => {
+        link.addEventListener('click', () => {
+          navList.classList.remove('nav__list--open');
+          navToggle.classList.remove('nav__toggle--open');
+          document.body.classList.remove('page--no-scroll');
+          setExpanded(false);
         });
       });
     }
 
-    // Contact form fake submission
-    const contactForm = document.querySelector('.contact-form');
-    const formStatus = document.querySelector('#formStatus');
-    if (contactForm && formStatus) {
-      contactForm.addEventListener('submit', e => {
-        e.preventDefault();
-        formStatus.textContent = 'Wysyłanie…';
-        formStatus.classList.remove('contact-form__status--success', 'contact-form__status--error');
+    /* ==========================
+       Reveal on scroll
+       ========================== */
+    const revealEls = $$('[data-reveal], [data-reveal-delay]');
+    if (!prefersReduced && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (!e.isIntersecting) continue;
+          const el = e.target;
+          const delay = parseFloat(el.getAttribute('data-reveal-delay') || '0') || 0;
+          window.setTimeout(() => el.classList.add('is-revealed'), Math.max(0, delay * 1000));
+          io.unobserve(el);
+        }
+      }, { threshold: 0.16 });
 
+      revealEls.forEach(el => io.observe(el));
+    } else {
+      revealEls.forEach(el => el.classList.add('is-revealed'));
+    }
+
+    /* ==========================
+       Counters
+       ========================== */
+    const counters = $$('[data-counter]');
+    if (!prefersReduced && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (!e.isIntersecting) continue;
+          const el = e.target;
+
+          const from = parseFloat(el.getAttribute('data-from') || '0') || 0;
+          const to = parseFloat(el.getAttribute('data-to') || '0') || 0;
+          const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10) || 0;
+          const suffix = el.getAttribute('data-suffix') || '';
+          const duration = 1200;
+
+          const start = performance.now();
+          const tick = (t) => {
+            const p = Math.min((t - start) / duration, 1);
+            const v = from + (to - from) * (1 - Math.pow(1 - p, 3));
+            el.textContent = v.toFixed(decimals) + suffix;
+            if (p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+
+          io.unobserve(el);
+        }
+      }, { threshold: 0.55 });
+
+      counters.forEach(el => io.observe(el));
+    }
+
+    /* ==========================
+       Progress bars
+       ========================== */
+    const fills = $$('[data-progress]');
+    if (!prefersReduced && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (!e.isIntersecting) continue;
+          const el = e.target;
+          const val = el.getAttribute('data-progress') || '0';
+          el.style.setProperty('--progress', val + '%');
+          el.classList.add('is-animated');
+          io.unobserve(el);
+        }
+      }, { threshold: 0.35 });
+      fills.forEach(el => io.observe(el));
+    } else {
+      fills.forEach(el => el.style.setProperty('--progress', (el.getAttribute('data-progress') || '0') + '%'));
+    }
+
+    /* ==========================
+       Parallax (safe)
+       ========================== */
+    const parallax = $$('[data-parallax]');
+    if (!prefersReduced && parallax.length) {
+      let mx = 0, my = 0;
+      const onMove = (e) => {
+        mx = (e.clientX / window.innerWidth - 0.5);
+        my = (e.clientY / window.innerHeight - 0.5);
+      };
+      window.addEventListener('mousemove', onMove, { passive: true });
+
+      const loop = () => {
+        for (const el of parallax) {
+          const depth = parseFloat(el.getAttribute('data-depth') || '20') || 20;
+          const tx = mx * depth;
+          const ty = my * depth;
+          el.style.transform = `translate3d(${tx}px, ${ty}px, 0)`;
+        }
+        requestAnimationFrame(loop);
+      };
+      requestAnimationFrame(loop);
+    }
+
+    /* ==========================
+       Modal open/close
+       ========================== */
+    const modals = $$('.modal');
+    const openButtons = $$('[data-open-modal]');
+    const closeButtons = $$('[data-close-modal]');
+
+    const openModal = (selector) => {
+      const m = document.querySelector(selector);
+      if (!m) return;
+      m.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('page--no-scroll');
+    };
+
+    const closeModal = () => {
+      modals.forEach(m => m.setAttribute('aria-hidden', 'true'));
+      document.body.classList.remove('page--no-scroll');
+    };
+
+    openButtons.forEach(btn => {
+      btn.addEventListener('click', () => openModal(btn.getAttribute('data-open-modal')));
+    });
+
+    closeButtons.forEach(btn => btn.addEventListener('click', closeModal));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    /* ==========================
+       Accordion
+       ========================== */
+    const accItems = $$('[data-acc]');
+    accItems.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const isOpen = btn.classList.contains('is-open');
+        accItems.forEach(x => x.classList.remove('is-open'));
+        if (!isOpen) btn.classList.add('is-open');
+      });
+    });
+
+    /* ==========================
+       Tabs
+       ========================== */
+    const tabsRoot = $('[data-tabs]');
+    if (tabsRoot) {
+      const tabs = $$('.tabs__tab', tabsRoot);
+      const panes = $$('.pane', tabsRoot);
+      const glider = $('[data-tabs-glider]', tabsRoot);
+
+      const activate = (id) => {
+        tabs.forEach(t => {
+          const active = t.getAttribute('data-tab') === id;
+          t.classList.toggle('is-active', active);
+          t.setAttribute('aria-selected', String(active));
+        });
+        panes.forEach(p => p.classList.toggle('is-active', p.id === id));
+
+        const activeTab = tabs.find(t => t.classList.contains('is-active'));
+        if (activeTab && glider) {
+          const r = activeTab.getBoundingClientRect();
+          const pr = activeTab.parentElement.getBoundingClientRect();
+          glider.style.setProperty('--glider-x', (r.left - pr.left) + 'px');
+          glider.style.setProperty('--glider-w', r.width + 'px');
+        }
+      };
+
+      tabs.forEach(t => t.addEventListener('click', () => activate(t.getAttribute('data-tab'))));
+      // initial
+      const first = tabs[0]?.getAttribute('data-tab');
+      if (first) activate(first);
+      window.addEventListener('resize', () => {
+        const active = tabs.find(t => t.classList.contains('is-active'))?.getAttribute('data-tab');
+        if (active) activate(active);
+      });
+    }
+
+    /* ==========================
+       Pricing toggle
+       ========================== */
+    const pricingToggle = $('[data-pricing-toggle]');
+    if (pricingToggle) {
+      const buttons = $$('[data-pricing]', pricingToggle);
+      const values = $$('[data-price]');
+
+      const setMode = (mode) => {
+        buttons.forEach(b => b.classList.toggle('is-active', b.getAttribute('data-pricing') === mode));
+        values.forEach(v => {
+          const show = v.getAttribute('data-price') === mode;
+          v.classList.toggle('is-hidden', !show);
+        });
+
+        const active = buttons.find(b => b.classList.contains('is-active'));
+        const glider = $('.toggle__glider', pricingToggle);
+        if (active && glider) {
+          const r = active.getBoundingClientRect();
+          const pr = active.parentElement.getBoundingClientRect();
+          glider.style.setProperty('--glider-x', (r.left - pr.left) + 'px');
+          glider.style.setProperty('--glider-w', r.width + 'px');
+        }
+      };
+
+      buttons.forEach(b => b.addEventListener('click', () => setMode(b.getAttribute('data-pricing'))));
+      setMode('monthly');
+      window.addEventListener('resize', () => {
+        const active = buttons.find(b => b.classList.contains('is-active'))?.getAttribute('data-pricing') || 'monthly';
+        setMode(active);
+      });
+    }
+
+    /* ==========================
+       Slider
+       ========================== */
+    const slider = $('[data-slider]');
+    if (slider) {
+      const track = $('[data-slider-track]', slider);
+      const slides = $$('[data-slide]', slider);
+      const prev = $('[data-slider-prev]', slider);
+      const next = $('[data-slider-next]', slider);
+      const dotsWrap = $('[data-slider-dots]', slider);
+
+      let index = 0;
+
+      const renderDots = () => {
+        if (!dotsWrap) return;
+        dotsWrap.innerHTML = slides.map((_, i) =>
+          `<button class="dot ${i === index ? 'is-active' : ''}" type="button" data-dot="${i}" aria-label="Przejdź do opinii ${i+1}"></button>`
+        ).join('');
+        $$('.dot', dotsWrap).forEach(d => d.addEventListener('click', () => go(parseInt(d.getAttribute('data-dot'), 10))));
+      };
+
+      const go = (i) => {
+        index = (i + slides.length) % slides.length;
+        slides.forEach((s, n) => s.classList.toggle('is-active', n === index));
+        if (track) track.style.setProperty('--slide', String(index));
+        renderDots();
+      };
+
+      prev && prev.addEventListener('click', () => go(index - 1));
+      next && next.addEventListener('click', () => go(index + 1));
+
+      if (!prefersReduced) {
+        let t = setInterval(() => go(index + 1), 5500);
+        slider.addEventListener('mouseenter', () => { clearInterval(t); });
+        slider.addEventListener('mouseleave', () => { t = setInterval(() => go(index + 1), 5500); });
+      }
+
+      go(0);
+    }
+
+    /* ==========================
+       Fake form submit (demo)
+       ========================== */
+    const form = $('[data-form]');
+    const status = $('[data-form-status]');
+    if (form && status) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        status.textContent = 'Wysyłanie…';
+        status.classList.remove('is-success', 'is-error');
+
+        // demo delay
         setTimeout(() => {
-          formStatus.textContent =
-            'Dziękuję za wiadomość. Odezwę się w ciągu jednego dnia roboczego z propozycją terminu rozmowy.';
-          formStatus.classList.add('contact-form__status--success');
-          contactForm.reset();
+          status.textContent = 'Dzięki. Odezwiemy się w ciągu 1 dnia roboczego z propozycją terminu.';
+          status.classList.add('is-success');
+          form.reset();
         }, 900);
       });
     }
   </script>
 </body>
 </html>
-
