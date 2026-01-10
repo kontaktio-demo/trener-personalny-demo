@@ -1546,6 +1546,19 @@ a:hover{ color: #fff; }
   .cursor{
     display: none;
   }
+      .hero{
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.section{
+  position: relative;
+  z-index: 1;
+}
+.hero + .section{
+  margin-top: 0;
+}
 }
 
 
