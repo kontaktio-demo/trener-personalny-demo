@@ -1,1 +1,1016 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>EliteShape Studio | Trener personalny</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Premium studio treningu personalnego. Metamorfozy, plany żywieniowe, treningi 1:1 i online." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+</head>
+<body class="page">
+  <!-- ===================== LOADER ===================== -->
+  <div class="loader" id="loader">
+    <div class="loader__inner">
+      <div class="loader__ring loader__ring--1"></div>
+      <div class="loader__ring loader__ring--2"></div>
+      <div class="loader__logo">ES</div>
+      <span class="loader__text">Ładowanie Twojej metamorfozy…</span>
+    </div>
+  </div>
+
+  <!-- ===================== CUSTOM CURSOR ===================== -->
+  <div class="cursor cursor--outer"></div>
+  <div class="cursor cursor--inner"></div>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="nav">
+    <div class="nav__blur"></div>
+    <div class="nav__container">
+      <a href="#hero" class="nav__brand" data-magnetic>
+        <span class="nav__logo-mark">ES</span>
+        <span class="nav__brand-text">
+          <span class="nav__brand-main">EliteShape</span>
+          <span class="nav__brand-sub">Trening personalny premium</span>
+        </span>
+      </a>
+
+      <nav class="nav__menu" aria-label="Główne menu">
+        <button class="nav__toggle" id="navToggle" aria-label="Otwórz menu">
+          <span class="nav__toggle-line"></span>
+          <span class="nav__toggle-line"></span>
+        </button>
+
+        <ul class="nav__list" id="navList">
+          <li class="nav__item"><a href="#about" class="nav__link">O mnie</a></li>
+          <li class="nav__item"><a href="#methods" class="nav__link">Metoda</a></li>
+          <li class="nav__item"><a href="#transformations" class="nav__link">Metamorfozy</a></li>
+          <li class="nav__item"><a href="#pricing" class="nav__link">Pakiety</a></li>
+          <li class="nav__item"><a href="#faq" class="nav__link">FAQ</a></li>
+          <li class="nav__item"><a href="#contact" class="nav__link nav__link--primary">Umów konsultację</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero__background">
+        <div class="hero__gradient hero__gradient--left"></div>
+        <div class="hero__gradient hero__gradient--right"></div>
+        <div class="hero__grid"></div>
+      </div>
+
+      <div class="hero__container">
+        <div class="hero__left">
+          <div class="hero__badge" data-reveal>
+            <span class="hero__badge-dot"></span>
+            <span class="hero__badge-text">Limitowana liczba miejsc 1:1</span>
+          </div>
+
+          <h1 class="hero__title" data-reveal-delay="0.1">
+            Zmień swoje ciało<br />
+            <span class="hero__title-gradient">bez jałowych godzin na siłowni</span>
+          </h1>
+
+          <p class="hero__subtitle" data-reveal-delay="0.2">
+            Indywidualne treningi, dopasowane odżywianie i pełne prowadzenie. Zero przypadkowych planów z internetu,
+            tylko precyzyjna strategia pod Twoje życie.
+          </p>
+
+          <div class="hero__cta-group" data-reveal-delay="0.3">
+            <a href="#contact" class="btn btn--primary" data-magnetic>
+              Zarezerwuj bezpłatną konsultację
+              <span class="btn__pulse"></span>
+            </a>
+            <button class="btn btn--ghost" data-scroll-to="#transformations" data-magnetic>
+              Zobacz realne metamorfozy
+            </button>
+          </div>
+
+          <div class="hero__meta" data-reveal-delay="0.4">
+            <div class="hero__meta-item">
+              <span class="hero__meta-label">Średnia utrata</span>
+              <span class="hero__meta-value" data-counter data-counter-from="0" data-counter-to="9.8" data-counter-suffix=" kg">
+                0 kg
+              </span>
+            </div>
+            <div class="hero__meta-divider"></div>
+            <div class="hero__meta-item">
+              <span class="hero__meta-label">Ponad</span>
+              <span class="hero__meta-value" data-counter data-counter-from="0" data-counter-to="170" data-counter-suffix="+">
+                0+
+              </span>
+              <span class="hero__meta-note">ukończonych metamorfoz</span>
+            </div>
+            <div class="hero__meta-divider"></div>
+            <div class="hero__meta-item">
+              <span class="hero__meta-label">Satysfakcja</span>
+              <span class="hero__meta-stars">★★★★★</span>
+              <span class="hero__meta-note">5.0 / 5.0 na Google</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__right" aria-hidden="true">
+          <div class="hero__card hero__card--main" data-parallax data-parallax-depth="30">
+            <div class="hero__card-header">
+              <span class="hero__card-title">Sesja 1:1</span>
+              <span class="hero__card-status hero__card-status--live">LIVE</span>
+            </div>
+            <div class="hero__card-body">
+              <div class="hero__avatar-stack">
+                <div class="hero__avatar hero__avatar--coach"></div>
+                <div class="hero__avatar hero__avatar--client"></div>
+                <div class="hero__pulse-circle"></div>
+              </div>
+              <ul class="hero__session-list">
+                <li class="hero__session-item">
+                  <span class="hero__session-label">Plan na dziś</span>
+                  <span class="hero__session-value">Siła &amp; brzuch + mobilność</span>
+                </li>
+                <li class="hero__session-item">
+                  <span class="hero__session-label">Poziom</span>
+                  <span class="hero__session-value">Średniozaawansowany</span>
+                </li>
+                <li class="hero__session-item">
+                  <span class="hero__session-label">Intensywność</span>
+                  <span class="hero__session-badges">
+                    <span class="badge badge--warm">Cardio</span>
+                    <span class="badge badge--hot">Siła</span>
+                    <span class="badge badge--soft">Mobilność</span>
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div class="hero__card-footer">
+              <span class="hero__card-tag">Personalizacja 100%</span>
+              <span class="hero__card-tag hero__card-tag--accent">Bez powtarzania tych samych błędów</span>
+            </div>
+          </div>
+
+          <div class="hero__card hero__card--secondary hero__card--floating" data-parallax data-parallax-depth="60">
+            <div class="hero__progress-label">Twój miesięczny progres</div>
+            <div class="hero__progress-bars">
+              <div class="hero__progress-row">
+                <span class="hero__progress-name">Siła</span>
+                <div class="hero__progress-track">
+                  <div class="hero__progress-fill" data-progress="86"></div>
+                </div>
+                <span class="hero__progress-value">+18%</span>
+              </div>
+              <div class="hero__progress-row">
+                <span class="hero__progress-name">Sylwetka</span>
+                <div class="hero__progress-track">
+                  <div class="hero__progress-fill" data-progress="91"></div>
+                </div>
+                <span class="hero__progress-value">+3,2 kg mięśni</span>
+              </div>
+              <div class="hero__progress-row">
+                <span class="hero__progress-name">Energia</span>
+                <div class="hero__progress-track">
+                  <div class="hero__progress-fill" data-progress="78"></div>
+                </div>
+                <span class="hero__progress-value">Bez zjazdów w ciągu dnia</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero__floating-label">
+            <span class="hero__floating-dot"></span>
+            <span class="hero__floating-text">Start wypełniasz w 60 sekund – resztą zajmuję się ja.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__scroll-indicator" data-scroll-to="#about">
+        <span class="hero__scroll-line"></span>
+        <span class="hero__scroll-text">Przewiń w dół</span>
+      </div>
+    </section>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section class="section section--dark" id="about">
+      <div class="section__container section__container--split">
+        <div class="section__label" data-reveal>O mnie</div>
+        <div class="section__content">
+          <div class="about about--left" data-reveal-delay="0.1">
+            <h2 class="section__title">
+              Trening, który w końcu<br />
+              <span class="section__title-gradient">pasuje do Twojego życia</span>
+            </h2>
+            <p class="section__text">
+              Nazywam się Michał i od ponad 8 lat pomagam osobom zapracowanym zbudować sylwetkę, która przyciąga wzrok,
+              bez poświęcania pracy, rodziny i normalnego jedzenia. Łączę trening siłowy, mobilność i świadome
+              odżywianie w jeden system, który jest do udźwignięcia na co dzień.
+            </p>
+            <p class="section__text">
+              Nie wierzę w uniwersalne plany. Zanim wejdziemy na siłownię, rozkładam na czynniki pierwsze Twój grafik,
+              możliwości regeneracji, poziom stresu i dotychczasowe doświadczenia. Dzięki temu możesz robić realny
+              progres, nawet jeśli trenujesz 2–3 razy w tygodniu.
+            </p>
+
+            <div class="about__pills">
+              <div class="pill" data-reveal-delay="0.15">
+                <span class="pill__label">8+</span>
+                <span class="pill__desc">lat doświadczenia</span>
+              </div>
+              <div class="pill" data-reveal-delay="0.2">
+                <span class="pill__label">170+</span>
+                <span class="pill__desc">zakończonych współprac</span>
+              </div>
+              <div class="pill" data-reveal-delay="0.25">
+                <span class="pill__label">0</span>
+                <span class="pill__desc">gotowych szablonów planów</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about about--right">
+            <div class="about__card about__card--photo" data-reveal-delay="0.2">
+              <div class="about__photo"></div>
+              <div class="about__tag">
+                <span class="about__tag-title">Specjalizacja</span>
+                <span class="about__tag-text">Sylwetka męska &amp; damska, redukcja, rekompozycja, siła</span>
+              </div>
+            </div>
+
+            <div class="about__card about__card--grid" data-reveal-delay="0.3">
+              <div class="about__grid-item">
+                <span class="about__grid-label">Styl pracy</span>
+                <span class="about__grid-value">Konkretnie, bez lukru, ale z pełnym wsparciem</span>
+              </div>
+              <div class="about__grid-item">
+                <span class="about__grid-label">Forma współpracy</span>
+                <span class="about__grid-value">Studio treningowe w mieście + prowadzenie online</span>
+              </div>
+              <div class="about__grid-item">
+                <span class="about__grid-label">Pierwszy krok</span>
+                <span class="about__grid-value">15-minutowa rozmowa wstępna (online lub telefon)</span>
+              </div>
+              <div class="about__grid-item">
+                <span class="about__grid-label">Języki</span>
+                <span class="about__grid-value">Polski / English</span>
+              </div>
+            </div>
+
+            <div class="about__note" data-reveal-delay="0.35">
+              Jeśli szukasz kogoś, kto „motywuje krzykiem” – nie dogadamy się. Jeśli chcesz systemu, który
+              możesz dowieźć latami, a nie 4 tygodnie – porozmawiajmy.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== METHODS ===================== -->
+    <section class="section section--light" id="methods">
+      <div class="section__container">
+        <div class="section__header">
+          <div class="section__label" data-reveal>Jak pracuję</div>
+          <h2 class="section__title" data-reveal-delay="0.1">
+            Trzy filary współpracy,<br />
+            <span class="section__title-gradient">które robią realny progres</span>
+          </h2>
+        </div>
+
+        <div class="methods">
+          <article class="method-card" data-reveal-delay="0.15">
+            <div class="method-card__badge">1</div>
+            <h3 class="method-card__title">Diagnostyka &amp; strategia</h3>
+            <p class="method-card__text">
+              Analizujemy Twój dzień, stres, sen, historię treningów i kontuzji. Na tej podstawie układam strategię –
+              nie tylko plan treningowy, ale też ramy odżywiania i regeneracji.
+            </p>
+            <ul class="method-card__list">
+              <li>Analiza sylwetki i ruchu (online lub na żywo)</li>
+              <li>Ocena ograniczeń ruchowych i wzorców</li>
+              <li>Określenie realnego celu i terminu</li>
+            </ul>
+          </article>
+
+          <article class="method-card" data-reveal-delay="0.2">
+            <div class="method-card__badge">2</div>
+            <h3 class="method-card__title">Treningi 1:1 lub hybrydowe</h3>
+            <p class="method-card__text">
+              Spotykamy się na sali lub pracujemy hybrydowo – część treningów 1:1, część w oparciu o dokładne video
+              instrukcje. Wszystko z uwzględnieniem Twojej pracy i życia rodzinnego.
+            </p>
+            <ul class="method-card__list">
+              <li>Precyzyjna technika i korekta ruchu</li>
+              <li>Skalowanie obciążeń i objętości</li>
+              <li>Plan B na tygodnie, gdy „życie się dzieje”</li>
+            </ul>
+          </article>
+
+          <article class="method-card" data-reveal-delay="0.25">
+            <div class="method-card__badge">3</div>
+            <h3 class="method-card__title">Monitoring &amp; wsparcie</h3>
+            <p class="method-card__text">
+              Razem śledzimy progres: pomiary, wymiary, samopoczucie, siłę. Koryguję plan, gdy tylko widzę, że coś nie
+              gra – zanim pojawi się frustracja.
+            </p>
+            <ul class="method-card__list">
+              <li>Krótkie check-iny co tydzień</li>
+              <li>Pełny update planu co 4–6 tygodni</li>
+              <li>Wsparcie na komunikatorze w godzinach pracy</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="methods__bottom">
+          <div class="methods__highlight" data-reveal-delay="0.3">
+            <span class="methods__highlight-dot"></span>
+            <p>
+              Nie sprzedaję jednorazowych „pakietów 5 treningów”. To proces, za który biorę odpowiedzialność od A do Z.
+            </p>
+          </div>
+          <a href="#pricing" class="btn btn--outline" data-magnetic data-reveal-delay="0.35">
+            Sprawdź, jak wyglądają pakiety
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TRANSFORMATIONS ===================== -->
+    <section class="section section--dark section--angled" id="transformations">
+      <div class="section__container">
+        <div class="section__header section__header--center">
+          <div class="section__label" data-reveal>Metamorfozy</div>
+          <h2 class="section__title" data-reveal-delay="0.1">
+            Realni ludzie,<br />
+            <span class="section__title-gradient">realne wyniki, bez filtrów</span>
+          </h2>
+          <p class="section__text section__text--center" data-reveal-delay="0.15">
+            Każda z tych osób miała pracę, obowiązki i swoje „ale”. Twoja sytuacja nie jest wyjątkiem – chodzi o system,
+            który da się dowieźć.
+          </p>
+        </div>
+
+        <div class="transformations">
+          <article class="transform-card" data-reveal-delay="0.2">
+            <div class="transform-card__photo transform-card__photo--1"></div>
+            <div class="transform-card__overlay">
+              <div class="transform-card__label">– 12,4 kg w 6 miesięcy</div>
+              <div class="transform-card__name">Ania, 32 lata</div>
+              <p class="transform-card__story">
+                „Zero głodówek, zero biegania, którego nienawidzę. Zamiast tego 3 treningi siłowe i normalne jedzenie.
+                Pierwszy raz czuję, że mam kontrolę nad swoim ciałem.”
+              </p>
+            </div>
+          </article>
+
+          <article class="transform-card" data-reveal-delay="0.25">
+            <div class="transform-card__photo transform-card__photo--2"></div>
+            <div class="transform-card__overlay">
+              <div class="transform-card__label">+ 6,8 kg mięśni w rok</div>
+              <div class="transform-card__name">Kamil, 28 lat</div>
+              <p class="transform-card__story">
+                „Zawsze byłem tym „za chudym”. Teraz pierwszy raz nie wstydzę się koszulki na plaży, a plecy nie bolą
+                mnie po 8h pracy przy biurku.”
+              </p>
+            </div>
+          </article>
+
+          <article class="transform-card" data-reveal-delay="0.3">
+            <div class="transform-card__photo transform-card__photo--3"></div>
+            <div class="transform-card__overlay">
+              <div class="transform-card__label">– 9,1 kg + płaski brzuch</div>
+              <div class="transform-card__name">Marta, 38 lat</div>
+              <p class="transform-card__story">
+                „Miałam wrażenie, że po dzieciach już nie wrócę do formy. Okazało się, że nie muszę trenować codziennie,
+                tylko mądrzej.”
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div class="transformations__cta" data-reveal-delay="0.35">
+          <span class="transformations__note">
+            Twoja metamorfoza nie musi wyglądać jak na Instagramie. Ma być Twoja – i do utrzymania.
+          </span>
+          <a href="#contact" class="btn btn--primary btn--glow" data-magnetic>
+            Sprawdź, czy mam wolny termin
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PRICING ===================== -->
+    <section class="section section--light" id="pricing">
+      <div class="section__container">
+        <div class="section__header section__header--center">
+          <div class="section__label" data-reveal>Pakiety</div>
+          <h2 class="section__title" data-reveal-delay="0.1">
+            Współpraca dla osób,<br />
+            <span class="section__title-gradient">które naprawdę chcą zmiany</span>
+          </h2>
+        </div>
+
+        <div class="pricing">
+          <article class="pricing-card" data-reveal-delay="0.15">
+            <div class="pricing-card__header">
+              <h3 class="pricing-card__title">Start</h3>
+              <p class="pricing-card__subtitle">Dla osób, które chcą zacząć świadomie</p>
+            </div>
+            <div class="pricing-card__price">
+              <span class="pricing-card__amount">Program 8 tygodni</span>
+            </div>
+            <ul class="pricing-card__list">
+              <li>Diagnoza ruchowa i wywiad (online lub na żywo)</li>
+              <li>Indywidualny plan treningowy na 8 tygodni</li>
+              <li>Ramy żywieniowe dopasowane do stylu życia</li>
+              <li>Check-in co 2 tygodnie</li>
+            </ul>
+            <button class="btn btn--outline btn--full" data-magnetic data-open-modal="#consultModal">
+              Zapytaj o wolne terminy
+            </button>
+          </article>
+
+          <article class="pricing-card pricing-card--highlight" data-reveal-delay="0.2">
+            <div class="pricing-card__ribbon">Najczęściej wybierany</div>
+            <div class="pricing-card__header">
+              <h3 class="pricing-card__title">1:1 Premium</h3>
+              <p class="pricing-card__subtitle">Pełne prowadzenie z treningami na żywo</p>
+            </div>
+            <div class="pricing-card__price">
+              <span class="pricing-card__amount">Min. 3 miesiące współpracy</span>
+            </div>
+            <ul class="pricing-card__list">
+              <li>Treningi personalne 1:1 w studio (2–3x w tygodniu)</li>
+              <li>Plan treningowy pod pozostałe dni</li>
+              <li>Indywidualny plan żywieniowy + korekty</li>
+              <li>Check-in co tydzień + wsparcie na komunikatorze</li>
+              <li>Pełna aktualizacja planu co 4–6 tygodni</li>
+            </ul>
+            <button class="btn btn--primary btn--full" data-magnetic data-open-modal="#consultModal">
+              Aplikuj do współpracy
+            </button>
+          </article>
+
+          <article class="pricing-card" data-reveal-delay="0.25">
+            <div class="pricing-card__header">
+              <h3 class="pricing-card__title">Online Hybrid</h3>
+              <p class="pricing-card__subtitle">Dla osób spoza miasta lub z własną siłownią</p>
+            </div>
+            <div class="pricing-card__price">
+              <span class="pricing-card__amount">Min. 12 tygodni współpracy</span>
+            </div>
+            <ul class="pricing-card__list">
+              <li>Plan treningowy z dokładnym opisem i video</li>
+              <li>Analiza techniki na bazie nagrań</li>
+              <li>Ramy żywieniowe + przykładowe jadłospisy</li>
+              <li>Check-in co tydzień + korekty</li>
+            </ul>
+            <button class="btn btn--outline btn--full" data-magnetic data-open-modal="#consultModal">
+              Sprawdź, czy się kwalifikujesz
+            </button>
+          </article>
+        </div>
+
+        <div class="pricing__note" data-reveal-delay="0.3">
+          Ceny ustalam indywidualnie, po rozmowie wstępnej – tak, byś płacił za realną wartość, a nie za „pakiet z
+          cennika”.
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TESTIMONIALS & FAQ ===================== -->
+    <section class="section section--dark" id="faq">
+      <div class="section__container section__container--split">
+        <div class="section__content section__content--stack">
+          <div class="section__label" data-reveal>Opinie</div>
+          <h2 class="section__title" data-reveal-delay="0.1">
+            Co mówią osoby,<br />
+            <span class="section__title-gradient">które już przeszły proces</span>
+          </h2>
+
+          <div class="testimonials" data-reveal-delay="0.15">
+            <div class="testimonial">
+              <div class="testimonial__header">
+                <div class="testimonial__avatar testimonial__avatar--1"></div>
+                <div>
+                  <div class="testimonial__name">Paweł</div>
+                  <div class="testimonial__meta">Program 1:1 Premium</div>
+                </div>
+                <div class="testimonial__rating">★★★★★</div>
+              </div>
+              <p class="testimonial__text">
+                „Największa różnica? Nie tylko wyglądam lepiej, ale przestały boleć plecy i pierwszy raz od lat mam
+                energię po pracy. Trening nie jest centrum życia – tylko jego naturalną częścią.”
+              </p>
+            </div>
+
+            <div class="testimonial testimonial--ghost">
+              <div class="testimonial__quote-icon">“</div>
+              <p class="testimonial__text">
+                „Michał jest wymagający, ale nigdy nie czułam presji. Zawsze miał plan B, gdy dzieci chorowały albo
+                praca się sypała.”
+              </p>
+              <div class="testimonial__meta testimonial__meta--light">Marta, współpraca hybrydowa</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq">
+          <div class="section__label section__label--sub" data-reveal>FAQ</div>
+          <div class="faq__list">
+            <button class="faq__item faq__item--active" data-faq>
+              <div class="faq__question">
+                Czy muszę mieć doświadczenie na siłowni?
+                <span class="faq__icon"></span>
+              </div>
+              <div class="faq__answer">
+                Nie. Wielu moich podopiecznych zaczynało od zera. Zaczynamy od nauki podstawowych wzorców ruchowych,
+                pracy z własnym ciałem i lekkimi obciążeniami. Tempo dopasowuję do Ciebie.
+              </div>
+            </button>
+
+            <button class="faq__item" data-faq>
+              <div class="faq__question">
+                Ile razy w tygodniu muszę trenować?
+                <span class="faq__icon"></span>
+              </div>
+              <div class="faq__answer">
+                Minimalnie 2 treningi tygodniowo, optymalnie 3–4. Dobieramy to wspólnie, biorąc pod uwagę Twoją pracę,
+                rodzinę i regenerację. Nie ma sensu układać planu, którego nie dowieziesz.
+              </div>
+            </button>
+
+            <button class="faq__item" data-faq>
+              <div class="faq__question">
+                Co jeśli „nie mam diety”, bo jem z rodziną?
+                <span class="faq__icon"></span>
+              </div>
+              <div class="faq__answer">
+                Nie będziemy układać pięciu innych posiłków tylko dla Ciebie. Dopasujemy ramy żywieniowe do tego, co
+                jest realistyczne w Twoim domu – z drobnymi zmianami, które robią ogromną różnicę.
+              </div>
+            </button>
+
+            <button class="faq__item" data-faq>
+              <div class="faq__question">
+                Jak wygląda pierwsza konsultacja?
+                <span class="faq__icon"></span>
+              </div>
+              <div class="faq__answer">
+                Rozmawiamy około 15–20 minut. Pytam o Twoje cele, zdrowie, historię treningów i aktualny styl życia.
+                Na końcu mówię otwarcie, czy i jak mogę pomóc – bez nacisku na „kupowanie pakietu od razu”.
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="section section--light" id="contact">
+      <div class="section__container section__container--split">
+        <div class="contact-intro">
+          <div class="section__label" data-reveal>Kontakt</div>
+          <h2 class="section__title" data-reveal-delay="0.1">
+            60 sekund,<br />
+            <span class="section__title-gradient">żeby zrobić pierwszy krok</span>
+          </h2>
+          <p class="section__text" data-reveal-delay="0.15">
+            Wypełnij krótki formularz. Odezwę się w ciągu jednego dnia roboczego z propozycją terminu rozmowy
+            wstępnej. Jeśli teraz nie jest dobry moment – też powiedz to wprost.
+          </p>
+
+          <div class="contact-intro__details" data-reveal-delay="0.2">
+            <div class="contact-intro__item">
+              <div class="contact-intro__label">Lokalizacja</div>
+              <div class="contact-intro__value">Studio treningowe w centrum miasta</div>
+            </div>
+            <div class="contact-intro__item">
+              <div class="contact-intro__label">Godziny współpracy</div>
+              <div class="contact-intro__value">Pon–Pt 6:00–21:00, soboty wybrane</div>
+            </div>
+            <div class="contact-intro__item">
+              <div class="contact-intro__label">Forma</div>
+              <div class="contact-intro__value">Na miejscu &amp; online (PL / EN)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form__wrapper" data-reveal-delay="0.25">
+          <form class="contact-form" autocomplete="off">
+            <div class="contact-form__row">
+              <div class="field">
+                <label for="name" class="field__label">Imię</label>
+                <input type="text" id="name" name="name" class="field__input" placeholder="Jak się przedstawiasz?" required />
+              </div>
+              <div class="field">
+                <label for="email" class="field__label">E-mail</label>
+                <input type="email" id="email" name="email" class="field__input" placeholder="Twój adres e-mail" required />
+              </div>
+            </div>
+
+            <div class="contact-form__row">
+              <div class="field">
+                <label for="goal" class="field__label">Twój główny cel</label>
+                <select id="goal" name="goal" class="field__input">
+                  <option value="" disabled selected>Wybierz</option>
+                  <option value="fat-loss">Redukcja tkanki tłuszczowej</option>
+                  <option value="muscle">Budowa masy mięśniowej</option>
+                  <option value="recomp">Rekompozycja (tłuszcz w dół, mięśnie w górę)</option>
+                  <option value="health">Zdrowie / bóle kręgosłupa / ruch</option>
+                  <option value="other">Coś innego</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="experience" class="field__label">Doświadczenie treningowe</label>
+                <select id="experience" name="experience" class="field__input">
+                  <option value="" disabled selected>Wybierz</option>
+                  <option value="none">Nigdy nie trenowałem/-am</option>
+                  <option value="beginner">Początkujący (mniej niż rok)</option>
+                  <option value="intermediate">Średniozaawansowany</option>
+                  <option value="advanced">Zaawansowany</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="message" class="field__label">Opowiedz w 2–3 zdaniach, z czym się mierzysz</label>
+              <textarea id="message" name="message" class="field__input field__input--textarea" rows="4" placeholder="Im konkretniej, tym lepiej mogę przygotować się do rozmowy."></textarea>
+            </div>
+
+            <div class="contact-form__row contact-form__row--bottom">
+              <label class="checkbox">
+                <input type="checkbox" class="checkbox__input" required />
+                <span class="checkbox__box"></span>
+                <span class="checkbox__label">
+                  Akceptuję kontakt w sprawie współpracy i rozumiem, że to wstępna rozmowa, a nie zapis na stałe.
+                </span>
+              </label>
+              <button type="submit" class="btn btn--primary btn--full" data-magnetic>
+                Wyślij zgłoszenie
+              </button>
+            </div>
+
+            <div class="contact-form__status" id="formStatus" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__left">
+        <div class="footer__brand">
+          <span class="footer__logo-mark">ES</span>
+          <span class="footer__brand-text">EliteShape Studio</span>
+        </div>
+        <p class="footer__text">
+          Trening personalny i prowadzenie online dla osób, które chcą realnej zmiany – bez ekstremów i chwilowych
+          zrywów.
+        </p>
+      </div>
+
+      <div class="footer__middle">
+        <div class="footer__group">
+          <div class="footer__label">Nawigacja</div>
+          <ul class="footer__links">
+            <li><a href="#about">O mnie</a></li>
+            <li><a href="#methods">Jak pracuję</a></li>
+            <li><a href="#transformations">Metamorfozy</a></li>
+            <li><a href="#pricing">Pakiety</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+          </ul>
+        </div>
+        <div class="footer__group">
+          <div class="footer__label">Kontakt</div>
+          <ul class="footer__links">
+            <li><a href="tel:+48000000000">+48 000 000 000</a></li>
+            <li><a href="mailto:kontakt@eliteshape.pl">kontakt@eliteshape.pl</a></li>
+            <li>Studio w centrum miasta</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__right">
+        <div class="footer__label">Media społecznościowe</div>
+        <div class="footer__socials">
+          <a href="#" class="footer__social" aria-label="Instagram">
+            <span class="footer__social-dot"></span>
+            Instagram
+          </a>
+          <a href="#" class="footer__social" aria-label="Facebook">
+            <span class="footer__social-dot"></span>
+            Facebook
+          </a>
+          <a href="#" class="footer__social" aria-label="YouTube">
+            <span class="footer__social-dot"></span>
+            YouTube
+          </a>
+        </div>
+        <div class="footer__bottom-text">
+          © <span id="year"></span> EliteShape Studio. Wszelkie prawa zastrzeżone.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== MODAL: CONSULTATION ===================== -->
+  <div class="modal" id="consultModal" aria-hidden="true">
+    <div class="modal__backdrop" data-close-modal></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="consultModalTitle">
+      <button class="modal__close" aria-label="Zamknij" data-close-modal></button>
+      <div class="modal__content">
+        <div class="modal__badge">Krok 1 z 2</div>
+        <h2 class="modal__title" id="consultModalTitle">Szybka aplikacja do współpracy</h2>
+        <p class="modal__text">
+          Odpowiedz na kilka krótkich pytań. Na podstawie tych informacji przygotuję propozycję optymalnej formy
+          współpracy i ceny.
+        </p>
+
+        <form class="modal-form">
+          <div class="field">
+            <label class="field__label">Na jakim etapie jesteś?</label>
+            <div class="pill-toggle-group">
+              <button type="button" class="pill-toggle pill-toggle--active" data-toggle-group="stage">Zaczynam od zera</button>
+              <button type="button" class="pill-toggle" data-toggle-group="stage">Wracam po przerwie</button>
+              <button type="button" class="pill-toggle" data-toggle-group="stage">Trenuję regularnie</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field__label">Co jest dla Ciebie najważniejsze?</label>
+            <div class="pill-toggle-group pill-toggle-group--multi">
+              <button type="button" class="pill-toggle" data-toggle-multi>Wygląd</button>
+              <button type="button" class="pill-toggle" data-toggle-multi>Zdrowie / kręgosłup</button>
+              <button type="button" class="pill-toggle" data-toggle-multi>Siła</button>
+              <button type="button" class="pill-toggle" data-toggle-multi>Energia na co dzień</button>
+              <button type="button" class="pill-toggle" data-toggle-multi>Psychika / głowa</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field__label">Jak wyglądał Twój ostatni rok z aktywnością?</label>
+            <textarea class="field__input field__input--textarea" rows="3" placeholder="Np. siłownia raz w tygodniu, bieganie, zupełny brak ruchu…"></textarea>
+          </div>
+
+          <button type="button" class="btn btn--primary btn--full" data-close-modal data-scroll-to="#contact">
+            Przejdź do formularza kontaktowego
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== SCRIPTS ===================== -->
+  <script>
+    // Helper: select
+    const $ = (selector, scope = document) => scope.querySelector(selector);
+    const $$ = (selector, scope = document) => Array.from(scope.querySelectorAll(selector));
+
+    // Loader
+    window.addEventListener('load', () => {
+      const loader = $('#loader');
+      if (loader) {
+        loader.classList.add('loader--hidden');
+        setTimeout(() => loader.remove(), 600);
+      }
+    });
+
+    // Year in footer
+    $('#year').textContent = new Date().getFullYear();
+
+    // Mobile nav toggle
+    const navToggle = $('#navToggle');
+    const navList = $('#navList');
+    if (navToggle && navList) {
+      navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('nav__toggle--open');
+        navList.classList.toggle('nav__list--open');
+        document.body.classList.toggle('page--no-scroll');
+      });
+
+      $$('.nav__link').forEach(link => {
+        link.addEventListener('click', () => {
+          navToggle.classList.remove('nav__toggle--open');
+          navList.classList.remove('nav__list--open');
+          document.body.classList.remove('page--no-scroll');
+        });
+      });
+    }
+
+    // Smooth scroll buttons
+    $$('[data-scroll-to]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-scroll-to');
+        if (!target) return;
+        const el = document.querySelector(target);
+        if (!el) return;
+        const offset = 80;
+        const top = el.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      });
+    });
+
+    // FAQ accordion
+    $$('[data-faq]').forEach(item => {
+      item.addEventListener('click', () => {
+        const isActive = item.classList.contains('faq__item--active');
+        $$('[data-faq]').forEach(i => i.classList.remove('faq__item--active'));
+        if (!isActive) item.classList.add('faq__item--active');
+      });
+    });
+
+    // Modal open/close
+    const openModalButtons = $$('[data-open-modal]');
+    const closeModalTargets = $$('[data-close-modal]');
+    const modals = $$('.modal');
+
+    const openModal = id => {
+      const modal = document.querySelector(id);
+      if (!modal) return;
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('page--no-scroll');
+    };
+
+    const closeModal = () => {
+      modals.forEach(modal => modal.setAttribute('aria-hidden', 'true'));
+      document.body.classList.remove('page--no-scroll');
+    };
+
+    openModalButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-open-modal');
+        if (id) openModal(id);
+      });
+    });
+
+    closeModalTargets.forEach(el => {
+      el.addEventListener('click', closeModal);
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Counter animation
+    const counters = $$('[data-counter]');
+    const observerCounters = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const to = parseFloat(el.getAttribute('data-counter-to')) || 0;
+            const from = parseFloat(el.getAttribute('data-counter-from')) || 0;
+            const suffix = el.getAttribute('data-counter-suffix') || '';
+            const duration = 1500;
+            const start = performance.now();
+
+            const animate = time => {
+              const progress = Math.min((time - start) / duration, 1);
+              const value = from + (to - from) * progress;
+              el.textContent = value.toFixed(to % 1 !== 0 ? 1 : 0) + suffix;
+              if (progress < 1) requestAnimationFrame(animate);
+            };
+            requestAnimationFrame(animate);
+            observerCounters.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+    counters.forEach(el => observerCounters.observe(el));
+
+    // Progress bars animation
+    const progressFills = $$('[data-progress]');
+    const observerProgress = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const val = el.getAttribute('data-progress');
+            el.style.setProperty('--progress-target', val + '%');
+            observerProgress.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+    progressFills.forEach(el => observerProgress.observe(el));
+
+    // Reveal on scroll
+    const revealElems = $$('[data-reveal], [data-reveal-delay]');
+    const observerReveal = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const delay = parseFloat(el.getAttribute('data-reveal-delay')) || 0;
+            setTimeout(() => {
+              el.classList.add('is-revealed');
+            }, delay * 1000);
+            observerReveal.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    revealElems.forEach(el => observerReveal.observe(el));
+
+    // Magnetic hover
+    const magneticElems = $$('[data-magnetic]');
+    magneticElems.forEach(el => {
+      const strength = 0.4;
+      let bounds;
+      const updateBounds = () => (bounds = el.getBoundingClientRect());
+      updateBounds();
+      window.addEventListener('resize', updateBounds);
+
+      el.addEventListener('mousemove', e => {
+        const relX = e.clientX - bounds.left - bounds.width / 2;
+        const relY = e.clientY - bounds.top - bounds.height / 2;
+        el.style.transform = `translate(${relX * strength}px, ${relY * strength}px)`;
+      });
+
+      el.addEventListener('mouseleave', () => {
+        el.style.transform = 'translate(0, 0)';
+      });
+    });
+
+    // Pill toggles
+    const singleToggleGroups = {};
+    $$('[data-toggle-group]').forEach(btn => {
+      const group = btn.getAttribute('data-toggle-group');
+      if (!singleToggleGroups[group]) singleToggleGroups[group] = [];
+      singleToggleGroups[group].push(btn);
+      btn.addEventListener('click', () => {
+        singleToggleGroups[group].forEach(b => b.classList.remove('pill-toggle--active'));
+        btn.classList.add('pill-toggle--active');
+      });
+    });
+
+    $$('[data-toggle-multi]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        btn.classList.toggle('pill-toggle--active');
+      });
+    });
+
+    // Custom cursor
+    const cursorOuter = document.querySelector('.cursor--outer');
+    const cursorInner = document.querySelector('.cursor--inner');
+
+    if (cursorOuter && cursorInner) {
+      let mouseX = window.innerWidth / 2;
+      let mouseY = window.innerHeight / 2;
+      let innerX = mouseX;
+      let innerY = mouseY;
+
+      const renderCursor = () => {
+        cursorOuter.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+        innerX += (mouseX - innerX) * 0.2;
+        innerY += (mouseY - innerY) * 0.2;
+        cursorInner.style.transform = `translate(${innerX}px, ${innerY}px)`;
+        requestAnimationFrame(renderCursor);
+      };
+      renderCursor();
+
+      document.addEventListener('mousemove', e => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+
+      const interactive = 'a, button, .btn, [data-magnetic], .pill-toggle, .faq__item';
+      $$(interactive).forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          cursorOuter.classList.add('cursor--active');
+          cursorInner.classList.add('cursor--active');
+        });
+        el.addEventListener('mouseleave', () => {
+          cursorOuter.classList.remove('cursor--active');
+          cursorInner.classList.remove('cursor--active');
+        });
+      });
+    }
+
+    // Contact form fake submission
+    const contactForm = document.querySelector('.contact-form');
+    const formStatus = document.querySelector('#formStatus');
+    if (contactForm && formStatus) {
+      contactForm.addEventListener('submit', e => {
+        e.preventDefault();
+        formStatus.textContent = 'Wysyłanie…';
+        formStatus.classList.remove('contact-form__status--success', 'contact-form__status--error');
+
+        setTimeout(() => {
+          formStatus.textContent =
+            'Dziękuję za wiadomość. Odezwę się w ciągu jednego dnia roboczego z propozycją terminu rozmowy.';
+          formStatus.classList.add('contact-form__status--success');
+          contactForm.reset();
+        }, 900);
+      });
+    }
+  </script>
+</body>
+</html>
 
